@@ -12,14 +12,14 @@
 
 
 
-## Project description
+## Project description :-
 
 Our Project is all about to build a platform to make a strong network,friendship,job opportunities etc.
 
 
 <marquee>WHAT WE HAVE TO BIULD:-</marquee>
  
- ## A WEBSITE 
+ ## A WEBSITE :-
 
   ## FRONTEND DEVELOPMENT
       1.Gaurav Kumar
