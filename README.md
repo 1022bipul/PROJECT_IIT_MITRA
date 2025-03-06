@@ -17,7 +17,7 @@
 Our Project is all about to build a platform to make a strong network,friendship,job opportunities etc.
 
 
-WHAT WE HAVE TO BIULD:
+<marquee>WHAT WE HAVE TO BIULD:-</marquee>
  
  ## A WEBSITE 
 
