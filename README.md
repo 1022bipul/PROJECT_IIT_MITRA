@@ -17,9 +17,10 @@
 Our Project is all about to build a platform to make a strong network,friendship,job opportunities etc.
 
 
- <b>WHAT WE HAVE TO BIULD:-</b>
+ # <b>WHAT WE HAVE TO BIULD:-</b>
  
- ## A WEBSITE :-
+ ## A WEBSITE (WWW.IIT_MITRA.COM) :-
+ 
 
   ## FRONTEND DEVELOPMENT
       1.Gaurav Kumar
