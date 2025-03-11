@@ -17,7 +17,7 @@
 Our Project is all about to build a platform to make a strong network,friendship,job opportunities etc.
 
 
- ## <b>WHAT WE HAVE TO BIULD:-</b>
+ <b>WHAT WE HAVE TO BIULD:-</b>
  
  ## A WEBSITE :-
 
@@ -28,6 +28,10 @@ Our Project is all about to build a platform to make a strong network,friendship
   ## BACKEND DEVELOPMENT
       3.Ayush Kumar
       4.Bipul Kumar
+
+## Let's start coding:-
+
+
 
 
 
