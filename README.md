@@ -1,4 +1,4 @@
-# Project-Panchayat
+# PROJECT_IIT_MITRA
      Capstone Project For college 
 
 <h1>Group No:- 28</h1>
@@ -17,7 +17,7 @@
 Our Project is all about to build a platform to make a strong network,friendship,job opportunities etc.
 
 
-<marquee>WHAT WE HAVE TO BIULD:-</marquee>
+ ## <b>WHAT WE HAVE TO BIULD:-</b>
  
  ## A WEBSITE :-
 
