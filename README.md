@@ -25,12 +25,18 @@ Our Project is all about to build a platform to make a strong network,friendship
   ## FRONTEND DEVELOPMENT
       1.Gaurav Kumar
       2.Ayush kumar(Ayuu)
-    
+
+  ![image](C:\Users\HELLO\Desktop\git code\fronted.jpg)
+
   ## BACKEND DEVELOPMENT
       3.Ayush Kumar
       4.Bipul Kumar
+  
+  ![image](C:\Users\HELLO\Desktop\git code\backend.jpg)
+  
 
 ## Let's start coding:-
+
 
 
 
