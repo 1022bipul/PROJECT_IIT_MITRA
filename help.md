@@ -14,19 +14,18 @@
 ### Staged :- files that are staged for commit
 ### Unmodified :- files that are not modified
 
-## Add & commit
+## Add & Commit
 
-### add :- add new or changed files in your working directory to the git staging area
+### Add :- add new or changed files in your working directory to the git staging area
    
          git add <file name> or  git add .
 
 
-### commit:- it saves the changes in the staging area to the local repository or it is the record of 
-         changed
+### Commit:- it saves the changes in the staging area to the local repository or it is the record of changed
           
          git commit -m "<message>"
 
-### push :- upload local repository to a remote repo server to make it public
+### Push :- upload local repository to a remote repo server to make it public
         
 
          git push -u origin main

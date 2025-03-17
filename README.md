@@ -19,20 +19,19 @@ Our Project is all about to build a platform to make a strong network,friendship
 
  # <b>WHAT WE HAVE TO BIULD:-</b>
  
- ## A WEBSITE (WWW.IIT_MITRA.COM) :-
+ ## A WEBSITE (WWW.IITMITRA.COM) :-
  
 
   ## FRONTEND DEVELOPMENT
       1.Gaurav Kumar
       2.Ayush kumar(Ayuu)
 
-  ![image]()
+  
 
   ## BACKEND DEVELOPMENT
       3.Ayush Kumar
       4.Bipul Kumar
   
-  ![image]()
 
 ## Let's start coding:-
 
