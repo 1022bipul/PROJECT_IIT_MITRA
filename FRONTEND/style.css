@@ -1,7 +1,14 @@
-body{
-    background-image: linear-gradient(135deg, #000000,#03070B,#20517B,#409FF2);
+
+body {
+    background-image: linear-gradient(135deg, #000000, #03070B, #20517B, #409FF2);
+    background-repeat: no-repeat; 
+    background-size: cover; 
+    background-attachment: fixed;
     color: white;
+    margin: 0;
+   
 }
+
 
 .logo {
     display: flex;
@@ -53,7 +60,11 @@ button{
 .btn-1{
   background-color: chartreuse;
   color: blue;
-} 
+}
+.btn-2{
+  background-color: aqua;
+  color: blue;
+}
 .btn-dark{
   background-color: chartreuse;
   color: blue;
@@ -77,46 +88,50 @@ button{
 
 .container {
     position: relative;
-    width: 250px; /* adjust the width to your needs */
+    width: 250px; 
     height: 150px; /* adjust the height to your needs */
   }
   
   .background-image {
-    position: absolute;
+    position: relative;
     top: 0;
     left: 0;
-    width: 250%;
-    height: 200%;
+    width: 150%;
+    height: 130%;
     object-fit: cover;
     border-radius: 25px;
   }
   
   .foreground-image {
-    position: absolute;
-    top: 155%; /* adjust the top position to your needs */
-    left: 35%; /* adjust the left position to your needs */
+    position: relative;
+    top: -25%; /* adjust the top position to your needs */
+    left: 20%; /* adjust the left position to your needs */
     transform: translate(-50%, -50%);
-    width: 75%; /* adjust the width to your needs */
-    height: 75%; /* adjust the height to your needs */
+    width: 40%; /* adjust the width to your needs */
+    height: 60%; /* adjust the height to your needs */
     object-fit: cover;
     border-radius: 50%; /* optional, for a circular image */
   }
 
   .upload-icon{
-    position: absolute;
-    top: 150%; /* adjust the top position to your needs */
-    left: 120%; /* adjust the left position to your needs */
+    position: relative;
+    top: 115%; /* adjust the top position to your needs */
+    left: 140%; /* adjust the left position to your needs */
     transform: translate(-50%, -50%);
-    width: 25%; /* adjust the width to your needs */
-    height: 35%; /* adjust the height to your needs */
+    width: 20%; /* adjust the width to your needs */
+    height: 30%; /* adjust the height to your needs */
     object-fit: cover;
     border-radius: 50%; /* optional, for a circular image */
   }
   .dob{
     position: absolute;
     top: 30%;
-    right: 10%;
-    float: right;
+    left: 45%;
     height: 25%;
     width: 50%;
   }
+.dateof{
+  position: absolute;
+  top: 34%; /* Moves the element 50% down the container */
+  left: 68%; 
+}
