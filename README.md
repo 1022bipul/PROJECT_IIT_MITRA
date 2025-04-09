@@ -32,6 +32,8 @@ Our Project is all about to build a platform to make a strong network,friendship
       3.Ayush Kumar
       4.Bipul Kumar
   
+  ## FRONTEND UI LINK
+    https://www.figma.com/design/wSOE3MNut3lEKhzVEqihdn/Untitled?node-id=0-1&t=WGirpuuxWMPrx9sl-1
 
 ## Let's start coding:-
 
