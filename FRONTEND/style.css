@@ -1,4 +1,7 @@
-
+*{
+  margin: 0;
+  padding: 0 ;
+}
 body {
     background-image: linear-gradient(135deg, #000000, #03070B, #20517B, #409FF2);
     background-repeat: no-repeat; 
@@ -6,6 +9,7 @@ body {
     background-attachment: fixed;
     color: white;
     margin: 0;
+    padding: 0 10% 0 10% ;
    
 }
 
