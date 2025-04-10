@@ -90,52 +90,72 @@ button{
     background-color: aqua;
 } 
 
-.container {
-    position: relative;
-    width: 250px; 
-    height: 150px; /* adjust the height to your needs */
-  }
-  
-  .background-image {
-    position: relative;
-    top: 0;
-    left: 0;
-    width: 150%;
-    height: 130%;
-    object-fit: cover;
-    border-radius: 25px;
-  }
-  
-  .foreground-image {
-    position: relative;
-    top: -25%; /* adjust the top position to your needs */
-    left: 20%; /* adjust the left position to your needs */
-    transform: translate(-50%, -50%);
-    width: 40%; /* adjust the width to your needs */
-    height: 60%; /* adjust the height to your needs */
-    object-fit: cover;
-    border-radius: 50%; /* optional, for a circular image */
-  }
+.container{
+  position: relative;
+  width: 100%;
+  height: 50%;
+  display: flex;
+}
+.profile-img{
+  position: relative;
+  width:15%;
+  height:15%;
+  object-fit: cover;
+  border-radius: 100%;
+}
+.bg-img{
+ position: relative;
+ left:25%;
+ width:15%;
+ height:15%;
+ object-fit:fill; 
 
-  .upload-icon{
-    position: relative;
-    top: 115%; /* adjust the top position to your needs */
-    left: 140%; /* adjust the left position to your needs */
-    transform: translate(-50%, -50%);
-    width: 20%; /* adjust the width to your needs */
-    height: 30%; /* adjust the height to your needs */
-    object-fit: cover;
-    border-radius: 50%; /* optional, for a circular image */
-  }
-  .dob{
-    position: absolute;
-    top: 30%;
-    left: 45%;
-    height: 25%;
-    width: 50%;
-  }
-.dateof{
-  position: absolute;
-  top: 34%; /* Moves the element 50% down the container */
-  left: 68%; 
+
+}
+
+.gender-select {
+  position: relative;
+  width: 200px;
+  height: 30px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+#gender-options {
+  width: 40%;
+  height: 25px;
+  padding: 5px;
+  border: none;
+  border-radius: 5px;
+  background-color: #f0f0f0;
+}
+
+#gender-options option {
+  padding: 10px;
+}
+
+.phone{
+  width: 30%;
+  height: 25px;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #f0f0f0;
+}
+.Bio{
+  width: 70%;
+  height: 200%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #f0f0f0;
+} 
+
+.dob{
+  width: 20%;
+  height: 15%;
+  padding: 5px;
+  border: none;
+  border-radius: 5px;
+  background-color: #f0f0f0;
 }
