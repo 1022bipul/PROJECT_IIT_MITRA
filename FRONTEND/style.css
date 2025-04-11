@@ -100,15 +100,21 @@ button{
   border-radius: 100%;
 }
 .bg-img{
- position: relative;
- left:25%;
- width:15%;
- height:15%;
- object-fit:fill; 
+  position: relative;
+  left:20%;
+  width:15%;
+  height:15%;
+  object-fit:fill; 
+ }
 
-
-}
-
+ .upload-icon{
+  position: absolute;
+  left:44%;
+  top: 75%;
+  width:15%;
+  height:20%;
+  object-fit:fill; 
+ }
 .gender-select {
   position: relative;
   width: 200px;
@@ -136,8 +142,10 @@ button{
   padding: 10px;
   border: none;
   border-radius: 5px;
-  background-color: #f0f0f0;
-}
+  background-color: #f0f0f0; 
+} 
+
+
 .Bio{
   width: 70%;
   height: 200%;
