@@ -1,0 +1,14 @@
+body{
+    background-color: rgb(186, 180, 180);
+}
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 25px;
+    position: relative;
+    color:black;
+   
+    padding: 20px;
+    border-radius: 25px;
+} 
