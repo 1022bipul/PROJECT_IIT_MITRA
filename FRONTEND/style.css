@@ -95,36 +95,30 @@ button{
 }
 .profile-img{
   position: relative;
-  width:15%;
-  height:15%;
+  left: 1%;
+  width: 100px;
+  height:100px;
   object-fit: cover;
   border-radius: 50px;
 }
 .bg-img{
-  position: absolute;
-  left:50%;
-  width:40%;
-  height:150%;
+  position: relative;
+  left:2%;
+  width:30%;
+  height:150px;
   object-fit:cover; 
   border-radius: 25px;
  }
 
  .upload-icon{
-  position: absolute;
-  left:82.5%;
-  top: 100%;
-  width:20%;
-  height:30px;
+  position: relative;
+  left:270%;
+  top: 65%;
+  width:40px;
+  height:40px;
   object-fit:fill;
  }
-  .upload-icon2{
-    position: absolute;
-    left:7%;
-    top: 60%;
-    width:20%;
-    height:30px;
-    object-fit:fill; 
- }
+  
 .gender-select {
   position: relative;
   width: 200px;
@@ -172,4 +166,5 @@ button{
   border: none;
   border-radius: 5px;
   background-color: #f0f0f0;
-}
+}  
+
