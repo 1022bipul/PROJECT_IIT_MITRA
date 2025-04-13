@@ -8,29 +8,33 @@
 <body>
     <div class="logo">
         <img src="./Images/Preview.jpeg" height="75">
-            <bold><h1 align="right">IIT MITRA</h1></bold>
+            <h1>IIT MITRA</h1>
     </div>
     
-    <div class="input1">
+    <div class="input2">
         <div class="container">
         <img src="./images/Generic avatar.svg" class="profile-img">
         <img src="./images/AI_Background_2025-01-08_474043117011201.png" class="bg-img">
-        </div>
-        <br>
+        </div> 
+        <input type="file" id="image-upload" accept="image/*">
+<label for="image-upload" class="upload-button1">Profile picture</label>
+<input type="file" id="image-upload" accept="image/*">
+<label for="image-upload" class="upload-button2">Background Image</label>
+
+        <div class="cont1">
         D.O.B: <input class="dob" type="date">
-        <div class="gender-select"><br>
-            
-            
+        <div class="gender-select"><br>   
         Gender: <select id="gender-options"><option value="male">Male</option> 
             <option value="female">Female</option>
             <option value="other">Other</option>  
-            </select> </div><br>
-        Phone: <input class="phone" type="tel">
+            </select> </div><br><br>
+        Phone: <input class="phone" type="tel" name="number" maxlength="10" >
              <br><br>
         Bio: <input class="Bio" type="text">
-    </div><a href="#"><button class="Next" > Next</button></a>
-</div>   
-    
+        </div>
+    <a href="./homepage.html"><button class="Next" > Next</button></a>
+</div>  
+
 
      <!--script file js-->
      <script src="./main.js"></script>
