@@ -17,7 +17,7 @@ body {
     margin: 25px;
     position: relative;
     color:cyan;
-    background-image: url(./images/Rectangle\ 8.svg);
+    background-image: url(./images/background/Rectangle\ 8.svg);
     background-size: cover;
     background-position: center;
     padding: 20px;
@@ -41,7 +41,7 @@ input{
 
 .input1{
     font-size: 100%;
-    background-image: url(./Images/Rectangle\ 16.svg);
+    background-image: url(./images/background/Rectangle\ 16.svg);
     background-size:cover;
     height: 300px;
     background-position: center;
