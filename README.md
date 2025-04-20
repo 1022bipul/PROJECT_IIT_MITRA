@@ -35,6 +35,10 @@ Our Project is all about to build a platform to make a strong network,friendship
   ## FRONTEND UI LINK
    [Figma Ui Link](https://www.figma.com/design/wSOE3MNut3lEKhzVEqihdn/Untitled?node-id=0-1&t=WGirpuuxWMPrx9sl-1)
 
+  ## Color palette
+   [Figma Ui Link](https://www.color-hex.com/color-palette/1027430)
+
+
 ## Let's start coding:-
 
 
