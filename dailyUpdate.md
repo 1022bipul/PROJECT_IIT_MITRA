@@ -3,26 +3,26 @@
 
 ## You have to update your work or what you learn in a day
 
-###  Date:- 20/05/2025
+###  Date:- 20/04/2025
      Ayuu   : 
      Gaurav :
      ayush  :
      Bipul  : I revised react js and complete nodejs almost half
 
-###  Date:- 21/05/2025
+###  Date:- 21/04/2025
      Ayuu   : 
      Gaurav :
      ayush  :
      Bipul  :     
 
 
-###  Date:- 22/05/2025
+###  Date:- 22/04/2025
      Ayuu   : 
      Gaurav :
      ayush  :
      Bipul  : 
 
-###  Date:- 23/05/2025
+###  Date:- 23/04/2025
      Ayuu   : 
      Gaurav :
      ayush  :
@@ -34,50 +34,50 @@
      ayush  :
      Bipul  : 
 
-###  Date:- 25/05/2025
+###  Date:- 25/04/2025
      Ayuu   : 
      Gaurav :
      ayush  :
      Bipul  : 
 
-###  Date:- 26/05/2025
+###  Date:- 26/04/2025
      Ayuu   : 
      Gaurav :
      ayush  :
      Bipul  :
-###  Date:- 27/05/2025
+###  Date:- 27/04/2025
      Ayuu   : 
      Gaurav :
      ayush  :
      Bipul  : 
 
-###  Date:- 28/05/2025
+###  Date:- 28/04/2025
      Ayuu   : 
      Gaurav :
      ayush  :
      Bipul  : 
 
-###  Date:- 29/05/2025
+###  Date:- 29/04/2025
      Ayuu   : 
      Gaurav :
      ayush  :
      Bipul  : 
 
-###  Date:- 30/05/2025
+###  Date:- 30/04/2025
      Ayuu   : 
      Gaurav :
      ayush  :
      Bipul  : 
 
-###  Date:- 01/06/2025
+###  Date:- 01/05/2025
      Ayuu   : 
      Gaurav :
      ayush  :
      Bipul  : 
 
-###  Date:- 02/06/2025
+###  Date:- 02/05/2025
      Ayuu   : 
-     Gaurav :
+     Gaurav :From today i am starting tailwind CSS.
      ayush  :
      Bipul  : 
 
