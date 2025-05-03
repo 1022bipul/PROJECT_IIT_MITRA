@@ -79,13 +79,13 @@
      Ayuu   : 
      Gaurav :From today i am starting tailwind CSS.
      ayush  :
-     Bipul  : 
+     Bipul  :Design login page 
 
 ###  Date:- 03/06/2025
      Ayuu   : 
      Gaurav :
      ayush  :
-     Bipul  : 
+     Bipul  :Design Register page
 
 ###  Date:- 04/06/2025
      Ayuu   : 
