@@ -5,25 +5,36 @@
     <link rel="stylesheet" href="./output.css" />
   </head>
   <body>
-    <div class="w-screen h-screen flex justify-center items-center flex-col shadow-xl/30 shadow-gray-700 ">
-      <div class="bg-slate-100 w-120 h-130 flex flex-col p-5 gap-3 rounded-lg">
+    <div class="w-screen h-screen flex justify-center items-center flex-col  ">
+      <div class="bg-slate-100 w-120 h-130 flex flex-col p-5 gap-3 rounded-lg shadow-2xl">
 
+        <!-- Floating Header -->
         <div class="shadow-xl/40 shadow-blue-700 bg-blue-700 absolute top-10 w-110 flex justify-center items-center flex-col   rounded-lg gap-3 p-3">
           
-          <img class="size-20 rounded-full bg-auto" src="./views/logo.jpg" alt="" />
+          <img class="size-20 rounded-full bg-auto" src="./views/Preview.jpeg" alt="" />
           <h3 class="text-2xl m-2 font-bold text-white">Log in</h3>
         </div>
-        <div class="flex flex-col gap-1 text-lg pt-35">
+
+        <!-- Email Input -->
+
+        <div class="flex flex-col gap-1 text-lg pt-40">
           <h3>Email address</h3>
          
-         <input class="border-black border-2 rounded-md bg-slate-100 px-3 py-0.5" type="text" placeholder="abc@example.iit.in" />
+         <input class="border-black border-1 rounded-md bg-slate-100 px-3 py-0.5" type="text" placeholder="abc@example.iit.in" />
         </div>
+        <!-- Password Input -->
         <div class="flex flex-col gap-1 text-lg mt-2">
           <h3>Password</h3>
-          <input class="border-black border-2 rounded-md bg-slate-100 px-3 py-0.5"  type="text" placeholder="Password" />
+          <input class="border-black border-1 rounded-md bg-slate-100 px-3 py-0.5"  type="text" placeholder="Password" />
         </div>
-        <div class="p-1 "><a class="flex float-right px-2 underline text-blue-800" href="#">Forgot Password</a></div>
-        <button class="border-2 border-black rounded-md bg-blue-600 text-lg p-0.5 text-white">Sign in</button>
+       
+        <!-- Forgot Password -->
+          <div class="p-1 "><a class="flex float-right px-2 underline text-blue-800" href="#">Forgot Password</a></div>
+ 
+          <!-- Sign In Button -->
+        <button class="border-2 border-none rounded-md bg-blue-600 text-lg p-0.5 text-white">Sign in</button>
+        
+        <!-- Register Link -->
         <div class="flex justify-center items-center text-1xl m-1">
           <p class="text-md">Don't have an account?</p>
           <a class="flex float-right px-2 underline text-blue-800 text-base" href="register.html">Register yourself</a>
