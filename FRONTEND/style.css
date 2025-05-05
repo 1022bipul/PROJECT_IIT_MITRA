@@ -157,7 +157,7 @@ button{
 
 .container{
   position: relative;
-  width: 100%;
+  width: 80%;
   height: 40%;
   display: flex; 
   
@@ -166,18 +166,44 @@ button{
   position: relative;
   left: 10%;
   top:15%;
-  width: 150px;
-  height:150px;
+  width: 100px;
+  height:100px;
   object-fit: cover;
   border-radius: 50px;
 }
 .bg-img{
   position: relative;
   left:20%;
-  width:40%;
-  height:150px;
+  width: 200px;
+  height:100px;
   object-fit:cover; 
-  border-radius: 25px;
+  border-radius: 15px;
+ }
+
+ #image-upload {
+  display: none;
+}
+
+label {
+  cursor: pointer;
+  
+}
+
+#upload-button1{
+  position: relative;
+  left:0%;
+  top:65%;
+  background-color: aqua;
+  border-radius: 40%;
+  width: 25px;
+}
+#upload-button2{
+  position: relative;
+  left:0%;
+  top:65%;
+  background-color: aqua;
+  border-radius: 40%;
+  width: 25px;
  }
 
  
@@ -231,30 +257,6 @@ button{
   background-color: #f0f0f0;
 }  
 
-#image-upload {
-  display: none;
-}
-
-label {
-  cursor: pointer;
-  
-}
-
-#upload-button1{
-  position: relative;
-  right:600%;
-  top:65%;
-  background-color: aqua;
-  border-radius: 40%;
-}
-#upload-button2{
-  position: relative;
-  right:50%;
-  top:65%;
-  background-color: aqua;
-  border-radius: 40%;
- }
-
 .input2{
   font-size: 100%;
   background-color: rgba(0, 0, 0, 0.264);
@@ -269,6 +271,7 @@ label {
   border-radius: 20px;
   margin: 10%;
   margin-top: 2%;
+  margin-bottom: 0%;
  } 
 
  .cont1{
