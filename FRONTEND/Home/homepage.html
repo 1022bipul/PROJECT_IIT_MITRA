@@ -10,24 +10,17 @@
 <!--Top navigation bar-->
     <nav class="bg-gray-200 w-full h-15 flex justify-between border-0 rounded-xl shadow-xs">
 <!-- Logo and searcbar -->
-        <div class="flex justify-start items-center w-1/2">
-        <div class=" m-1"><img src="./icons/logos.png" class="h-14 w-14 rounded-full relative right-0 m-1 "></div>
-<!-- Search bar -->
-<form onsubmit="handleSearch(event)" class="p-4 flex items-center gap-2 md:flex-col md:items-center md:justify-center ">
-  <input 
-    type="text" 
-    id="searchInput"
-    placeholder="Search..." 
-    class=" w-[7.5rem] h-10 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 md:w-fit"
-  />
-  <button type="submit" class="md:w-fit flex justify-center"><i class="fa-solid fa-magnifying-glass"></i></button>
-</form>
-
+        <div class="flex justify-start items-center w-2/5">
+        <img src="./icons/logos.png" class="size-12 ml-1 border-0 rounded-full">
+        <form class="border-1 rounded-xl ml-1 w-fit flex justify-start items-center">
+        <input type="text" placeholder="Search..." class="w-4/5 h-10 justify-center items-center rounded-l-xl">
+        <button class="ml-2 p-1 mr-1"><a href="#"><i class="fa-solid fa-magnifying-glass"></i></a></button>
+        </form>
         </div>
 <!-- Home upload and Friends button -->
         <div class="flex justify-center items-center space-x-3 w-1/2">
         <div class="relative left-1 m-1 p-1 max-sm:hidden"><a class="active:border-b-3 focus:border-b-3 border-blue-800 p-1" href="#"><i class="fa-solid fa-house fa-2x"></i></a></div>
-        <div class="relative left-1 m-1 p-1 max-sm:hidden"><a class="active:border-b-3 focus:border-b-3 border-blue-800 p-1" href="#"><i class="fa-regular fa-square-plus fa-2x"></i></a></div>
+        <div class="relative left-1 m-1 p-1 max-sm:hidden"><a href="#"><i class="fa-regular fa-square-plus fa-2x"></i></a></div>
         <div class="relative left-1 m-1 p-1 max-sm:hidden"><a class="active:border-b-3 focus:border-b-3 border-blue-800 p-1" href="#"><i class="fa-solid fa-people-group fa-2x"></i></a></div>
         </div>
 <!-- Right side icons -->
@@ -39,7 +32,7 @@
     </nav>
 <!-- Left quick access bar -->
 <div class="flex ">
-    <div class="bg-gray-200 max-sm:hidden relative top-1 left-0 h-[calc(100vh-10vh)] w-1/5 border-0 rounded-xl space-y-3 ">
+    <div class="bg-gray-200 max-sm:hidden relative top-1 left-0 h-[calc(100vh-10vh)] w-1/5 border-0 rounded-xl space-y-3 mr-1 ">
         <a href=""><div class="m-1 flex justify-start items-center space-x-1 text-xl"><img src="./icons/Generic avatar.svg" class="size-8 border-1 rounded-full">Profile</div></a>
         <a href=""><div class="m-1 flex justify-start items-center space-x-1"></div></a>
         <a href=""><div class="m-1 flex justify-start items-center space-x-1"></div></a>
@@ -105,14 +98,7 @@ crossorigin="anonymous"
       document.getElementById("expandableDiv").classList.toggle("hidden");
     }
   </script>
-<!-- Search bar script  -->
-<script>
-    function handleSearch(event) {
-      event.preventDefault();
-      const query = document.getElementById("searchInput").value;
-      alert("Searching for: " + query);
-      // Here you could also redirect or filter content based on the query
-    }
-  </script>
+
+
 </body>
 </html>
