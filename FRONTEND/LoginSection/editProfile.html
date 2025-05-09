@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>editProfile</title>
+    <link rel="stylesheet" href="output.css" />
+  </head>
+  <body class="font-poppins">
+    <!--parent  main container -->
+    <div class="bg-gray-600 max-h-max max-w-full grid sm:grid-cols-12 gap-0.5">
+      <!-- left side bar -->
+      <div class="bg-gray-400 sm:col-span-3 hidden sm:block"></div>
+      <!-- main container  -->
+      <div class="bg-gray-400 sm:col-span-6 p-2">
+        <div class="flex items-center p-2 bg-gray-200 rounded-md">
+          <h1 class="w-full text-xl font-semibold">Edit profile</h1>
+          <div class="flex items-center flex-row-reverse w-full gap-2">
+            <a href="./profile.html"
+              ><img  class="h-10 w-10 object-cover rounded-full" src="https://images.pexels.com/photos/31812795/pexels-photo-31812795/free-photo-of-portrait-of-woman-with-pink-flowers-in-spring-setting.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load" alt=""
+            /></a>
+            <a href="#"
+              ><i class="fa-solid fa-bell fa-lg hover:text-blue-600"></i
+            ></a>
+          </div>
+        </div>
+        <!-- cover img and profile img -->
+        <div class="grid grid-cols-6 gap-0.5">
+          <div class="relative flex items-center justify-center col-span-2">
+            <img
+              src="../images/icons/user.webp"
+              class="object-cover w-30 h-30 rounded-full border-4 border-white"
+            />
+            <button
+              class="absolute text-white translate-10 bg-gray-700 hover:bg-blue-800 text-sm rounded-full m-2 p-1"
+            >
+              <i class="fa-solid fa-pen p-0.5"></i>
+            </button>
+          </div>
+
+          <div class="relative w-full bg-slate-300 mt-1 rounded-md col-span-4">
+            <button
+              class="flex flex-row-reverse absolute text-white bg-gray-700 hover:bg-blue-800 text-sm rounded-full m-2 p-1"
+            >
+              <i class="fa-solid fa-camera"></i>
+            </button>
+            <img
+              src="../images/icons/banner.png"
+              alt="Banner"
+              class="w-full max-h-40 sm:h-48 object-cover rounded-md"
+            />
+          </div>
+        </div>
+
+
+        <!-- deatail section -->
+       <div class=" w-full max-h-max rounded-md mt-4">
+        <Div class="flex flex-col gap-2 ">
+            <h1 class="text-cyan-800 font-bold text-xl">NAME</h1>
+            <input class="bg-gray-200 py-1 px-3  rounded-md" type="text" placeholder="Enter Your Full Name ">
+        </Div>
+        <Div class="flex flex-col mt-3 ">
+            <h1 class="text-cyan-800 font-bold text-xl">COLLEGE</h1>
+            <p class="text-sm">**Indian Institute of Technology * 20XX-XX </p>
+            <input class="bg-gray-200 py-1 px-3  rounded-md" type="text" placeholder="Enter Your Email">
+        </Div>
+        <Div class="flex flex-col gap-0.5 mt-3 ">
+            <h1 class="text-cyan-800 font-bold text-xl">COURSE</h1>
+            <input class="bg-gray-200 py-1 px-3  rounded-md" type="text" placeholder="Enter Your COURSE  ">
+        </Div>
+        <Div class="flex flex-col  mt-3">
+            <h1 class="text-cyan-800 font-bold text-xl">EMAIL</h1>
+            <p class="text-sm">**Email Provide by Your College </p>
+
+            <input class="bg-gray-200 py-1 px-3  rounded-md" type="text" placeholder="Enter Your Email ">
+        </Div>
+
+        <Div class="flex flex-col gap-0.5 mt-3 ">
+            <h1 class="text-cyan-800 font-bold text-xl">BIO</h1>
+            <textarea class="bg-gray-200 py-1 px-3  rounded-md " rows="5" cols="10" placeholder="Enter Your Skills And About Yoursself "></textarea>
+        </Div>
+
+
+          </div>
+
+      </div>
+
+      <!-- right side bar -->
+      <div class="bg-gray-400 sm:col-span-3 hidden sm:block"></div>
+    </div>
+
+    <script
+      src="https://kit.fontawesome.com/681f50922b.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
