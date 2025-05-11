@@ -6,19 +6,21 @@
     <title>editProfile</title>
     <link rel="stylesheet" href="output.css" />
   </head>
-  <body class="font-roboto">
+  <body class="font-roboto h-screen">
     <!--parent  main container -->
-    <div class="bg-gray-600 max-h-max max-w-full grid sm:grid-cols-12 gap-0.5">
+    <div class="bg-gray-600 h-screen max-w-full overflow-hidden grid sm:grid-cols-12 gap-0.5">
       <!-- left side bar -->
-      <div class="bg-gray-400 sm:col-span-3 hidden sm:block"></div>
+      <div class="bg-gray-400 sm:col-span-3 hidden top-0 sticky overflow-hidden  sm:block"><Div>
+        hello world
+      </Div></div>
       <!-- main container  -->
-      <div class="bg-gray-400 sm:col-span-6 p-2">
+      <div class="bg-gray-400 sm:col-span-6 p-2 overflow-y-auto h-screen "  style="scrollbar-width: none; -ms-overflow-style: none;">
         <div class="flex items-center px-2 py-1 bg-gray-200 rounded-md">
           <h1 class="w-full text-xl font-semibold">Edit profile</h1>
           <div class="flex items-center flex-row-reverse w-full gap-4">
             <a href="./profile.html"
               ><img
-                class="h-10 w-10 object-cover rounded-full shadow-2xl"
+                class="h-10 w-10 object-cover rounded-full"
                 src="https://images.pexels.com/photos/31812795/pexels-photo-31812795/free-photo-of-portrait-of-woman-with-pink-flowers-in-spring-setting.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load"
                 alt=""
             /></a>
@@ -255,7 +257,7 @@
       </div>
 
       <!-- right side bar -->
-      <div class="bg-gray-400 sm:col-span-3 hidden sm:block"></div>
+      <div class="bg-gray-400 sm:col-span-3 hidden top-0 sticky sm:block"></div>
       </div>
       
     
