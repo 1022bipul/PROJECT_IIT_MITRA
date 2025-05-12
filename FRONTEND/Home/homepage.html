@@ -23,11 +23,13 @@
         <div class="relative left-1 m-1 p-1 max-sm:hidden"><a class="active:border-b-3 focus:border-b-3 border-blue-800 p-1" href="#"><i class="fa-solid fa-house fa-2x"></i></a></div>
         <div class="relative left-1 m-1 p-1 max-sm:hidden"><a href="#"><i class="fa-regular fa-square-plus fa-2x"></i></a></div>
         <div class="relative left-1 m-1 p-1 max-sm:hidden"><a class="active:border-b-3 focus:border-b-3 border-blue-800 p-1" href="#"><i class="fa-solid fa-people-group fa-2x"></i></a></div>
-        </div>
+        
+          
+      </div>
 <!-- Right side icons -->
         <div class="flex justify-end items-center space-x-3 mr-1 w-1/2">
-            <div class="relative right-0"><i class="fa-regular fa-bell fa-2x" ></i></div>
-            <div class="relative right-0 mr-2 max-sm:hidden "><i class="fa-regular fa-paper-plane fa-2x"></i></div>
+           <div class="relative left-1 m-1 p-1"><a href="#"><i class="fa-regular fa-bell fa-2x" ></i></a></div>
+        <div class="relative left-1 m-1 p-1 max-sm:hidden "><a href="#"><i class="fa-regular fa-paper-plane fa-2x"></i></a></div> 
         </div>
     </div>
     </nav>
@@ -39,6 +41,19 @@
     </div></a>
         <a href=""><div class="m-1 flex justify-start items-center space-x-1"></div></a>
         <a href=""><div class="m-1 flex justify-start items-center space-x-1"></div></a>
+
+<!-- Activity check button -->
+<button onclick="toggleExpand()" class="px-1 py-0 rounded cursor-pointer flex justify-start items-center space-x-1 text-xl"><i class="fa-regular fa-clock text-3xl "></i>Activity</button>
+
+  <!-- Expandable Div -->
+  <div id="expandableDiv" class="hidden mt-0 p-1 bg-gray-200 rounded-lg ">
+  <ul class="mt-0 space-y-1">
+    <li><a href="#"><button class="text-blue-500 cursor-pointer flex justify-start items-center text-xl m-1 p-1"><i class="fa-regular fa-heart"></i> Likes</button></a></li>
+    <li><a href="#"><button class="text-blue-500 cursor-pointer flex justify-start items-center text-xl m-1 p-1"><i class="fa-regular fa-comment"></i> Comments</button></a></li>
+    <li><a href="#"><button class="text-blue-500 cursor-pointer flex justify-start items-center text-xl m-1 p-1"><i class="fa-regular fa-bookmark"></i> Saved</button></a></li>
+  </ul>
+</div>
+<!-- Activity check button ENDS-->
 <!-- Settings button -->
       <button onclick="toggleSetting()" class="px-1 py-0 rounded cursor-pointer flex justify-start items-center space-x-1 text-xl shadow-blue-300"><i class="fa-solid fa-gear text-3xl"></i>settings</button>
 
@@ -51,22 +66,6 @@
   </ul>
 </div>
 
-
-
-
-
-<!-- Button to Toggle Expansion -->
-<button onclick="toggleExpand()" class="px-1 py-0 rounded cursor-pointer flex justify-start items-center space-x-1 text-xl"><i class="fa-regular fa-clock text-3xl "></i>Activity</button>
-
-  <!-- Expandable Div -->
-  <div id="expandableDiv" class="hidden mt-0 p-1 bg-gray-200 rounded-lg shadow-lg ">
-  <ul class="mt-0 space-y-0">
-    <li><a href="#"><button class="text-blue-500 cursor-pointer flex justify-start items-center text-xl"><i class="fa-regular fa-heart"></i> Likes</button></a></li>
-    <li><a href="#"><button class="text-blue-500 cursor-pointer flex justify-start items-center text-xl"><i class="fa-regular fa-comment"></i> Comments</button></a></li>
-    <li><a href="#"><button class="text-blue-500 cursor-pointer flex justify-start items-center text-xl"><i class="fa-regular fa-bookmark"></i> Saved</button></a></li>
-  </ul>
-</div>
-<!-- Button to Toggle Expansion ENDS-->
 </div> 
 <!--  left quick access bar ends -->
    
