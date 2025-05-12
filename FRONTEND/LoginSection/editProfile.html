@@ -6,19 +6,21 @@
     <title>editProfile</title>
     <link rel="stylesheet" href="output.css" />
   </head>
-  <body class="font-roboto">
+  <body class="font-roboto h-screen">
     <!--parent  main container -->
-    <div class="bg-gray-600 max-h-max max-w-full grid sm:grid-cols-12 gap-0.5">
+    <div class="bg-gray-600 h-screen max-w-full overflow-hidden grid sm:grid-cols-12 gap-0.5">
       <!-- left side bar -->
-      <div class="bg-gray-400 sm:col-span-3 hidden sm:block"></div>
+      <div class="bg-gray-400 sm:col-span-3 hidden top-0 sticky overflow-hidden  sm:block"><Div>
+        hello world
+      </Div></div>
       <!-- main container  -->
-      <div class="bg-gray-400 sm:col-span-6 p-2">
+      <div class="bg-gray-400 sm:col-span-6 p-2 overflow-y-auto h-screen "  style="scrollbar-width: none; -ms-overflow-style: none;">
         <div class="flex items-center px-2 py-1 bg-gray-200 rounded-md">
           <h1 class="w-full text-xl font-semibold">Edit profile</h1>
           <div class="flex items-center flex-row-reverse w-full gap-4">
             <a href="./profile.html"
               ><img
-                class="h-10 w-10 object-cover rounded-full shadow-2xl"
+                class="h-10 w-10 object-cover rounded-full"
                 src="https://images.pexels.com/photos/31812795/pexels-photo-31812795/free-photo-of-portrait-of-woman-with-pink-flowers-in-spring-setting.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load"
                 alt=""
             /></a>
@@ -60,7 +62,7 @@
           <div class="flex flex-col gap-2">
             <h1 class="text-cyan-800 font-bold text-xl">Name</h1>
             <input
-              class="bg-gray-200 py-1 px-3 rounded-md"
+              class="outline-none bg-gray-200 py-1 px-3 rounded-md"
               type="text"
               placeholder="Enter Your Full Name "
             />
@@ -71,7 +73,7 @@
             <p class="text-sm">**Email Provide by Your College</p>
 
             <input
-              class="bg-gray-200 py-1 px-3 rounded-md"
+              class="outline-none bg-gray-200 py-1 px-3 rounded-md"
               type="text"
               placeholder="Enter Your Email "
             />
@@ -80,7 +82,7 @@
           <div class="flex flex-col mt-3">
             <h1 class="text-cyan-800 font-bold text-xl">Phone Number</h1>
             <input
-              class="bg-gray-200 py-1 px-3 rounded-md"
+              class="outline-none bg-gray-200 py-1 px-3 rounded-md"
               type="number"
               placeholder="+910000000000"
               maxlength="10"
@@ -90,14 +92,14 @@
             <div class="flex flex-col gap-0.5 mt-3">
               <h1 class="text-cyan-800 font-bold text-xl">Date of Birth</h1>
               <input
-                class="bg-gray-200 py-1 px-3 rounded-md"
+                class="outline-none bg-gray-200 py-1 px-3 rounded-md"
                 type="text"
                 placeholder="DD/MM/YYYY"
               />
             </div>
             <div class="flex flex-col gap-0.5 mt-3">
               <h1 class="text-cyan-800 font-bold text-xl">Gender</h1>
-              <select class="bg-gray-200 py-1 px-3 rounded-md">
+              <select class="outline-none bg-gray-200 py-1 px-3 rounded-md">
                 <option value="text">Option</option>
                 <option value="text">Male</option>
                 <option value="text">Female</option>
@@ -107,7 +109,7 @@
           <div class="flex flex-col gap-0.5 mt-3">
             <h1 class="text-cyan-800 font-bold text-xl">Skills</h1>
             <textarea
-              class="bg-gray-200 py-1 px-3 rounded-md"
+              class="outline-none bg-gray-200 py-1 px-3 rounded-md"
               rows="5"
               cols="10"
               placeholder="HTML,JAVA,C++,JavaScript........ "
@@ -117,7 +119,7 @@
           <div class="flex flex-col gap-0.5 mt-3">
             <h1 class="text-cyan-800 font-bold text-xl">Bio</h1>
             <textarea
-              class="bg-gray-200 py-1 px-3 rounded-md"
+              class="outline-none bg-gray-200 py-1 px-3 rounded-md"
               rows="5"
               cols="10"
               placeholder="Tell ua something about Yourself... "
@@ -141,7 +143,7 @@
             <h1 class="text-cyan-800 font-bold text-xl">Institute Name</h1>
             <p class="text-sm">Indian Institute of Technology **</p>
             <input
-              class="bg-gray-200 py-1 px-3 rounded-md"
+              class="outline-none bg-gray-200 py-1 px-3 rounded-md"
               type="text"
               placeholder="Enter Your College Name"
             />
@@ -149,7 +151,7 @@
           <div class="flex flex-col gap-0.5 mt-3">
             <h1 class="text-cyan-800 font-bold text-xl">Branch/Department</h1>
             <input
-              class="bg-gray-200 py-1 px-3 rounded-md"
+              class="outline-none bg-gray-200 py-1 px-3 rounded-md"
               type="text"
               placeholder="Branch/Department"
             />
@@ -157,7 +159,7 @@
           <div class="flex flex-col gap-0.5 mt-3">
             <h1 class="text-cyan-800 font-bold text-xl">Year of Passing/Current year</h1>
             <input
-              class="bg-gray-200 py-1 px-3 rounded-md"
+              class="outline-none bg-gray-200 py-1 px-3 rounded-md"
               type="text"
               placeholder="2024/2025  "
             />
@@ -165,7 +167,7 @@
           <div class="flex flex-col gap-0.5 mt-3">
             <h1 class="text-cyan-800 font-bold text-xl">Current Job Title (if working)</h1>
             <input
-              class="bg-gray-200 py-1 px-3 rounded-md"
+              class="outline-none bg-gray-200 py-1 px-3 rounded-md"
               type="text"
               placeholder="Your Job  "
             />
@@ -173,7 +175,7 @@
           <div class="flex flex-col gap-0.5 mt-3">
             <h1 class="text-cyan-800 font-bold text-xl">Company name</h1>
             <input
-              class="bg-gray-200 py-1 px-3 rounded-md"
+              class="outline-none bg-gray-200 py-1 px-3 rounded-md"
               type="text"
               placeholder="Company Name  "
             />
@@ -181,7 +183,7 @@
           <div class="flex flex-col gap-0.5 mt-3">
             <h1 class="text-cyan-800 font-bold text-xl">Linkedin/GitHub URLs</h1>
             <input
-              class="border-b-2 pt-1 px-3"
+               class="outline-none border-b-2 pt-1 px-3"
               type="url"
               placeholder="Linkedin/GitHub URLs  "
             />
@@ -193,7 +195,7 @@
           <div class="flex flex-col gap-0.5 mt-3">
             <h1 class="text-cyan-800 font-bold text-xl">Instagram URLs</h1>
             <input
-              class="border-b-2 pt-1 px-3"
+              class="outline-none border-b-2 pt-1 px-3"
               type="url"
               placeholder="Instagram URLs  "
             />
@@ -203,7 +205,7 @@
           <div class="flex flex-col gap-0.5 mt-3">
             <h1 class="text-cyan-800 font-bold text-xl">YT Channel URLs</h1>
             <input
-              class="border-b-2 pt-1 px-3"
+               class="outline-none border-b-2 pt-1 px-3"
               type="url"
               placeholder="YT Channel URLs  "
             />
@@ -213,7 +215,7 @@
           <div class="flex flex-col gap-0.5 mt-3">
             <h1 class="text-cyan-800 font-bold text-xl">Twitter/X URLs</h1>
             <input
-              class="border-b-2 pt-1 px-3"
+               class="outline-none border-b-2 pt-1 px-3"
               type="url"
               placeholder="Twitter/X URLs  "
             />
@@ -223,7 +225,7 @@
           <div class="flex flex-col gap-0.5 mt-3">
             <h1 class="text-cyan-800 font-bold text-xl">Facebook URLs</h1>
             <input
-              class="border-b-2 pt-1 px-3"
+               class="outline-none border-b-2 pt-1 px-3"
               type="url"
               placeholder="Facebook URLs "
             />
@@ -255,7 +257,7 @@
       </div>
 
       <!-- right side bar -->
-      <div class="bg-gray-400 sm:col-span-3 hidden sm:block"></div>
+      <div class="bg-gray-400 sm:col-span-3 hidden top-0 sticky sm:block"></div>
       </div>
       
     
