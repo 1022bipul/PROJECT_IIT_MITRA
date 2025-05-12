@@ -28,24 +28,34 @@
       </div>
 <!-- Right side icons -->
         <div class="flex justify-end items-center space-x-3 mr-1 w-1/2">
-           <div class="relative left-1 m-1 p-1"><a href="#"><i class="fa-regular fa-bell fa-2x" ></i></a></div>
+        <div class="relative left-1 m-1 p-1"><a href="#"><i class="fa-regular fa-bell fa-2x" ></i></a></div>
         <div class="relative left-1 m-1 p-1 max-sm:hidden "><a href="#"><i class="fa-regular fa-paper-plane fa-2x"></i></a></div> 
+        <div class="relative left-1 m-1 p-1  max-sm:hidden"><a href="#"><img src="./icons/Generic avatar.svg" class=" size-10 border-1  rounded-full"></a></div>
         </div>
     </div>
     </nav>
 <!--CONTENT AREA BEGINS -->
 <div class="flex justify-between">
-    <div class="bg-gray-200 max-sm:hidden relative top-1 left-0 h-[calc(100vh-10vh)] w-1/4 border-0 rounded-xl space-y-3 mr-1 ">
-        <a href="http://127.0.0.1:5500/PROJECT_IIT_MITRA/FRONTEND/LoginSection/profile.html">
-    <div class="m-1 flex justify-start items-center space-x-1 text-xl"><img src="./icons/Generic avatar.svg" class="size-8 border-1 rounded-full">Profile
+<!-- Left quick access bar -->
+      
+    <div class="bg-gray-200 max-sm:hidden relative top-1 left-0 h-[calc(100vh-10vh)] w-1/4 lg:w-1/6 border-0 rounded-xl mr-1 space-y-1 ">
+    <!-- Home -->
+    <a href="./homepage.html"><div class="m-5  flex justify-start items-center text-xl"><i class="fa-solid fa-house text-2xl mr-2"></i>Home</div></a>
+    
+    <!-- Profile -->    
+    <a href="http://127.0.0.1:5500/PROJECT_IIT_MITRA/FRONTEND/LoginSection/profile.html">
+    <div class="m-5 flex justify-start items-center text-xl"><img src="./icons/Generic avatar.svg" class="size-8 border-1 rounded-full mr-2">Profile
     </div></a>
-        <a href=""><div class="m-1 flex justify-start items-center space-x-1"></div></a>
-        <a href=""><div class="m-1 flex justify-start items-center space-x-1"></div></a>
-
-<!-- Activity check button -->
-<button onclick="toggleExpand()" class="px-1 py-0 rounded cursor-pointer flex justify-start items-center space-x-1 text-xl"><i class="fa-regular fa-clock text-3xl "></i>Activity</button>
-
-  <!-- Expandable Div -->
+    
+    <!--Mitras-->
+    <a href="#"><div class="m-5 flex justify-start items-center text-xl"><i class="fa-solid fa-people-group text-3xl mr-2"></i>Mitras</div></a>
+    
+    <!-- Messages -->
+    <a href="#"><div class="m-5 flex justify-start items-center text-xl"><i class="fa-regular fa-paper-plane text-3xl mr-2"></i>Messages</div></a>
+    
+    <!-- Activity check button -->
+<button onclick="toggleExpand()" class="px-1 py-0 m-5 rounded cursor-pointer flex justify-start items-center space-x-1 text-xl"><i class="fa-regular fa-clock text-3xl mr-2 "></i>Activity</button>
+    <!-- Expandable Div -->
   <div id="expandableDiv" class="hidden mt-0 p-1 bg-gray-200 rounded-lg ">
   <ul class="mt-0 space-y-1">
     <li><a href="#"><button class="text-blue-500 cursor-pointer flex justify-start items-center text-xl m-1 p-1"><i class="fa-regular fa-heart"></i> Likes</button></a></li>
@@ -53,9 +63,11 @@
     <li><a href="#"><button class="text-blue-500 cursor-pointer flex justify-start items-center text-xl m-1 p-1"><i class="fa-regular fa-bookmark"></i> Saved</button></a></li>
   </ul>
 </div>
-<!-- Activity check button ENDS-->
+  <!-- Activity check button ENDS-->
+   <!-- Notifications -->
+    <a href="#"><div class="m-5 flex justify-start items-center text-xl"><i class="fa-regular fa-bell text-3xl mr-2"></i>Notifications</div></a>
 <!-- Settings button -->
-      <button onclick="toggleSetting()" class="px-1 py-0 rounded cursor-pointer flex justify-start items-center space-x-1 text-xl shadow-blue-300"><i class="fa-solid fa-gear text-3xl"></i>settings</button>
+      <button onclick="toggleSetting()" class="px-1 py-0 m-5 rounded cursor-pointer flex justify-start items-center  text-xl shadow-blue-300"><i class="fa-solid fa-gear text-3xl mr-2"></i>Settings</button>
 
   <!-- Expandable Div -->
   <div id="expandedSetting" class="hidden mt-0 p-1 bg-gray-200 rounded-lg shadow-lg ">
@@ -68,10 +80,6 @@
 
 </div> 
 <!--  left quick access bar ends -->
-   
-
-      
-<!-- Bottom nav FOR SMALL SCREENS -->
 
 <!-- CENTRAL POST OR FEED AREA BEGINS -->
         <div class="grid">
@@ -96,30 +104,27 @@
     <a href="#"><i class="fa-regular fa-bookmark fa-2x"></i></a>
 </div>
 
-<!-- Comment area -->
+  <!-- Comment area -->
 <div class="bg-gray-100 p-2 rounded-md shadow-md lg:text-right">
     <h2 class="text-lg font-bold">Comments</h2>
     <textarea class="w-full p-2 border rounded-md" placeholder="Write a comment..."></textarea>
     <button class="mt-2 px-2 py-1 bg-blue-500 text-white rounded-md"><a href="#">post</a></button>
-</div></div> </div>     
-        
-         
+</div></div> </div> 
         </div>
       </div>
         </div>
-      <!-- Bottom nav FOR SMALL SCREENS -->
+<!-- Bottom nav FOR SMALL SCREENS -->
     <div class="sticky bottom-0 w-full m-1 mb-0  bg-gray-200 text-black p-4 sm:hidden z-10 flex justify-between">
       <a href="#"><img src="./icons/Generic avatar.svg" class="size-10 border-1 rounded-full "></a>
       <a class="active:border-b-3 focus:border-b-3 border-blue-800 p-1" href="#"><i class="fa-solid fa-house fa-2x"></i></a>
       <a class="" href="#"><i class="fa-regular fa-square-plus fa-2x"></i></a>
       <a class="active:border-b-3 focus:border-b-3 border-blue-800 p-1" href="#"><i class="fa-solid fa-people-group fa-2x"></i></a>
-      <a href="#"><i class="fa-regular fa-paper-plane fa-2x mr-2"></i></a>
-        
+      <a href="#"><i class="fa-regular fa-paper-plane fa-2x mr-2"></i></a>  
       </div>
       </div>
 <!-- CENTRAL POST OR FEED AREA ENDS -->
 <!-- Right suggestion area -->
-    <div class="bg-gray-200 m-1 mb-0 max-sm:hidden relative left-1  h-[calc(100vh-10vh)] w-1/4 border-0 rounded-xl">
+    <div class="bg-gray-200 m-1 mb-0 max-sm:hidden relative left-1  h-[calc(100vh-10vh)] w-1/4 lg:w-1/6 border-0 rounded-xl">
         <div class="m-1">Suggested freinds</div>
         <hr class="h1 bg-white border-0.5 mx-1">
     </div>
