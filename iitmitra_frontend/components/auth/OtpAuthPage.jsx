@@ -1,0 +1,38 @@
+import React from 'react'
+
+export const OtpAuthPage = () => {
+    return (
+        <>
+            <div class="w-screen h-screen flex justify-center items-center flex-col">
+        <div class="bg-slate-100 max-w-min max-h-max justify-center items-center flex flex-col p-5 rounded-lg shadow-2xl">
+  
+          <div class="flex justify-center items-center flex-col gap-5">
+            
+            <img class="size-20 rounded-full shadow-black shadow-2xl" src="./views/iitlogo.jpg" alt="" />
+            <div class="flex flex-col items-center">
+                <h3 class="text-2xl m-2 font-bold flex font-sans">Email Verfication</h3>
+            <div class="flex flex-wrap text-center justify-center"><p class="font-sans ">Enter the 6-digit verification code that was sent to abc@example.iit.in</p>
+            </div>
+         </div>
+          <div class="flex gap-2">
+
+            <input class="max-w-8 bg-slate-300 text-2xl p-2 rounded-lg border-slate-700 border-none" type="text" placeholder="0" maxlength="1" />
+            <input class="max-w-8 bg-slate-300 text-2xl p-2 rounded-lg" type="text" placeholder="0" maxlength="1" />
+            <input class="max-w-8 bg-slate-300 text-2xl p-2 rounded-lg" type="text" placeholder="0" maxlength="1" />
+            <input class="max-w-8 bg-slate-300 text-2xl p-2 rounded-lg" type="text" placeholder="0" maxlength="1" />
+            <input class="max-w-8 bg-slate-300 text-2xl p-2 rounded-lg" type="text" placeholder="0" maxlength="1" />
+            <input class="max-w-8 bg-slate-300 text-2xl p-2 rounded-lg" type="text" placeholder="0" maxlength="1" />
+
+          </div>
+          
+          <button class="size-full rounded-md bg-blue-600 text-lg p-1 px-2 text-white">Verify Account</button>
+          <div class="flex justify-center items-center  text-1xl m-1">
+            <p class="font-sans">Don't receive code?</p>
+            <a class="flex float-right px-2 font-sans text-blue-800" href="">Resend</a>
+          </div>
+        </div>
+      </div>
+       </div>
+        </>
+    )
+}
