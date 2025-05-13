@@ -30,7 +30,7 @@
         <div class="flex justify-end items-center space-x-3 mr-1 w-1/2">
         <div class="relative left-1 m-1 p-1"><a href="#"><i class="fa-regular fa-bell fa-2x" ></i></a></div>
         <div class="relative left-1 m-1 p-1 max-sm:hidden "><a href="#"><i class="fa-regular fa-paper-plane fa-2x"></i></a></div> 
-        <div class="relative left-1 m-1 p-1  max-sm:hidden"><a href="#"><img src="./icons/Generic avatar.svg" class=" size-10 border-1  rounded-full"></a></div>
+        <div class="relative left-1 m-1 p-1  max-sm:hidden"><a href="http://127.0.0.1:5500/PROJECT_IIT_MITRA/FRONTEND/LoginSection/profile.html"><img src="./icons/Generic avatar.svg" class=" size-10 border-1  rounded-full"></a></div>
         </div>
     </div>
     </nav>
@@ -39,7 +39,8 @@
 <!-- Left quick access bar -->
       
     <div class="bg-gray-200 max-sm:hidden relative top-1 left-0 h-[calc(100vh-10vh)] w-1/4 lg:w-1/6 border-0 rounded-xl mr-1 space-y-1 ">
-    <!-- Home -->
+    
+      <!-- Home -->
     <a href="./homepage.html"><div class="m-5  flex justify-start items-center text-xl"><i class="fa-solid fa-house text-2xl mr-2"></i>Home</div></a>
     
     <!-- Profile -->    
@@ -82,13 +83,34 @@
 <!--  left quick access bar ends -->
 
 <!-- CENTRAL POST OR FEED AREA BEGINS -->
-        <div class="grid">
+        <div class="grid items-center">
           
-        <div class="bg-gray-200 relative left-0.5 top-1 h-[calc(100vh-10vh)] w-full border-0 rounded-xl">
-      <div class="bg-white border-0 rounded-xl m-2 mr-2 p-2 h-[calc(100vh-13vh)] overflow-scroll">
-        <div  class="bg-gray-200 relative left-0.5 top-1 h-24 w-full border-0 rounded-xl mr-1 p-2" >
-          <div class="flex justify-start items-center space-x-1"><img src="./icons/Generic avatar.svg" class="size-12 border-1 rounded-full"><h1 class="text-2xl">USERNAME</h1></div>
+        <div class="bg-gray-200 relative top-1 h-[calc(100vh-10vh)] w-full border-0 rounded-xl">
+      <div class="bg-white border-0 rounded-xl m-2 mr-2 p-0 pr-2 h-[calc(100vh-13vh)] overflow-scroll">
+        <!-- Direct Post -->
+        <div  class="bg-gray-200 w-full border-0 rounded-xl m-1 p-1 max-sm:hidden" >
+          <div class="bg-white m-1 p-1 rounded-xl flex justify-center items-center">
+            <img src="./icons/Generic avatar.svg" class="size-15 border-1 rounded-full m-1">
+            <div class="border-l-2 border-black h-20 mx-2"></div>
+            <textarea class="w-full m-1 p-1 border-1 rounded-xl" placeholder="What's on your mind?"></textarea>
+            <button class="m-1 mr-0 p-1 w-22 rounded-xl text-white bg-blue-300"><a href="#" class="">Post</a></button>
+            <hr class="h-1 border-0.5 mx-1 ">
           </div>
+            <div class="flex justify-between items-center m-1 p-2  ">
+              <div><a href="#" class="flex justify-center items-center "><i class="fa-solid fa-image fa-2x"></i>Image</a></div>
+              <div class="border-l-2 border-black h-10 mx-1"></div>
+              <div><a href="#" class="flex justify-center items-center "><i class="fa-solid fa-video fa-2x"></i>Video</a></div>
+              <div class="border-l-2 border-black h-10 mx-1"></div>
+              <div><a href="#" class="flex justify-center items-center "><i class="fa-solid fa-location-dot fa-2x"></i>Location</a></div>
+              <div class="border-l-2 border-black h-10 mx-1"></div>
+              <div><a href="#" class="flex justify-center items-center "><i class="fa-solid fa-user fa-2x"></i>Tag</a></div>
+              
+              
+            </div>
+          
+          
+        </div>
+        <!-- Posts or feed -->
         <div class="border-1 p-2 m-2 mt-3 rounded-xl">
         <div class="m-1 flex"><img src="./icons/Generic avatar.svg" class="size-10 border-1 rounded-full"><h1 class="relative left-1 top-2">Anonymous</h1></div>
         <hr class="h1 border-0.5 mx-1 ">
@@ -130,6 +152,14 @@
     </div>
 </div>
 <!-- CONTENT AREA ENDS -->
+
+
+
+
+  
+
+
+
 <script
 src="https://kit.fontawesome.com/681f50922b.js"
 crossorigin="anonymous"
@@ -146,13 +176,6 @@ crossorigin="anonymous"
       document.getElementById("expandableDiv").classList.toggle("hidden");
     }
   </script>
-
-
-
-  
-
-
-
-
+<!-- Script for the search bar -->
 </body>
 </html>
