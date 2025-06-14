@@ -1,32 +1,39 @@
 import React from 'react'
 
-export const AcedemicDetail = () => {
+export const AcedemicDetail = ({state,handleChange}) => {
     return (
         <>
              <div className="flex flex-col gap-0.5 mt-3">
             <h1 className="text-cyan-800 font-bold text-xl">Alumini Status</h1>
-            <select className="bg-gray-200 py-1 px-2  rounded-md">
+            <select  name='aluminiStatus' value={state.aluminiStatus}
+            onChange={handleChange}  className="bg-gray-200 py-1 px-2 outline-none  rounded-md">
               <option value="text">Your Option</option>
 
-              <option value="text">Current student</option>
-              <option value="text">Alumini</option>
-              <option value="text">Faculty</option>
-            </select>
+              <option value="Current studen">Current student</option>
+              <option value="Alumini">Alumini</option>
+              <option value="Faculty">Faculty</option>
+           </select>
           </div>
-          <div className="flex flex-col mt-3">
+          <div  className="flex flex-col mt-3">
             <h1 className="text-cyan-800 font-bold text-xl">Institute Name</h1>
             <p className="text-sm">Indian Institute of Technology **</p>
             <input
+              name='institute'
+              value={state.institute}
+            onChange={handleChange}
               className="outline-none bg-gray-200 py-1 px-3 rounded-md"
               type="text"
               placeholder="Enter Your College Name"
             />
           </div>
-          <div className="flex flex-col gap-0.5 mt-3">
+          <div  className="flex flex-col gap-0.5 mt-3">
             <h1 className="text-cyan-800 font-bold text-xl">
               Branch/Department
             </h1>
             <input
+            name='branch'
+            value={state.branch}
+            onChange={handleChange}
               className="outline-none bg-gray-200 py-1 px-3 rounded-md"
               type="text"
               placeholder="Branch/Department"
@@ -37,6 +44,9 @@ export const AcedemicDetail = () => {
               Year of Passing/Current year
             </h1>
             <input
+            name='year'
+            value={state.year}
+            onChange={handleChange}
               className="outline-none bg-gray-200 py-1 px-3 rounded-md"
               type="text"
               placeholder="2024/2025  "
@@ -47,6 +57,9 @@ export const AcedemicDetail = () => {
               Current Job Title (if working)
             </h1>
             <input
+            name="jobTitle"
+            value={state.job}
+            onChange={handleChange}
               className="outline-none bg-gray-200 py-1 px-3 rounded-md"
               type="text"
               placeholder="Your Job  "
@@ -55,6 +68,9 @@ export const AcedemicDetail = () => {
           <div className="flex flex-col gap-0.5 mt-3">
             <h1 className="text-cyan-800 font-bold text-xl">Company name</h1>
             <input
+            name='company'
+            value={state.company}
+            onChange={handleChange}
               className="outline-none bg-gray-200 py-1 px-3 rounded-md"
               type="text"
               placeholder="Company Name  "
@@ -62,9 +78,12 @@ export const AcedemicDetail = () => {
           </div>
           <div className="flex flex-col gap-0.5 mt-3">
             <h1 className="text-cyan-800 font-bold text-xl">
-              Linkedin/GitHub URLs
+             GitHub URLs
             </h1>
             <input
+             name='github'
+             value={state.github}
+            onChange={handleChange}
               className="outline-none border-b-2 pt-1 px-3"
               type="url"
               placeholder="Linkedin/GitHub URLs  "

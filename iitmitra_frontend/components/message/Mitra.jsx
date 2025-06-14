@@ -1,9 +1,10 @@
 import React from 'react'
 
-export const Notifications = () => {
+export const Mitra = () => {
     return (
         <div>
-            Notifications
+            Mitra page
+            
         </div>
     )
 }

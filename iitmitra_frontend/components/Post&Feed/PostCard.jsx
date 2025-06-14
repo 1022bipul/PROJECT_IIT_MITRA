@@ -1,5 +1,6 @@
 import React from "react";
 import { ProfilePic } from "../Profile/ProfilePic";
+import { Link } from "react-router-dom";
 
 export const PostCard = ({photolink}) => {
   return (
@@ -7,6 +8,7 @@ export const PostCard = ({photolink}) => {
       <div className="border-none p-2 rounded-xl bg-gray-200">
         <div className="m-1 bg-gray-100 rounded-2xl flex">
         <ProfilePic/>
+        
           {/* <img
             src="./icons/Generic avatar.svg"
             className="size-10 border-2 border-white rounded-full"
@@ -24,18 +26,18 @@ export const PostCard = ({photolink}) => {
           {/* <!-- Interaction buttons --> */}
           <div className="lg:w-xl">
             <div className="flex m-2 space-x-4 lg:justify-end">
-              <a className="" href="#">
+              <Link className="" href="#">
                 <span className="text-black focus:text-red-500"><i className="fa-regular fa-heart fa-xl "></i></span>
-              </a>
-              <a href="#">
+              </Link>
+              <Link href="#">
                 <i className="fa-regular fa-comment fa-xl"></i>
-              </a>
-              <a href="#">
+              </Link>
+              <Link href="#">
                 <i className="fa-regular fa-paper-plane fa-xl"></i>
-              </a>
-              <a href="#">
+              </Link>
+              <Link href="#">
                 <i className="fa-regular fa-bookmark fa-xl"></i>
-              </a>
+              </Link>
             </div>
 
             {/* <!-- Comment area --> */}
@@ -43,10 +45,10 @@ export const PostCard = ({photolink}) => {
               <h2 className="text-lg font-bold">Comments</h2>
               <textarea
                 className="w-full p-2 bg-gray-50 rounded-md"
-                placeholder="Write a comment..."
+                placeholder="Write Link comment..."
               ></textarea>
               <button className="mt-2 px-2 py-1 bg-blue-500 text-white rounded-md">
-                <a href="#">post</a>
+                <Link href="#">post</Link>
               </button>
             </div>
           </div>{" "}

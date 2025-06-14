@@ -1,6 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
+import { Form } from 'react-router-dom';
 
 export const ChangePassword = () => {
+   const [password,setPassword]=useState({
+    currentPassword:"",
+    newPassword:"",
+   confirmPassword:""
+
+
+   })
+
+   const handleChangePass =(e)=>{
+    const name=e.target.name;
+    const value=e.target.value;
+
+    setPassword({[name]:value})
+
+   }
+   const handleSubmit=(e)=>{
+    e.preventDefault()
+    alert('submited')
+
+   }
+
+
   return (
     <>
       <div className="h-full  flex flex-col m-1 gap-1 p-2 rounded-md bg-gray-300">
@@ -16,11 +39,14 @@ export const ChangePassword = () => {
         </p>
       </div>
 
-      <form className="flex flex-col">
+      <Form onSubmit={handleSubmit} className="flex flex-col">
         <div className="pt-7 ">
-          <h2 className="font-semibold text-2xl my-2">Current Password</h2>
+          <h2 className="font-semibold text-2xl my-2 ">Current Password</h2>
           <input
-            className="outline-none border-[1px] bg-gray-200 rounded-lg w-full p-1 text-lg"
+          name="currentPassword"
+          value={password.currentPassword}
+          onChange={handleChangePass}
+            className="outline-none border-[1px] border-none bg-gray-200 rounded-lg w-full p-1 text-lg"
             type="password"
             placeholder="Enter your current password"
           />
@@ -29,16 +55,24 @@ export const ChangePassword = () => {
         <div className="pt-7">
           <h2 className="font-semibold text-2xl  my-2">New Password</h2>
           <input
-            className="outline-none border-[1px] bg-gray-200 rounded-lg w-full p-1 text-lg"
+          name="newPassword"
+          value={password.newPassword}
+          onChange={handleChangePass}
+
+            className="outline-none border-[1px] bg-gray-200 rounded-lg w-full border-none  p-1 text-lg"
             type="password"
             placeholder="Enter your current password"
           />
         </div>
 
         <div className="pt-7">
-          <h2 className="font-semibold text-2xl  my-2">Conform New Password</h2>
+          <h2 className="font-semibold text-2xl  my-2">Confirm New Password</h2>
           <input
-            className="outline-none border-[1px] bg-gray-200 rounded-lg w-full p-1 text-lg"
+          name="confirmPassword"
+          value={password.confirmPassword}
+          onChange={handleChangePass}
+
+            className="outline-none border-[1px] bg-gray-200  border-none rounded-lg w-full p-1 text-lg"
             type="password"
             placeholder="Enter your current password"
           />
@@ -58,7 +92,7 @@ export const ChangePassword = () => {
             Update Password
           </button>
         </div>
-      </form>
+      </Form>
       </div>
     </>
   );

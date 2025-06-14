@@ -1,11 +1,14 @@
 import React from 'react'
 
-export const BioSection = () => {
+export const BioSection = ({state,handleChange}) => {
     return (
         <>
             <div className="flex flex-col gap-0.5 mt-3">
             <h1 className="text-cyan-800 font-bold text-xl">Bio</h1>
             <textarea
+            name='bio'
+            value={state.bio}
+            onChange={handleChange}
               className="outline-none bg-gray-200 py-1 px-3 rounded-md"
               rows="5"
               cols="10"

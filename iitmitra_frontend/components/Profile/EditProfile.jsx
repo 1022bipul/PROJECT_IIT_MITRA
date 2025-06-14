@@ -1,14 +1,96 @@
-import React from "react";
+import React, { useReducer, useRef, useState } from "react";
 import { AcedemicDetail } from "./AcedemicDetail";
 import { SocialMediaLink } from "./SocialMediaLink";
 import { BioSection } from "./BioSection";
 import { SkillsSection } from "./SkillsSection";
 import { SelfDetails } from "./SelfDetails";
+import { Form } from "react-router-dom";
 
 export const EditProfile = () => {
+  const setProfilePic=useRef();
+
+  const clickProfile=()=>{
+    setProfilePic.current.click();
+  }
+  const setBanner=useRef();
+
+  const clickBanner=()=>{
+    setBanner.current.click();
+  }
+  
+  const initialState = {
+    name: "",
+    email: "",
+    phone: "",
+    dob: "",
+    gender: "",
+    skills: "",
+    bio: "",
+    aluminiStatus: "",
+    institute: "",
+    branch: "",
+    year: "",
+    jobTitle: "",
+    company: "",
+    linkedin: "",
+    github: "",
+    twitter: "",
+    instagram: "",
+    youtube: "",
+    facebook: "",
+    portfolio: "",
+  };
+  function reducer(state, action) {
+    switch (action.type) {
+      case "updateField":
+        return {
+          ...state,
+          [action.field]: action.value,
+        };
+      case "reset":
+        return initialState;
+      default:
+        throw new Error();
+    }
+  }
+  const [state, dispatch] = useReducer(reducer, initialState);
+
+  const handleChange = (e) => {
+    dispatch({
+      type: "updateField",
+      field: e.target.name,
+      value: e.target.value,
+    });
+  };
+
+  const handleSubmit = async(e) => {
+    e.preventDefault();
+    // Submit form logic
+    console.log(state);
+    dispatch({ type: "reset" });
+
+    try {
+      const detailsRes= await fetch('http://localhost:3000/accounts/details',{
+        method:'post',
+        body:JSON.stringify(state),
+        headers:{"Content-Type": "application/json"},
+      });
+
+      if (detailsRes.ok) {
+        alert("Details Saved"); 
+      } else {
+        alert("please, fill the details!");
+      }
+    } catch (error) {
+      console.log("fetching failed", error);
+      
+    }
+  };
+
   return (
     <>
-      <div
+      <Form action="/profile-upload" method="post" encType="multipart/form-data"
+        onSubmit={handleSubmit}
         className="bg-gray-300 p-2 overflow-y-auto h-screen mx-1 mt-1 rounded-md"
         style={{
           scrollbarWidth: "none",
@@ -17,24 +99,27 @@ export const EditProfile = () => {
       >
         <div className="flex items-center px-2 py-1  bg-gray-200 rounded-md">
           <h1 className="w-full text-lg px-2 font-semibold">Edit profile</h1>
-    
         </div>
         {/* <!-- cover img and profile img --> */}
         <div className="grid grid-cols-6 gap-0.5 mt-2">
           <div className="relative flex items-center justify-center col-span-2">
+            <input type="file" name="profile" ref={setProfilePic} className="hidden" />
             <img
               src="https://images.pexels.com/photos/6283154/pexels-photo-6283154.jpeg?auto=compress&cs=tinysrgb&w=400&lazy=load"
               className="object-cover w-30 h-30 rounded-full border-4 border-white"
             />
-            <button className="absolute text-white translate-10 bg-gray-700 hover:bg-blue-800 text-sm rounded-full m-2 p-1">
+            <button onClick={clickProfile} type="button" className="absolute text-white translate-10 bg-gray-700 hover:bg-blue-800 text-sm rounded-full m-2 p-1">
               <i className="fa-solid fa-pen p-0.5"></i>
             </button>
           </div>
 
           <div className="relative w-full bg-slate-300 mt-1 rounded-md col-span-4">
-            <button className="flex flex-row-reverse absolute right-0 text-white bg-gray-700 hover:bg-blue-800 text-sm rounded-full m-2 p-1">
+            <button onClick={clickBanner} type="button" className="flex flex-row-reverse absolute right-0  text-white bg-gray-700 hover:bg-blue-800 text-sm rounded-full m-2 p-1">
               <i className="fa-solid fa-camera"></i>
+           
             </button>
+            <input type="file" name="profile" ref={setBanner} className="hidden" />
+           
             <img
               src="https://images.pexels.com/photos/4121821/pexels-photo-4121821.jpeg?auto=compress&cs=tinysrgb&w=400&lazy=load"
               alt="Banner"
@@ -46,8 +131,7 @@ export const EditProfile = () => {
         {/* <!-- deatail section --> */}
 
         <div className="w-full max-h-max rounded-md mt-4">
-       
-          <SelfDetails />
+          <SelfDetails state={state} handleChange={handleChange} />
           {/* <div className="flex flex-col gap-2">
             <h1 className="text-cyan-800 font-bold text-xl">Name</h1>
             <input
@@ -98,9 +182,8 @@ export const EditProfile = () => {
 
           {/* skills section  */}
 
-          <SkillsSection />
+          <SkillsSection state={state} handleChange={handleChange} />
 
-          
           {/* <div className="flex flex-col gap-0.5 mt-3">
             <h1 className="text-cyan-800 font-bold text-xl">Skills</h1>
             <textarea
@@ -110,9 +193,9 @@ export const EditProfile = () => {
               placeholder="HTML,JAVA,C++,JavaScript........ "
             ></textarea>
           </div> */}
-         {/* Bio section */}
+          {/* Bio section */}
 
-         <BioSection />
+          <BioSection state={state} handleChange={handleChange} />
           {/* <div className="flex flex-col gap-0.5 mt-3">
             <h1 className="text-cyan-800 font-bold text-xl">Bio</h1>
             <textarea
@@ -124,8 +207,8 @@ export const EditProfile = () => {
           </div> */}
 
           {/* <!-- Academic Year/Professional Details --> */}
-        
-          <AcedemicDetail />
+
+          <AcedemicDetail state={state} handleChange={handleChange} />
           {/* <div className="flex flex-col gap-0.5 mt-3">
             <h1 className="text-cyan-800 font-bold text-xl">Alumini Status</h1>
             <select className="bg-gray-200 py-1 px-2  rounded-md">
@@ -194,12 +277,9 @@ export const EditProfile = () => {
             />
           </div> */}
 
-         
-         
-         
           {/* <!-- Social Media links --> */}
-         <SocialMediaLink />
-         
+          <SocialMediaLink state={state} handleChange={handleChange} />
+
           {/* <div className="flex flex-col gap-0.5 mt-3">
             <h1 className="text-cyan-800 font-bold text-xl">Instagram URLs</h1>
             <input
@@ -243,23 +323,22 @@ export const EditProfile = () => {
             />
           </div> */}
 
-
-
           {/* <!-- save/discard button --> */}
           <div className="m-3">
-            <button className=" py-1 px-1.5 float-left font-semibold rounded-md bg-[#00A6FB] text-md text-black hover:bg-[#0582CA]">
+            <button type='reset' className=" py-1 px-1.5 float-left font-semibold rounded-md bg-[#00A6FB] text-md text-black hover:bg-[#0582CA]">
               Discard Changes
             </button>
-            <button className=" py-1 px-1.5 float-right font-semibold rounded-md bg-[#00A6FB] text-md text-black hover:bg-[#0582CA]">
+            <button
+              type="submit"
+              className=" py-1 px-1.5 float-right font-semibold rounded-md bg-[#00A6FB] text-md text-black hover:bg-[#0582CA]"
+            >
               Save
             </button>
           </div>
         </div>
 
-        <div className="h-1/2">
-
-        </div>
-      </div>
+        <div className="h-1/2"></div>
+      </Form>
     </>
   );
 };
