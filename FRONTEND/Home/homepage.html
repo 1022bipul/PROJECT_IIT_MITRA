@@ -20,7 +20,7 @@
         </div>
 <!-- Home upload and Friends button -->
         <div class="flex justify-center items-center space-x-3 w-1/2">
-        <div class="relative left-1 m-1 p-1 x-sm:hidden"><a class="active:border-b-3 focus:border-b-3 border-blue-800 p-1" href="#"><i class="fa-solid fa-house fa-2x"></i></a></div>
+        <div class="relative left-1 m-1 p-1 max-sm:hidden"><a class="active:border-b-3 focus:border-b-3 border-blue-800 p-1" href="#"><i class="fa-solid fa-house fa-2x"></i></a></div>
         <div class="relative left-1 m-1 p-1 max-sm:hidden"><a href="./UploadPost.html"><i class="fa-regular fa-square-plus fa-2x"></i></a></div>
         <div class="relative left-1 m-1 p-1 max-sm:hidden"><a class="active:border-b-3 focus:border-b-3 border-blue-800 p-1" href="#"><i class="fa-solid fa-people-group fa-2x"></i></a></div>
         
@@ -65,11 +65,25 @@
 
   <!-- Expandable Div -->
   <div id="expandedSetting" class="hidden mt-0 p-1 bg-gray-200 rounded-lg shadow-lg ">
-  <ul class="mt-0 space-y-0">
-    <li><a href="#"><button class="text-blue-500 cursor-pointer flex justify-start items-center text-xl"></i>Log Out</button></a></li>
-    <li><a href="#"><button class="text-blue-500 cursor-pointer flex justify-start items-center text-xl"> Edit Profile</button></a></li>
-    <li><a href="#"><button class="text-blue-500 cursor-pointer flex justify-start items-center text-xl">Privacy</button></a></li>
-  </ul>
+  <div class=" text-xl grid p-2 space-y-2 bg-gray-300 h-fit overflow-y ">
+        <div class=" border-b-1 border-gray-500 p-2 rounded-md hover:bg-gray-200"><a>Edit Profile</a></div>
+        <div class=" border-b-1 border-gray-500 p-2 rounded-md hover:bg-gray-200"><a>Notification</a></div>
+        <div class=" border-b-1 border-gray-500 p-2 rounded-md hover:bg-gray-200"><a>Activity</a></div>
+        <div class=" border-b-1 border-gray-500 p-2 rounded-md hover:bg-gray-200"><a>Privacy</a></div>
+        <div class=" border-b-1 border-gray-500 p-2 rounded-md hover:bg-gray-200"><a>Security</a></div>
+        <div class=" border-b-1 border-gray-500 p-2 rounded-md hover:bg-gray-200"><a>Language</a></div>
+        <div class=" border-b-1 border-gray-500 p-2 rounded-md hover:bg-gray-200"><a>Help</a></div>
+        <div class=" border-b-1 border-gray-500 p-2 rounded-md hover:bg-gray-200"><a>About</div>
+        <div class=" border-b-1 border-gray-500 p-2 rounded-md hover:bg-gray-200 "><a>Contact Us</a></div>
+        <div class=" border-b-1 border-gray-500 p-2 rounded-md hover:bg-gray-200"><a>Terms of Service</a></div>
+        <div class=" border-b-1 border-gray-500 p-2 rounded-md hover:bg-gray-200"><a>Privacy Policy</a></div>
+        <div class=" border-b-1 border-gray-500 p-2 rounded-md hover:bg-gray-200 text-blue-500"><a>Logout</a></div>
+        <div class=" border-b-1 border-gray-500 p-2 rounded-md hover:bg-gray-200 text-red-500"><a>Delete Account</a></div>
+        
+        
+        
+
+    </div>
 </div>
 
 </div> 
@@ -130,11 +144,11 @@
         </div>
 <!-- Bottom nav FOR SMALL SCREENS -->
     <div class="sticky bottom-0 w-full m-1 mb-0  bg-gray-200 text-black p-4 sm:hidden z-10 flex justify-between">
-      <a href="#"><img src="./icons/Generic avatar.svg" class="size-10 border-1 rounded-full "></a>
+      <a href="http://127.0.0.1:5500/PROJECT_IIT_MITRA/FRONTEND/LoginSection/profile.html"><img src="./icons/Generic avatar.svg" class="size-10 border-1 rounded-full "></a>
       <a class="active:border-b-3 focus:border-b-3 border-blue-800 p-1" href="#"><i class="fa-solid fa-house fa-2x"></i></a>
-      <a class="" href="#"><i class="fa-regular fa-square-plus fa-2x"></i></a>
+      <a class="" href="./UploadPost.html"><i class="fa-regular fa-square-plus fa-2x"></i></a>
       <a class="active:border-b-3 focus:border-b-3 border-blue-800 p-1" href="#"><i class="fa-solid fa-people-group fa-2x"></i></a>
-      <a href="#"><i class="fa-solid fa-gear fa-2x mr-2"></i></a> 
+      <a href="./SettingsPage.html"><i class="fa-solid fa-gear fa-2x mr-2"></i></a> 
       </div>
       </div>
 <!-- CENTRAL POST OR FEED AREA ENDS -->
