@@ -7,7 +7,7 @@ import { FriendSuggestions } from './FriendSuggestions'
 export const RightSideBar = () => {
     return (
         <>
-        <div className=''> <FriendSuggestions/>
+        <div className='mr-2'> <FriendSuggestions/>
        </div>
         </>
 

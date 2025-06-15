@@ -2,10 +2,21 @@ import React, { useRef, useState } from "react";
 import { Form } from "react-router-dom";
 
 export const CreatePost = ({ togglecreatePostBtn, handleToggleCreatePost }) => {
-  const [postData, setPostData] = useState({
+ const [previewName,setPreviewName]=useState(null)
+
+ const [postData, setPostData] = useState({
     image: "",
     discription: "",
+
   });
+ const chooseImg=useRef();
+
+ const clickChooseImg =()=>{
+  chooseImg.current.click();
+
+ }
+ 
+ 
 
   const handleChange = (e) => {
     const { name, value, files } = e.target;
@@ -23,14 +34,18 @@ export const CreatePost = ({ togglecreatePostBtn, handleToggleCreatePost }) => {
         [name]: value,
       }));
     }
+   
+
   };
 
+
   const handleSubmitPost = async (e) => {
+  setPreviewName(postData.image.name);
+
     e.preventDefault();
     console.log(postData);
     const { image, discription } = postData;
 
-    console.log(URL.createObjectURL(image));
 
    const formData = new FormData();
 formData.append("image", image);
@@ -46,18 +61,19 @@ const postRes = await fetch("http://localhost:3000/api/profile/upload/image", {
     console.log(postStatus);
     console.log(postStatus.url);
     console.log(postStatus.discription);
+
   };
 
   return (
     <>
       <div
         ref={togglecreatePostBtn}
-        className="absolute z-10  max-w-4xl mx-auto bg-gray-500 rounded-lg shadow-lg p-6 "
+        className="absolute z-10 left-1/5 top-[15vh]  min-w-[60vw] mx-auto bg-gray-500 rounded-lg shadow-lg p-6 "
         style={{ display: "none" }}
       >
         {/* <!--Create a post --> */}
-        <h1 className="text-blue-400 font-semibold mb-4 text-2xl">Upload</h1>
-        <h3 className="text-xl font-semibold mb-4">
+        <h1 className="text-[#f7e1d7] font-semibold mb-4 text-2xl">Upload your files</h1>
+        <h3 className="text-xl text-[#f7e1d7] font-semibold mb-4">
           What would you like to share ?
         </h3>
 
@@ -80,21 +96,30 @@ const postRes = await fetch("http://localhost:3000/api/profile/upload/image", {
           method="post"
           encType="multipart/form-data"
         >
-          <div className="p-1 bg-gray-50 rounded">
+          <h1>{previewName}</h1>
+          <div className="p-1 bg-blue-500 rounded text-center">
             <input
+            ref={chooseImg}
+            className="hidden"
               type="file"
               name="image"
               accept='image/*'
               filename={postData.image}
               onChange={handleChange}
             />
+          
+          <button onClick={clickChooseImg} type="button" className="text-lg w-full">Share your Pic</button>
+
           </div>
+          {/* <div className="max-h-100 max-w-100">
+            <img src={} alt="" />
+          </div> */}
 
           {/* <!-- Text Input Section --> */}
           <div id="textSection" className="hidden mb-4">
             <textarea
               placeholder="Enter Text"
-              className="w-full h-40 p-2 bg-zinc-700 rounded text-white mb-2"
+              className="w-full max-w-md p-2 bg-zinc-700 rounded text-white mb-2"
             ></textarea>
             <button className="bg-blue-400 rounded-md p-2">Save</button>
           </div>

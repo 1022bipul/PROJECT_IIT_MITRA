@@ -48,9 +48,10 @@ function App() {
       {/* post toggleMenu */}
       <div
         ref={togglePost}
-        className="bg-black    rounded absolute top-14 w-50% cursor-pointer z-10 sm:left-5/12 md:left-5/12 lg:left-6/12 px-2 py-1 mt-0.5"
+        className="bg-black  rounded absolute top-14 w-50% cursor-pointer z-10 sm:left-5/12 md:left-3/7 lg:left-3/6 px-2 py-1 mt-0.5"
         style={{ display: "none" }}
       >
+        <div className="flex flex-col">
         <button
           onClick={handleToggleCreatePost}
           className="bg-black px-2 py-0.5 rounded text-lg text-white"
@@ -60,6 +61,7 @@ function App() {
         <button className="bg-black  px-2 py-0.5 mt-1 rounded  text-lg  text-white">
           Story
         </button>
+      </div>
       </div>
      
       <div
@@ -71,7 +73,10 @@ function App() {
       >
         <Header handleTogglePost={handleTogglePost} />
 
-        <div className=" h-[92vh] w-full overflow-y-scroll grid sm:grid-cols-12">
+        <div className=" h-[92vh] w-full overflow-y-scroll grid sm:grid-cols-12" style={{
+              scrollbarWidth: "none",
+              msOverflowStyle: "none",
+            }}>
           <CreatePost
           togglecreatePostBtn={togglecreatePostBtn}
           handleToggleCreatePost={handleToggleCreatePost}
@@ -96,7 +101,7 @@ function App() {
             </div>
           </div>
           {/* <!-- right side bar --> */}
-          <div className=" sm:col-span-3  hidden top-0 overflow-hidden sm:block h-full">
+          <div className=" sm:col-span-3  hidden top-0 overflow-hidden sm:block h-full " >
             <RightSideBar />
           </div>
         </div>
