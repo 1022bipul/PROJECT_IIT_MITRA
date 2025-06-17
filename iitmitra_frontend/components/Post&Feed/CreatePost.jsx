@@ -51,16 +51,18 @@ export const CreatePost = ({ togglecreatePostBtn, handleToggleCreatePost }) => {
 formData.append("image", image);
 formData.append("discription", discription);
 
-const postRes = await fetch("http://localhost:3000/api/profile/upload/image", {
+const postRes = await fetch("http://localhost:3000/api/upload/image", {
   method: "POST",
   body: formData,
   credentials: "include",
 });
 
     const postStatus =await postRes.json();
-    console.log(postStatus);
-    console.log(postStatus.url);
-    console.log(postStatus.discription);
+    setPostData({
+    image: "",
+    discription: "",
+
+  })
 
   };
 

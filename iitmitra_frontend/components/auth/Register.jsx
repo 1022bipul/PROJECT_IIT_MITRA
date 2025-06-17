@@ -25,7 +25,7 @@ export const Register = () => {
     console.log(userData);
     try {
       const { name, email, password } = userData;
-      const response = await fetch("http://localhost:3000/account/register", {
+      const response = await fetch("http://localhost:3000/api/auth/register", {
         method: "post",
         body: JSON.stringify({ name, email, password }),
         headers: {

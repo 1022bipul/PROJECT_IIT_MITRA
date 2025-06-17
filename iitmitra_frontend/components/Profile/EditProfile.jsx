@@ -5,8 +5,10 @@ import { BioSection } from "./BioSection";
 import { SkillsSection } from "./SkillsSection";
 import { SelfDetails } from "./SelfDetails";
 import { Form } from "react-router-dom";
+import { Profile } from "./Profile";
 
 export const EditProfile = () => {
+
   const setProfilePic=useRef();
 
   const clickProfile=()=>{
@@ -17,7 +19,7 @@ export const EditProfile = () => {
   const clickBanner=()=>{
     setBanner.current.click();
   }
-  
+ 
   const initialState = {
     name: "",
     email: "",
@@ -65,12 +67,16 @@ export const EditProfile = () => {
 
   const handleSubmit = async(e) => {
     e.preventDefault();
+
+
+
     // Submit form logic
+
     console.log(state);
     dispatch({ type: "reset" });
 
     try {
-      const detailsRes= await fetch('http://localhost:3000/accounts/details',{
+      const detailsRes= await fetch('http://localhost:3000/api/user/details',{
         method:'post',
         body:JSON.stringify(state),
         headers:{"Content-Type": "application/json"},
@@ -89,7 +95,7 @@ export const EditProfile = () => {
 
   return (
     <>
-      <Form action="/profile-upload" method="post" encType="multipart/form-data"
+      <Form action="/profile" method="post" encType="multipart/form-data"
         onSubmit={handleSubmit}
         className="bg-gray-300 p-2 overflow-y-auto h-screen mx-1 mt-1 rounded-md"
         style={{
@@ -103,7 +109,7 @@ export const EditProfile = () => {
         {/* <!-- cover img and profile img --> */}
         <div className="grid grid-cols-6 gap-0.5 mt-2">
           <div className="relative flex items-center justify-center col-span-2">
-            <input type="file" name="profile" ref={setProfilePic} className="hidden" />
+            <input type="file" name="profile" filename={profile.image} onChange={handleChangeInput} ref={setProfilePic} className="hidden" />
             <img
               src="https://images.pexels.com/photos/6283154/pexels-photo-6283154.jpeg?auto=compress&cs=tinysrgb&w=400&lazy=load"
               className="object-cover w-30 h-30 rounded-full border-4 border-white"

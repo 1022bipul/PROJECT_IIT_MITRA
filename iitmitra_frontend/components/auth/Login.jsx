@@ -24,7 +24,7 @@ export const Login = () => {
     e.preventDefault();
     const {email,password}=userLoginData
    
-    let loginData = await fetch("http://localhost:3000/account/login", {
+    let loginData = await fetch("http://localhost:3000/api/auth/login", {
       method: "post",
 
       body: JSON.stringify({email,password}),
