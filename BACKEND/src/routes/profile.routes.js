@@ -1,25 +1,30 @@
-const UserDetails = require("../models/userDetails.models");
 const express= require('express');
 const User = require('../models/user.models');
+const { handlePostProfileData } = require('../controllers/profile.controllers');
+const multer=require('multer');
+const { verifyToken } = require('../middlewares/verifyToken');
+const path=require('path')
 
 
 
 
 const router=express.Router()
 
-//edit profile data
-router.post('/details',async(req,res)=>{
-  try {
+//storage
 
-    const userDetails=req.body;
-    const details=new UserDetails(userDetails)
-    await details.save();
-    res.status(200).json({message:'your details are saved'})
-  } catch (error) {
-    res.status(401).json({message:'failed to save details'})
+const storage = multer.diskStorage({
+  filename: function (req, file, cb) {
+    cb(null,file.fieldname +"-"+Date.now()+ path.extname(file.originalname))
   }
-
 })
+ const upload = multer({ storage: storage })
+ 
+
+//edit profile data
+router.post('/profile-data',verifyToken , upload.fields([
+    { name: 'avatar', maxCount: 1 },
+    { name: 'banner', maxCount: 1 }
+  ]), handlePostProfileData)
 
 
 

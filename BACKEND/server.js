@@ -1,12 +1,9 @@
 const express = require("express");
 require("dotenv").config();
-const mongoose = require("mongoose");
 const cors = require("cors");
-const User = require("./src/models/user.models");
 const { dbConnected } = require("./src/db/db");
 const cookieParser = require("cookie-parser");
 const URI = process.env.MONGODB_URI;
-const SECRET_KEY = process.env.JWT_SECRET_KEY;
 const app = express();
 
 

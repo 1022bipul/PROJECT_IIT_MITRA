@@ -1,21 +1,20 @@
 const mongoose = require("mongoose");
-
 const userDetailsSchema = new mongoose.Schema(
   {
     avatar:{
-      type:String
-    },
-    coverImage:{
-      type:String
-    },
+      type:String,
 
+    },
+    banner:{
+      type:String
+    },
     name: {
       type: String,
-      required: true,
+      
     },
     email: {
       type: String,
-      required: true,
+     
     },
     phone: {
       type: Number,
@@ -41,6 +40,10 @@ const userDetailsSchema = new mongoose.Schema(
     youtube: { type: String },
     facebook: { type: String },
     portfolio: { type: String },
+    posts:[{
+        type:mongoose.Types.ObjectId,
+        ref:"ImgVideoUrl"
+    }]
   },
   { timestamps: true }
 );

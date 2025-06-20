@@ -2,7 +2,7 @@ const express= require('express');
 const { verifyToken } = require("../middlewares/verifyToken");
 const {handleCreatePostImg}=require('../controllers/upload.controllers')                                   
 const multer=require('multer')
-const path=require('path')
+const path = require('path')
 
 
 //storage

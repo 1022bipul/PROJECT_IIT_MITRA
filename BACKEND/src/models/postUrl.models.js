@@ -5,12 +5,16 @@ const imgVideoUrlSchema=new mongoose.Schema({
     email:{type:String,
         requuired:true
     },
-    discription:{type:String,
+    discription:{
+        type:String,
     
     },
-    url:{type:String,
+    url:{
+        type:String,
         required:true
-    }
+    },
+    
+    
 
 },{timestamps:true})
 

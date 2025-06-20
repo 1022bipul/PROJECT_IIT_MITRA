@@ -1,18 +1,21 @@
 const jwt = require("jsonwebtoken");
 const User = require("../models/user.models");
 const cookieParser = require("cookie-parser");
-
-
 require("dotenv").config();
 
 const SECRET_KEY = process.env.JWT_SECRET_KEY;
 
 const verifyToken =(req,res,next) =>{
+    console.log("fello")
    console.log(" token ",req.cookies)
    console.log(" token ",req.cookies.token)
+   console.log(SECRET_KEY)
 
     try{
-        const isVerified = jwt.verify(req.cookies.token,process.env.JWT_SECRET_KEY);
+    console.log("fello")
+
+        const isVerified = jwt.verify(req.cookies.token,SECRET_KEY);
+        console.log(isVerified)
         res.user=isVerified
         next();
     }catch(err){
