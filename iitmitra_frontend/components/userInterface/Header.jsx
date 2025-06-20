@@ -1,13 +1,13 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { ProfilePic } from '../Profile/ProfilePic'
-import iitlogo from '../../public/whitelogo.jpg';
+import iitlogo from '../../src/public/whitelogo.jpg';
 import { useContext } from 'react';
 import { DetailsContext } from '../../context/DetailsContext';
 
 
 export const Header = ({handleTogglePost}) => {
-    const {shortDetails}=useContext(DetailsContext)
+    const {shortDetails,longsDetails}=useContext(DetailsContext)
     // const{name,email}=shortDetails;
     return (
         <>

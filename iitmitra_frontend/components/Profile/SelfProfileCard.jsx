@@ -4,22 +4,23 @@ import { useContext, useEffect } from "react";
 import { DetailsContext } from "../../context/DetailsContext";
 
 export const SelfProfileCard = () => {
-    const{shortDetails}=useContext(DetailsContext)
+    const{shortDetails ,longsDetails}=useContext(DetailsContext)
    const{name}=shortDetails;
+   const{avatar,banner}=longsDetails ||{}
 
   return (
     <>
       <div className="bg-gray-200 flex flex-col space-y-7 rounded-2xl overflow-hidden p-3">
         <div className=" w-full relative flex justify-center items-end-safe rounded-md  ">
           <img
-            src="https://images.pexels.com/photos/236599/pexels-photo-236599.jpeg?auto=compress&cs=tinysrgb&w=600"
+            src={banner||"../../src/public/banner.png"}
             alt="Banner"
             className="w-full h-20 object-cover rounded-2xl"
           />
 
           {/* <!-- Profile image overlapping the banner --> */}
           <img
-            src="https://images.pexels.com/photos/1580272/pexels-photo-1580272.jpeg?auto=compress&cs=tinysrgb&w=300"
+            src={avatar||"../../src/public/Profile_avatar.png"}
             className="absolute translate-y-2/5 object-cover  h-15 w-15 rounded-full border-4 border-white"
           />
         </div>

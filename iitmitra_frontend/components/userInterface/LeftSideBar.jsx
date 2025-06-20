@@ -19,20 +19,20 @@ export const LeftSideBar = () => {
 
        {/* <!--Profile--> */}
        
-      <div className="bg-gray-300  relative  w-full h-full flex flex-col space-y-5 top-1 px-5 pt-1  rounded-r-md">
+      <div className="bg-gray-300  relative  w-full h-full flex flex-col space-y-5 top-1 px-5 pt-1  rounded-r-md ">
         <SelfProfileCard />
       
 
         {/* <!--Mitras--> */}
         <Link to="/mitra">
-          <div className=" flex justify-start items-center text-lg hover:border-b-2 border-blue-700 hover:text-blue-700">
+          <div className="md:text-lg text-sm  flex justify-start items-center  hover:border-b-2 border-blue-700 hover:text-blue-700">
             <i className="fa-solid fa-people-group text-xl mr-2"></i>Mitras
           </div>
         </Link>
 
         {/* <!-- Messages --> */}
         <Link to="/message">
-          <div className=" flex justify-start items-center text-lg  hover:border-b-2 border-blue-700 hover:text-blue-700">
+          <div className=" flex justify-start items-center md:text-lg text-sm  hover:border-b-2 border-blue-700 hover:text-blue-700">
             <i className="fa-regular fa-paper-plane text-xl mr-2"></i>Messages
           </div>
         </Link>
@@ -40,7 +40,7 @@ export const LeftSideBar = () => {
         {/* <!-- Activity check button --> */}
         <Link to="/activity"
           // onClick={toggleMenu}
-          className=" cursor-pointer flex justify-start items-center space-x-1 text-lg hover:border-b-2 border-blue-700 hover:text-blue-700"
+          className=" cursor-pointer flex justify-start items-center space-x-1 md:text-lg text-sm  hover:border-b-2 border-blue-700 hover:text-blue-700"
         >
        <i className="fa-regular fa-clock text-xl mr-2 "></i>Activity
         </Link>
@@ -49,7 +49,7 @@ export const LeftSideBar = () => {
         {/* <!-- Activity check button ENDS--> */}
         {/* <!-- Notifications --> */}
         <Link to="/notification">
-          <div className=" flex justify-start items-center text-lg  hover:border-b-2 border-blue-700 hover:text-blue-700">
+          <div className=" md:text-lg text-sm flex justify-start items-center   hover:border-b-2 border-blue-700 hover:text-blue-700">
             <i className="fa-regular fa-bell text-xl mr-2"></i>Notifications
           </div>
         </Link>

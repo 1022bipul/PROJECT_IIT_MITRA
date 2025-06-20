@@ -51,7 +51,6 @@ export const DetailsProvider = (props) => {
       setShortDetails(data[0]);
       setlongsDetails(data[1]);
       setIsLoggedIn(true)
-
     } catch (error) {
 
       setIsLoggedIn(false)

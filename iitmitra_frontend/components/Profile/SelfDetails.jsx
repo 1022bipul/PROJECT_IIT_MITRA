@@ -1,6 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
+
+
+import { DetailsContext } from "../../context/DetailsContext";
+
 
 export const SelfDetails = ({ state, handleChange }) => {
+  const { shortDetails } = useContext(DetailsContext);
+  const { name, email } = shortDetails;
   return (
     <>
       <div className="flex flex-col gap-2">
@@ -21,9 +27,9 @@ export const SelfDetails = ({ state, handleChange }) => {
 
         <input
           name="email"
-          value={state.email}
-          onChange={handleChange}
-          className="outline-none bg-gray-200 py-1 px-3 rounded-md"
+          value={email}
+          readOnly
+          className="outline-none bg-gray-100 py-1 px-3 rounded-md cursor-not-allowed"
           type="text"
           placeholder="Enter Your Email "
         />

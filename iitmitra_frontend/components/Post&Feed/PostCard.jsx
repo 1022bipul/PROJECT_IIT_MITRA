@@ -7,7 +7,14 @@ export const PostCard = ({photolink}) => {
     <>
       <div className="border-none p-2 rounded-xl bg-gray-200">
         <div className="m-1 bg-gray-100 rounded-2xl flex">
-        <ProfilePic/>
+        {/* <ProfilePic/> */}
+        <Link to="/profile">
+        <img
+          className="size-10 sm:11 object-cover rounded-full"
+          src="../../src/public/profile_avatar.png"
+          alt=""
+        />
+      </Link>
         
           {/* <img
             src="./icons/Generic avatar.svg"

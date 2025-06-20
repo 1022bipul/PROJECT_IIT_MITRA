@@ -6,11 +6,14 @@ import { DetailsContext } from "../../context/DetailsContext";
 import { useState } from "react";
 
 export const Profile = () => {
-  const { shortDetails, longsDetails ,imgUrl } = useContext(DetailsContext);
-  const { name, email } = shortDetails;
-  const { institute, branch, bio, skills } = longsDetails;
  
 
+  const { shortDetails, longsDetails ,imgUrl } = useContext(DetailsContext);
+  const { name, email } = shortDetails;
+  const { institute, branch, bio, skills,avatar,banner } = longsDetails ||{};
+ 
+
+  
 
   return (
     <>
@@ -19,21 +22,21 @@ export const Profile = () => {
       <div className="flex flex-col overflow-hidden mx-1 mt-1 rounded-md ">
         {/* <!-- Banner section --> */}
 
-        <div className="relative bg-slate-300 s">
+        <div className="relative bg-gray-300 ">
           {/* <!-- <button
             className="absolute  text-white bg-gray-700 hover:bg-blue-800 text-sm rounded-md m-2 p-1"
           >
             <i className="fa-solid fa-user-pen"></i>
           </button> --> */}
           <img
-            src="https://images.pexels.com/photos/236599/pexels-photo-236599.jpeg?auto=compress&cs=tinysrgb&w=600"
+            src={banner||"../src/public/banner.png"}
             alt="Banner"
-            className="w-full h-32 sm:h-48 object-cover"
+            className="w-full h-32 sm:h-48 object-cover "
           />
 
           {/* <!-- Profile image overlapping the banner --> */}
           <img
-            src="https://images.pexels.com/photos/1580272/pexels-photo-1580272.jpeg?auto=compress&cs=tinysrgb&w=300"
+            src={avatar||"../../src/public/Profile_avatar.png"}
             className="absolute object-cover bottom-[-40px] left-1/2 transform -translate-x-1/2 sm:size-30 size-28  rounded-full border-4 border-white"
           />
           <Link
@@ -46,9 +49,9 @@ export const Profile = () => {
         </div>
         {/* <!-- user details --> */}
         <div className="bg-gray-300 pt-12 text-center pb-2 rounded-b-md ">
-          <h1 className="font-extrabold text-xl">{name ?? "IIT MITRA"}</h1>
-          <p className="text-sm font-bold">{institute ?? "INDIAN INSTITUTE OF TECHNOLOGY"}</p>
-          <p className="text-sm mb-2 font-semibold">{branch ?? "COMPUTER SCIENCE"}</p>
+          <h1 className="font-extrabold text-xl">{name??"IIT MITRA"}</h1>
+          <p className="text-sm font-bold">{institute??"INDIAN INSTITUTE OF TECHNOLOGY"}</p>
+          <p className="text-sm mb-2 font-semibold">{branch??"COMPUTER SCIENCE"}</p>
           <p>{bio ?? "BIO"}</p>
           <p>{skills ?? "SKILLS"}</p>
           <div></div>
@@ -104,7 +107,7 @@ export const Profile = () => {
           </div>
         </div>
       
-        <div className="flex bg-slate-300 p-2 mt-1 rounded-md pl-5 space-x-15 sm:space-x-20 justify-center">
+        <div className="flex bg-gray-300 p-2 mt-1 rounded-md pl-5 space-x-15 sm:space-x-20 justify-center">
           <Link to="/profile">
             <i className="fa-solid fa-image fa-xl active:text-blue-600"></i>
           </Link>
@@ -119,8 +122,11 @@ export const Profile = () => {
           </Link>
         </div>
 
-        <div>
+        <div className="">
           <Outlet />
+        
+         
+
         </div>
 
         
