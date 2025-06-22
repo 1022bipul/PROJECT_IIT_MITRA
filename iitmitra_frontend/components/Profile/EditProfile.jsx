@@ -8,7 +8,10 @@ import { Profile } from "./Profile";
 import { DetailsContext } from "../../context/DetailsContext";
 
 export const EditProfile = () => {
-   const { shortDetails ,longsDetails} = useContext(DetailsContext);
+   const { loading,shortDetails ,longsDetails} = useContext(DetailsContext);
+
+  if(loading) return  <div>Loading user data...</div>;
+
   const { email } = shortDetails;
    const{name,avatar,banner }=longsDetails ||{};
 

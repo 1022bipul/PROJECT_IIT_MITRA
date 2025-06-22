@@ -4,7 +4,9 @@ import { useContext, useEffect } from "react";
 import { DetailsContext } from "../../context/DetailsContext";
 
 export const SelfProfileCard = () => {
-    const{shortDetails ,longsDetails}=useContext(DetailsContext)
+    const{loading, shortDetails ,longsDetails}=useContext(DetailsContext)
+  if(loading) return  <div>Loading user data...</div>;
+
    const{name}=shortDetails;
    const{avatar,banner}=longsDetails ||{}
 

@@ -8,12 +8,13 @@ import { useState } from "react";
 export const Profile = () => {
  
 
-  const { shortDetails, longsDetails ,imgUrl } = useContext(DetailsContext);
+  const {loading, shortDetails, longsDetails ,imgUrl } = useContext(DetailsContext);
+  if(loading) return  <div>Loading user data...</div>;
+
   const { name, email } = shortDetails;
   const { institute, branch, bio, skills,avatar,banner } = longsDetails ||{};
  
 
-  
 
   return (
     <>
@@ -29,7 +30,7 @@ export const Profile = () => {
             <i className="fa-solid fa-user-pen"></i>
           </button> --> */}
           <img
-            src={banner||"../src/public/banner.png"}
+            src={banner||"../../src/public/banner.png"}
             alt="Banner"
             className="w-full h-32 sm:h-48 object-cover "
           />

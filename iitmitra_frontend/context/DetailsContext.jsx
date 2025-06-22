@@ -5,6 +5,7 @@ export const DetailsProvider = (props) => {
   const [shortDetails, setShortDetails] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [longsDetails, setlongsDetails] = useState("");
+  const [loading, setLoading] = useState(true);
  const [imgUrl,setImgUrls]=useState([])
 
 
@@ -24,6 +25,8 @@ export const DetailsProvider = (props) => {
       }
       const data = await res.json();
       setImgUrls(data);
+  
+      console.log("radhe radhe")
       console.log(imgUrl)
     
 
@@ -65,6 +68,7 @@ export const DetailsProvider = (props) => {
      const fetchAllData = async () => {
     await handleGetUserData();
     await handleGetUrlData();
+    setLoading(false);
   };
 
   fetchAllData();
@@ -107,15 +111,12 @@ useEffect(() => {
   return (
     <DetailsContext.Provider
       value={{
+        loading,
        imgUrl,
-       setImgUrls,
         logoutUser,
         shortDetails,
-        setShortDetails,
         longsDetails,
-        setlongsDetails,
         isLoggedIn,
-        setIsLoggedIn,
       }}
     >
       {props.children}

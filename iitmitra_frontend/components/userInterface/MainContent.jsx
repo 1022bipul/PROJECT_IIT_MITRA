@@ -1,10 +1,57 @@
 import React from "react";
-import { useContext, useEffect } from "react";
+import { useContext, useEffect,useState } from "react";
 import { PostCard } from "../Post&Feed/PostCard";
 import { BottomNavForMobile } from "./BottomNavForMobile";
 import { ProfilePic } from "../Profile/ProfilePic";
 import { useLocation } from "react-router-dom";
 export const MainContent = () => {
+
+   const [posts,setposts]=useState();
+   const[loading,setLoading]=useState(true);
+
+
+  const handleGetAllpostsUrls=async()=>{
+  
+ try {
+      const res = await fetch("http://localhost:3000/api/post/feed/urls", {
+        method: "GET",
+        credentials: "include",
+      });
+      console.log(res)
+
+
+      if (!res.ok) {
+        throw new Error("Network response was not ok");
+      }
+      const data = await res.json();
+console.log('radhe radhe')
+
+      console.log(data)
+
+      setposts(data);
+      console.log(posts)
+    
+
+    } catch (error) {
+
+    
+      console.log(error);
+
+    }
+  
+  }
+
+   
+  useEffect(()=>{
+    const handleAllUrls=async()=>await handleGetAllpostsUrls()
+     handleAllUrls()
+     setLoading(false)
+  },[])
+
+
+  if(loading){
+    return <h1>Loading...</h1>
+  }
   return (
     <>
       <div className="h-full  flex flex-col text-center m-1 gap-1">
@@ -66,53 +113,16 @@ export const MainContent = () => {
               <a href="#" className=" "><i className="fa-solid fa-user fa-lg "></i>Tag</a> */}
           </div>
         </div>
+
+
+
+
         {/* <!-- Posts or feed --> */}
 
-        <PostCard
-          photolink={
-            "https://images.pexels.com/photos/31812795/pexels-photo-31812795/free-photo-of-portrait-of-woman-with-pink-flowers-in-spring-setting.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load"
-          }
-        />
-        <PostCard
-          photolink={
-            "https://images.pexels.com/photos/32080139/pexels-photo-32080139/free-photo-of-fresh-red-tomatoes-on-a-kitchen-counter.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load"
-          }
-        />
-        <PostCard
-          photolink={
-            "https://images.pexels.com/photos/14598237/pexels-photo-14598237.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load"
-          }
-        />
-        <PostCard
-          photolink={
-            "https://images.pexels.com/photos/20044830/pexels-photo-20044830/free-photo-of-woman-posing-with-bay-horse-in-blue-bridle.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load"
-          }
-        />
-        <PostCard
-          photolink={
-            "https://images.pexels.com/photos/32056657/pexels-photo-32056657/free-photo-of-black-and-white-close-up-of-a-farm-cow.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load"
-          }
-        />
-        <PostCard
-          photolink={
-            "https://images.pexels.com/photos/32063710/pexels-photo-32063710/free-photo-of-joyful-piggyback-ride-on-a-portuguese-beach.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load"
-          }
-        />
-        <PostCard
-          photolink={
-            "https://images.pexels.com/photos/5955748/pexels-photo-5955748.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load"
-          }
-        />
-        <PostCard
-          photolink={
-            "https://images.pexels.com/photos/16547097/pexels-photo-16547097/free-photo-of-couple-dancing-on-road.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load"
-          }
-        />
-        <PostCard
-          photolink={
-            "https://images.pexels.com/photos/31859397/pexels-photo-31859397/free-photo-of-sunset-at-coogee-beach-with-heavy-machinery.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load"
-          }
-        />
+        {posts?.map(post =>  (<PostCard  post={post}
+          
+        />))}
+       
       </div>
     </>
   );

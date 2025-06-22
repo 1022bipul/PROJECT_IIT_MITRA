@@ -27,6 +27,8 @@ export const CreatePost = ({ togglecreatePostBtn, handleToggleCreatePost }) => {
         ...prev,
         [name]: files[0],
       }));
+    setPreviewName(postData.image.name);
+
     } else {
       // Textarea input
       setPostData((prev) => ({
@@ -40,7 +42,6 @@ export const CreatePost = ({ togglecreatePostBtn, handleToggleCreatePost }) => {
 
 
   const handleSubmitPost = async (e) => {
-  setPreviewName(postData.image.name);
 
     e.preventDefault();
     console.log(postData);
@@ -58,6 +59,7 @@ const postRes = await fetch("http://localhost:3000/api/upload/image", {
 });
 
     const postStatus =await postRes.json();
+    alert(postStatus.message)
     setPostData({
     image: "",
     discription: "",

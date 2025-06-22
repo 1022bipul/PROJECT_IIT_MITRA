@@ -7,8 +7,10 @@ import { DetailsContext } from '../../context/DetailsContext';
 
 
 export const Header = ({handleTogglePost}) => {
-    const {shortDetails,longsDetails}=useContext(DetailsContext)
+    const {loading,shortDetails}=useContext(DetailsContext)
     // const{name,email}=shortDetails;
+  if(loading) return  <div>Loading user data...</div>;
+
     return (
         <>
          

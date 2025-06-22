@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 import { DetailsContext } from "../../context/DetailsContext";
 
 export const ProfilePic = () => {
-  const{longsDetails}=useContext(DetailsContext)
+  const{loading,longsDetails}=useContext(DetailsContext)
+  if(loading) return  <div>Loading user data...</div>;
      
      const{avatar}=longsDetails ||{}
   return (

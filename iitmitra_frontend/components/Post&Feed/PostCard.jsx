@@ -1,8 +1,20 @@
 import React from "react";
 import { ProfilePic } from "../Profile/ProfilePic";
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import { useEffect } from "react";
 
-export const PostCard = ({photolink}) => {
+export const PostCard = ({post}) => {
+   
+  if(!post){
+    return (
+      <div className="border-none p-2 rounded-xl bg-gray-200">
+
+        <h1>No posts yet !!</h1>
+</div>
+    )
+  }
+
   return (
     <>
       <div className="border-none p-2 rounded-xl bg-gray-200">
@@ -11,7 +23,7 @@ export const PostCard = ({photolink}) => {
         <Link to="/profile">
         <img
           className="size-10 sm:11 object-cover rounded-full"
-          src="../../src/public/profile_avatar.png"
+          src={post?.user?.avatar ||"../../src/public/profile_avatar.png"}
           alt=""
         />
       </Link>
@@ -20,13 +32,13 @@ export const PostCard = ({photolink}) => {
             src="./icons/Generic avatar.svg"
             className="size-10 border-2 border-white rounded-full"
           /> */}
-          <h1 className="relative left-1 top-2">Anonymous</h1>
+          <h1 className="relative left-1 top-2">{post?.user?.name || "Anonymous bro"}</h1>
         </div>
         <h5 className="mx-1.5 px-1 rounded-2xl bg-gray-100 text-xs font-light text-end">times ago</h5>
         <div className="lg:flex">
           <div className="flex justify-center sm:justify-center md:justify-start p-2">
             <img
-              src={photolink}
+              src={post?.url}
               className=" relative w-full sm:w-fit md:w-md lg:w-md rounded-xl"
             />
           </div>
@@ -58,7 +70,7 @@ export const PostCard = ({photolink}) => {
                 <Link href="#">post</Link>
               </button>
             </div>
-          </div>{" "}
+          </div>
         </div>
       </div>
     </>
