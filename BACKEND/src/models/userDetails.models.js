@@ -40,10 +40,6 @@ const userDetailsSchema = new mongoose.Schema(
     youtube: { type: String },
     facebook: { type: String },
     portfolio: { type: String },
-    posts:[{
-        type:mongoose.Types.ObjectId,
-        ref:"ImgVideoUrl"
-    }]
   },
   { timestamps: true }
 );

@@ -1,4 +1,7 @@
+
 const ImgVideoUrl = require("../models/postUrl.models");
+
+//get post urls for profile for particular user
 
 
 const handleGetPostsUrls= async(req,res)=>{
@@ -13,8 +16,26 @@ const handleGetPostsUrls= async(req,res)=>{
    
      res.status(200).json(user)
   } catch (error) {
-    res.status(500).json({message:'failed to save 56 details'})
+    res.status(500).json({message:'failed to get urls details for profile'})
     
   }}
 
-module.exports ={handleGetPostsUrls}
+
+  const handleGetFeedUrls=async(req,res)=>{
+    try{
+
+  const posts=await ImgVideoUrl.find()
+  .populate('user')
+    console.log(posts) 
+
+     res.status(200).json(posts)
+
+
+    }catch(error)
+    {    
+      res.status(500).json({message:'failed to get all urls details for feed'})
+
+    }
+  }
+
+module.exports ={handleGetPostsUrls ,handleGetFeedUrls}
