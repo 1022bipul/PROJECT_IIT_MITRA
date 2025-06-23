@@ -1,8 +1,11 @@
 import React, { useRef, useState } from "react";
-import { Form } from "react-router-dom";
+import { Form,  useNavigate } from "react-router-dom";
+
 
 export const CreatePost = ({ togglecreatePostBtn, handleToggleCreatePost }) => {
  const [previewName,setPreviewName]=useState(null)
+ const [upload,setUpload]=useState(false)
+ const navigate=useNavigate()
 
  const [postData, setPostData] = useState({
     image: "",
@@ -51,6 +54,7 @@ export const CreatePost = ({ togglecreatePostBtn, handleToggleCreatePost }) => {
    const formData = new FormData();
 formData.append("image", image);
 formData.append("discription", discription);
+ setUpload(true)
 
 const postRes = await fetch("http://localhost:3000/api/upload/image", {
   method: "POST",
@@ -59,14 +63,24 @@ const postRes = await fetch("http://localhost:3000/api/upload/image", {
 });
 
     const postStatus =await postRes.json();
+    if(postRes.ok){ 
+     setUpload(false) 
     alert(postStatus.message)
     setPostData({
-    image: "",
+    image:"",
     discription: "",
 
-  })
+  })}else{
+
+    setUpload(false) 
+    alert(postStatus.error)
+    navigate("/editprofile")
+  }
 
   };
+  if(upload){
+    return <div className="absolute bg-gray-500 z-10 justify-self-center p-10 rounded-2xl  "> Image is uploading...</div>
+  }
 
   return (
     <>

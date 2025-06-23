@@ -9,6 +9,9 @@ import { DetailsContext } from "../../context/DetailsContext";
 
 export const EditProfile = () => {
    const { loading,shortDetails ,longsDetails} = useContext(DetailsContext);
+  const [uploading,setUploading]= useState(false)
+
+
 
   if(loading) return  <div>Loading user data...</div>;
 
@@ -101,6 +104,7 @@ export const EditProfile = () => {
     formData.append("banner",coverImage)
 
     try {
+      setUploading(true)
       const detailsRes= await fetch('http://localhost:3000/api/profile/profile-data',{
         method:'POST',
         body:formData,
@@ -108,8 +112,12 @@ export const EditProfile = () => {
       });
  console.log(detailsRes)
       if (detailsRes.ok) {
-        alert("Details Saved"); 
+        setUploading(false)
+
+        // alert("Details Saved"); 
       } else {
+        setUploading(false)
+
         alert("Oops! some error occrued");
       }
     } catch (error) {
@@ -117,6 +125,10 @@ export const EditProfile = () => {
       
     }
   };
+
+   if(uploading){
+    return <div className="absolute bg-gray-500  left-[40%]  p-10 rounded-2xl  "> Savind Your Details... </div>
+  }
 
   return (
     <>
