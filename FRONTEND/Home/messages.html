@@ -49,17 +49,42 @@
         <div class="bg-gray-200 h-screen w-full rounded overflow-y-scroll p-2 justify-start items-start">
            <!--Freind Profile button-->  <a href="#" class="flex justify-start items-center m-1 p-1 mt-0 pt-0 mb-0 pb-0 text-2xl"><img src="./icons/Generic avatar.svg" class="size-10 border-1 rounded-full m-1">Mitra</a>
             <hr class=" border-gray-400 ml-1 mr-1 "> 
-            <!-- Message area -->
-                <div class="bg-white w-full h-4/5 rounded-xl mt-1 border-1  overflow-y-scroll scrollbar-hide ">
-                <div class=" h-full grid p-2 w-full ">
-                   <div id="FrndMsg">  <!-- Message from Mitra -->
-                <div id="FrndsMsg" class="bg-blue-300 w-fit h-fit p-1 rounded-xl m-1">Hello! bro</div>
-                    </div>
-                    <div id="myMsg"> <!-- Message from me -->
-                <div id="myMsg" class="bg-blue-300 w-fit h-fit p-1 rounded-xl m-1">Hello! bro</div>
-                    </div>    
-            </div>
-                </div>
+            
+<!-- Message area -->
+        
+            <div class="bg-white w-full h-4/5 rounded-xl mt-1 border overflow-y-scroll scrollbar-none">
+            <div class="h-full flex flex-col p-2 space-y-2">
+
+    <!-- Friend's message -->
+    <div class="flex justify-start">
+      <div class="bg-blue-200 text-black w-fit max-w-xs p-2 rounded-xl border-1">
+        Hello! bro
+      </div>
+    </div>
+
+    <!-- Your message -->
+    <div class="flex justify-end">
+      <div class="bg-blue-400 text-white w-fit max-w-xs p-2 rounded-xl">
+        Hey, how are you?
+      </div>
+    </div>
+
+    <!-- Friend's reply -->
+    <div class="flex justify-start">
+      <div class="bg-blue-200 text-black w-fit max-w-xs p-2 rounded-xl border-1">
+        I'm good! What about you?
+      </div>
+    </div>
+
+    <!-- Your response -->
+    <div class="flex justify-end">
+      <div class="bg-blue-400 text-white w-fit max-w-xs p-2 rounded-xl">
+        All great. Just working on a project.
+      </div>
+    </div>
+
+  </div>
+</div>
                 <!-- Message sending area -->
             <form class="flex justify-start items-end mt-1"> 
                 <input type="text" placeholder="Send Message ..." class="w-full h-15 bottom-1 border-1 rounded-md bg-white p-2 mr-1">
