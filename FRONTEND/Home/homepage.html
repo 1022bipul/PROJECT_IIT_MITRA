@@ -127,10 +127,10 @@
     <!-- Interaction buttons -->
     <div class="lg:w-xl">
         <div class="flex m-2 space-x-4 lg:justify-end">
-    <a href="#"><i class="fa-regular fa-heart fa-2x"></i></a>
-    <a href="#"><i class="fa-regular fa-comment fa-2x"></i></a>
-    <a href="#"><i class="fa-regular fa-paper-plane fa-2x"></i></a>
-    <a href="#"><i class="fa-regular fa-bookmark fa-2x"></i></a>
+    <button><a href="#"><i class="fa-regular fa-heart fa-2x"></i></a></button>
+    <button onclick="toggleComments()"><a href="#"><i class="fa-regular fa-comment fa-2x"></i></a></button>
+    <button><a href="#"><i class="fa-regular fa-paper-plane fa-2x"></i></a></button>
+    <button><a href="#"><i class="fa-regular fa-bookmark fa-2x"></i></a></button>
 </div>
 
   <!-- Comment area -->
@@ -140,7 +140,7 @@
     <button class="mt-2 px-2 py-1 bg-blue-500 text-white rounded-md"><a href="#">post</a></button>
 </div>
  <!-- Comments List -->
-  <div class="mt-4 space-y-3">
+  <div  id="commentsSection" class="mt-4 space-y-3 bg-gray-400 rounded-md p-2">
     <!-- Single Comment -->
     <div class="bg-white p-3 rounded-lg shadow border border-gray-200">
       <p class="text-sm"><span class="font-semibold text-gray-800">User123:</span> Nice bike!</p>
@@ -178,7 +178,13 @@
   
 
 
-
+<!-- Script to toggle visibility -->
+<script>
+  function toggleComments() {
+    const section = document.getElementById("commentsSection");
+    section.classList.toggle("hidden");
+  }
+</script>
 <script
 src="https://kit.fontawesome.com/681f50922b.js"
 crossorigin="anonymous"
