@@ -21,9 +21,9 @@ const handleCreatePostImg = async (req, res) => {
      const userDetail = await UserDetails.findOne({ email });
    
      const user = userDetail._id;
-     if (!user) {
-      return res.status(404).json({ error: "User not found" });
-     }
+    //  if (!user) {
+    //   return res.status(500).json({ error: "User not found" });
+    //  }
      console.log("radhe radhe");
    
      console.log(user);
@@ -46,7 +46,7 @@ const handleCreatePostImg = async (req, res) => {
        .json({ message: "Image Uploaded" })
        .json({ discription: discription, url: url });
  } catch (error) {
-    
+   res.status(500).json({error:"Fill out the profile details"})
  }
 };
 
