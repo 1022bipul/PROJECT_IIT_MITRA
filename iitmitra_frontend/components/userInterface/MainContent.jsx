@@ -18,16 +18,11 @@ export const MainContent = () => {
         credentials: "include",
       });
       console.log(res)
-
-
       if (!res.ok) {
         throw new Error("Network response was not ok");
       }
       const data = await res.json();
-console.log('radhe radhe')
-
-      console.log(data)
-
+      console.log('radhe radhe')
       setposts(data);
       console.log(posts)
     

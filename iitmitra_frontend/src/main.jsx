@@ -33,17 +33,26 @@ import { Posts } from "../components/Profile/Posts.jsx";
 import { Video } from "../components/Profile/Video.jsx";
 import { Saved } from "../components/Profile/Saved.jsx";
 import { CreatePost } from "../components/Post&Feed/CreatePost.jsx";
+import { AllUserProvider } from "../context/AllUserContext.jsx";
+import { UserProfile } from "../components/Profile/UserProfile.jsx";
 
 
 
 const router = createBrowserRouter([
   
-      {
+      {   
         path: "/",
         element: <App />,
         children: [
           { path: "", element: <MainContent /> },
-          { path: "profile/", element: <Profile />,
+          { path: "profile", element: <Profile />,
+            children:[
+              {path:"", element: <Posts/>},
+              {path:"videos", element: <Video/>},
+              {path:"saved", element: <Saved/>}
+            ]
+           },
+           { path: "profile/id", element: <UserProfile />,
             children:[
               {path:"", element: <Posts/>},
               {path:"videos", element: <Video/>},
@@ -56,7 +65,7 @@ const router = createBrowserRouter([
           { path: "about", element: <EditProfile /> },
           { path: "help", element: <EditProfile /> },
           { path: "mitra", element: <Mitra/> },
-          { path: "notification", element: <Notifications/> },
+          { path: "notification", element: <null/> },
           { path: "activity", element: <Activity/>},
           { path: "post", element: <CreatePost/>,
             // children:[
@@ -69,7 +78,7 @@ const router = createBrowserRouter([
            { path: "/message", element: <Message/>},
       { path: "logout", element: <Logout /> },
         ],
-      },
+      } ,
     
 
   { path: "/register", element: <Register /> },
@@ -79,9 +88,13 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
+    <AllUserProvider>
+
     <DetailsProvider>
       <RouterProvider router={router} />
     </DetailsProvider>
+      </AllUserProvider>
+
   </StrictMode>
 );
 // ✅ Why this works:

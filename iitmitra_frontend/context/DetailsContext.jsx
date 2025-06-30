@@ -9,7 +9,7 @@ export const DetailsProvider = (props) => {
  const [imgUrl,setImgUrls]=useState([])
 
 
-
+//all img url of a user (only self post img)
   const handleGetUrlData = async () => {
 
     try {
@@ -40,6 +40,8 @@ export const DetailsProvider = (props) => {
 
   console.log(shortDetails.name)
 
+  //details of a user (only self)
+
   const handleGetUserData = async () => {
 
     try {
@@ -63,7 +65,8 @@ export const DetailsProvider = (props) => {
     }
   };
 
- useEffect(() => {
+
+useEffect(() => {
   
      const fetchAllData = async () => {
     await handleGetUserData();
@@ -71,19 +74,28 @@ export const DetailsProvider = (props) => {
     setLoading(false);
   };
 
-  fetchAllData();
-
-
-    
+  fetchAllData(); 
   
 }, []);
 
 
 
+
+//imgCount code (self)
+
+const[imgCount,setImgCount]=useState()
+
 useEffect(() => {
-  console.log("imgUrl updated in context:", imgUrl);
  
+    setImgCount(imgUrl.length)
+  
 }, [imgUrl]);
+
+ 
+
+
+
+//logout logic
 
  const logoutUser=async()=>{
  try {
@@ -112,7 +124,8 @@ useEffect(() => {
     <DetailsContext.Provider
       value={{
         loading,
-       imgUrl,
+        imgUrl,
+        imgCount,
         logoutUser,
         shortDetails,
         longsDetails,

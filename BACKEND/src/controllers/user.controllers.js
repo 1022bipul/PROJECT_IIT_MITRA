@@ -24,5 +24,28 @@ const handlGetUserDetails =async(req,res)=>{
 
 
 }
+const handleGetAllUserForSuggestion=async(req,res)=>{
+ try {
+    const email=res.user.userEmail;
 
-module.exports={handlGetUserDetails}
+   const allUser=await UserDetails.find()
+   const filterUser=allUser.filter(item => item.email!=email)
+   res.status(200).json(filterUser)
+ } catch (error) {
+   console.log(error)
+ }
+}
+
+//finding one user
+const handleGetOneUserProfile=async(req,res)=>{
+  try {
+    const userId =req.userId
+
+    
+  } catch (error) {
+    
+  }
+
+}
+
+module.exports={handlGetUserDetails,handleGetAllUserForSuggestion ,handleGetOneUserProfile}

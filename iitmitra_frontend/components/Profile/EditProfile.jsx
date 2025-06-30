@@ -6,8 +6,10 @@ import { SkillsSection } from "./SkillsSection";
 import { SelfDetails } from "./SelfDetails";
 import { Profile } from "./Profile";
 import { DetailsContext } from "../../context/DetailsContext";
+import { useNavigate } from "react-router-dom";
 
 export const EditProfile = () => {
+  const navigate=useNavigate();
    const { loading,shortDetails ,longsDetails} = useContext(DetailsContext);
   const [uploading,setUploading]= useState(false)
 
@@ -113,7 +115,7 @@ export const EditProfile = () => {
  console.log(detailsRes)
       if (detailsRes.ok) {
         setUploading(false)
-
+        navigate('/')
         // alert("Details Saved"); 
       } else {
         setUploading(false)
@@ -127,7 +129,7 @@ export const EditProfile = () => {
   };
 
    if(uploading){
-    return <div className="absolute bg-gray-500  left-[40%]  p-10 rounded-2xl  "> Savind Your Details... </div>
+    return <div className="absolute bg-gray-500  left-[40%]  p-10 rounded-2xl  "> Saving Your Details... </div>
   }
 
   return (

@@ -9,18 +9,16 @@ import { Header } from "../components/userInterface/Header";
 import { MainContent } from "../components/userInterface/MainContent";
 import { LeftSideBar } from "../components/userInterface/LeftSideBar";
 import { RightSideBar } from "../components/userInterface/RightSideBar";
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, useLocation } from "react-router-dom";
 import { BottomNavForMobile } from "../components/userInterface/BottomNavForMobile";
-import { SettingsOptions } from "../components/userInterface/SettingsOptions";
-import { AcedemicDetail } from "../components/Profile/AcedemicDetail";
-import { ChangePassword } from "../components/password&security/ChangePassword";
-import { FriendSuggestions } from "../components/userInterface/FriendSuggestions";
-import { ContentAera } from "../components/userInterface/ContentAera";
-import { Footer } from "../components/userInterface/Footer";
+import { FaRegImage } from "react-icons/fa6";
 import { CreatePost } from "../components/Post&Feed/CreatePost";
+import { MdOutlinePhotoFilter } from "react-icons/md";
+import { Notifications } from "../components/userInterface/Notifications";
 
 function App() {
-  
+ 
+
   const togglecreatePostBtn = useRef();
 
   const togglePost = useRef();
@@ -52,18 +50,18 @@ function App() {
         style={{ display: "none" }}
       >
         <div className="flex flex-col">
-        <button
-          onClick={handleToggleCreatePost}
-          className="bg-black px-2 py-0.5 rounded text-lg text-white"
-        >
-          Post
-        </button>
-        <button className="bg-black  px-2 py-0.5 mt-1 rounded  text-lg  text-white">
-          Story
-        </button>
+          <button
+            onClick={handleToggleCreatePost}
+            className="bg-black px-2 py-0.5 rounded text-lg text-start text-white flex items-center justify-start"
+          >
+          <span className="pr-1"><FaRegImage className="size-5"/></span> Post
+          </button>
+          <button className="bg-black  px-1 py-0.5 mt-1 rounded  text-lg text-start flex items-center justify-start  text-white">
+          <span className="pr-1"> <MdOutlinePhotoFilter className="size-6"/> </span> Story
+          </button>
+        </div>
       </div>
-      </div>
-     
+
       <div
         className=""
         style={{
@@ -73,14 +71,17 @@ function App() {
       >
         <Header handleTogglePost={handleTogglePost} />
 
-        <div className=" h-[92vh] w-full overflow-y-scroll grid sm:grid-cols-12" style={{
-              scrollbarWidth: "none",
-              msOverflowStyle: "none",
-            }}>
+        <div
+          className=" h-[92vh] w-full overflow-y-scroll grid sm:grid-cols-12"
+          style={{
+            scrollbarWidth: "none",
+            msOverflowStyle: "none",
+          }}
+        >
           <CreatePost
-          togglecreatePostBtn={togglecreatePostBtn}
-          handleToggleCreatePost={handleToggleCreatePost}
-        />
+            togglecreatePostBtn={togglecreatePostBtn}
+            handleToggleCreatePost={handleToggleCreatePost}
+          />
           {/* <!-- left side bar     --> */}
           <div className="sm:col-span-2 hidden sticky h-full sm:block ">
             <LeftSideBar />
@@ -101,7 +102,8 @@ function App() {
             </div>
           </div>
           {/* <!-- right side bar --> */}
-          <div className=" sm:col-span-3  hidden top-0 overflow-hidden sm:block h-full " >
+          <div className=" sm:col-span-3  hidden top-0 overflow-hidden sm:block h-full ">
+           
             <RightSideBar />
           </div>
         </div>
