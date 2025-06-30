@@ -21,7 +21,7 @@ export const CreatePost = ({ togglecreatePostBtn, handleToggleCreatePost }) => {
  
  
 
-  const handleChange = (e) => {
+  const handleChange =(e) => {
     const { name, value, files } = e.target;
 
     if (files && files.length > 0) {
@@ -30,7 +30,8 @@ export const CreatePost = ({ togglecreatePostBtn, handleToggleCreatePost }) => {
         ...prev,
         [name]: files[0],
       }));
-    setPreviewName(postData.image.name);
+    
+     setPreviewName(postData.image.name);
 
     } else {
       // Textarea input
@@ -39,10 +40,11 @@ export const CreatePost = ({ togglecreatePostBtn, handleToggleCreatePost }) => {
         [name]: value,
       }));
     }
+    
    
 
   };
-
+ 
 
   const handleSubmitPost = async (e) => {
 

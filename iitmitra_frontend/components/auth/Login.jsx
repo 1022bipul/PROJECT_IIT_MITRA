@@ -38,7 +38,7 @@ export const Login = () => {
     const loggedIn=await loginData.json();
     
     if(loginData.ok){
-     navigate('/')
+     navigate('/editprofile')
       alert(`${loggedIn.massage}`)
     }else{
       alert(`Invalid Credentials`)

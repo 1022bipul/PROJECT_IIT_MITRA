@@ -3,6 +3,7 @@ import { ProfilePic } from "../Profile/ProfilePic";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useEffect } from "react";
+import { Comments } from "./Comments";
 
 export const PostCard = ({post}) => {
    
@@ -17,7 +18,7 @@ export const PostCard = ({post}) => {
 
   return (
     <>
-      <div className="border-none p-2 rounded-xl bg-gray-200">
+      <div className="border-none p-2 my-3 rounded-xl bg-gray-200">
         <div className="m-1 rounded-2xl flex">
         {/* <ProfilePic/> */}
         <Link to="/profile">
@@ -32,7 +33,7 @@ export const PostCard = ({post}) => {
 
          
           <h1 className="px-2 text-start font-semibold">{post?.user?.name || "Anonymous bro"}</h1>
-        <p className=" px-2 text-xs font-light text-start ">times ago</p>
+        <p className=" px-2 text-xs font-light text-start ">{post?.createdAt}ago</p>
          </div>
         </div>
             <h1 className="text-start text-md py-1 px-2">{post?.discription}</h1>
@@ -62,16 +63,7 @@ export const PostCard = ({post}) => {
             </div>
 
             {/* <!-- Comment area --> */}
-            <div className="bg-gray-300 m-1 p-2 rounded-md shadow-md lg:text-right">
-              <h2 className="text-lg font-bold">Comments</h2>
-              <textarea
-                className="w-full p-2 bg-gray-50 rounded-md"
-                placeholder="Write Link comment..."
-              ></textarea>
-              <button className="mt-2 px-2 py-1 bg-blue-500 text-white rounded-md">
-                <Link href="#">post</Link>
-              </button>
-            </div>
+           <Comments/>
           </div>
         </div>
       </div>

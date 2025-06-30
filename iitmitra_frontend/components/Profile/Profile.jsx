@@ -1,19 +1,27 @@
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link, Outlet } from "react-router-dom";
 import { ProfilePic } from "./ProfilePic";
 import { BioSection } from "./BioSection";
 import { DetailsContext } from "../../context/DetailsContext";
-import { useState } from "react";
+import { FaLinkedin } from "react-icons/fa";
+import { IoLogoYoutube } from "react-icons/io";
+import { FaInstagram } from "react-icons/fa";
+import { FaGithubSquare } from "react-icons/fa";
+import { MdOutlineMessage } from "react-icons/md";
+import { FaImage } from "react-icons/fa6";
+import { FaVideo } from "react-icons/fa";
+import { FaBookmark } from "react-icons/fa";
 
 export const Profile = () => {
  
 
-  const {loading, shortDetails, longsDetails ,imgUrl } = useContext(DetailsContext);
+  const {loading, shortDetails, longsDetails ,imgCount } = useContext(DetailsContext);
   if(loading) return  <div>Loading user data...</div>;
 
   const { name, email } = shortDetails;
   const { institute, branch, bio, skills,avatar,banner } = longsDetails ||{};
- 
+
+
 
 
   return (
@@ -24,11 +32,6 @@ export const Profile = () => {
         {/* <!-- Banner section --> */}
 
         <div className="relative bg-gray-300 ">
-          {/* <!-- <button
-            className="absolute  text-white bg-gray-700 hover:bg-blue-800 text-sm rounded-md m-2 p-1"
-          >
-            <i className="fa-solid fa-user-pen"></i>
-          </button> --> */}
           <img
             src={banner||"../../src/public/banner.png"}
             alt="Banner"
@@ -60,7 +63,7 @@ export const Profile = () => {
           <div className="flex justify-center space-x-5">
             <div>
               <h1 className="text-black font-bold text-lg">Posts</h1>
-              <div className="text-black font-semibold text-lg">100</div>
+              <div className="text-black font-semibold text-lg">{imgCount ||0}</div>
             </div>
             {/* <div>
               <h1 className="text-black font-bold text-lg">Follower</h1>
@@ -76,50 +79,35 @@ export const Profile = () => {
             </div>
           </div>
 
-          <div className="flex space-x-2 justify-center items-center">
+          <div className="flex space-x-4 mt-2 justify-center items-center">
             <Link to="#">
-              <img
-                src="../../src/assets/linkedin.png"
-                className="size-10"
-                alt=""
-              />
+             <FaLinkedin className="size-5" />
             </Link>
             <Link to="#">
-              <img
-                src="../../src/assets/yt.png "
-                className="size-10 mr-2"
-                alt=""
-              />
+              <FaInstagram className="size-5"/>
             </Link>
             <Link to="#">
-              <img
-                src="../../src/assets/insta.png"
-                className="size-5 mr-3"
-                alt=""
-              />
+             <IoLogoYoutube className="size-5"/>
             </Link>
             <Link to="#">
-              <img
-                src="../../src/assets/fb.png"
-                className="size-5 m-2"
-                alt=""
-              />
+              <FaGithubSquare className="size-5" />
+
             </Link>
           </div>
         </div>
       
         <div className="flex bg-gray-300 p-2 mt-1 rounded-md pl-5 space-x-15 sm:space-x-20 justify-center">
           <Link to="/profile">
-            <i className="fa-solid fa-image fa-xl active:text-blue-600"></i>
+            <FaImage className="size-6 active:text-blue-600"/>
           </Link>
           <Link to="/profile/videos">
-            <i className="fa-solid fa-message fa-xl active:text-blue-600"></i>
+            <MdOutlineMessage className="size-6 active:text-blue-600"/>
           </Link>
           <Link to="/profile/saved">
-            <i className="fa-solid fa-video fa-xl active:text-blue-600"></i>
+            <FaVideo className="size-6 active:text-blue-600" />
           </Link>
           <Link to="#">
-            <i className="fa-solid fa-bookmark fa-xl active:text-blue-600"></i>
+            <FaBookmark className="size-6 active:text-blue-600" />
           </Link>
         </div>
 
