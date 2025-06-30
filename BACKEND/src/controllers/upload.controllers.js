@@ -17,7 +17,7 @@ const handleCreatePostImg = async (req, res) => {
      console.log(req.file);
      const email = res.user.userEmail;
    
-     //get user id od userDetails
+     //get user id of userDetails
      const userDetail = await UserDetails.findOne({ email });
    
      const user = userDetail._id;

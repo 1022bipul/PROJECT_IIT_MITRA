@@ -14,7 +14,7 @@ const profileRouter=require("./src/routes/profile.routes")
 const uploadRouter=require("./src/routes/upload.routes")
 const userRouter=require("./src/routes/user.routes")
 const postRouter=require("./src/routes/post.routes")
-
+const commentRouter=require('./src/routes/comment.routes')
 
 //db connection
 dbConnected(URI);
@@ -36,6 +36,7 @@ app.use('/api/profile',profileRouter)
 app.use('/api/upload',uploadRouter)
 app.use('/api/user',userRouter)
 app.use('/api/post',postRouter)
+app.use('/api/comment/',commentRouter)
 
 
 
