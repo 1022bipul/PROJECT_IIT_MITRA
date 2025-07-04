@@ -7,7 +7,7 @@ export const SelfProfileCard = () => {
     const{loading, shortDetails ,longsDetails,imgCount}=useContext(DetailsContext)
   if(loading) return  <div>Loading user data...</div>;
 
-   const{name}=shortDetails;
+   const{name}=shortDetails ||{}
    const{avatar,banner}=longsDetails ||{}
 
   return (
