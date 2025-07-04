@@ -47,5 +47,14 @@ const handleGetOneUserProfile=async(req,res)=>{
   }
 
 }
+//finding user searching 
 
-module.exports={handlGetUserDetails,handleGetAllUserForSuggestion ,handleGetOneUserProfile}
+const handleGetSearchreauslt=async(req,res)=>{
+    const value=req.params.value
+    const User=await UserDetails.find()
+    const filterUser=User.filter((user)=>(user.name?.toLowerCase().includes(value)||user.email?.toLowerCase().includes(value)))
+
+    res.status(200).json(filterUser)
+}
+
+module.exports={handlGetUserDetails,handleGetAllUserForSuggestion ,handleGetOneUserProfile,handleGetSearchreauslt}

@@ -1,5 +1,6 @@
 const User = require("../models/user.models");
-const bcrypt=require('bcrypt')
+const bcrypt=require('bcrypt');
+const UserDetails = require("../models/userDetails.models");
 
 //Resiter user
 
@@ -10,7 +11,10 @@ const handleRegister= async (req, res) => {
     console.log("Request body:", req.body);
     const { name, email, password } = req.body;
     const user = new User({ name, email, password });
+    const userDetails = new UserDetails({ name, email});
     await user.save();
+    await userDetails.save();
+
     // const jwtToken = await user.generateToken();
     // console.log(jwtToken);
     // res.cookie("token",jwtToken,{httpOnly:true});
