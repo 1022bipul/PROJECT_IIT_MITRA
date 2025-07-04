@@ -11,16 +11,18 @@ import { MdOutlineMessage } from "react-icons/md";
 import { FaImage } from "react-icons/fa6";
 import { FaVideo } from "react-icons/fa";
 import { FaBookmark } from "react-icons/fa";
+import { AllUserContext } from "../../context/AllUserContext";
 
 export const UserProfile = () => {
  
 
-  const {loading, shortDetails, longsDetails ,imgCount } = useContext(DetailsContext);
-  if(loading) return  <div>Loading user data...</div>;
+  const {oneUser} = useContext(AllUserContext);
+  // if(loading) return  <div>Loading user data...</div>;
+ console.log("profile",oneUser)
+  
+  const { name,institute, branch, bio, skills,avatar,banner } = oneUser ||{};
 
-  const { name, email } = shortDetails;
-  const { institute, branch, bio, skills,avatar,banner } = longsDetails ||{};
-
+  console.log('naam',name)
 
 
 
@@ -41,25 +43,17 @@ export const UserProfile = () => {
           {/* <!-- Profile image overlapping the banner --> */}
           <img
             src={avatar||"../../src/public/Profile_avatar.png"}
-            className="absolute object-cover bottom-[-40px] left-1/2 transform -translate-x-1/2 sm:size-30 size-28  rounded-full border-4 border-white"
+            className="absolute object-cover bottom-[-70px] left-1/2 transform -translate-x-1/2 sm:size-30 size-28  rounded-full border-4 border-white"
           />
-          <Link
-            className="float-right text-black bg-[#00A6FB] hover:bg-blue-800 text-sm rounded-md m-2 p-1 flex justify-center items-center"
-            to="/editprofile"
-          >
-            <i  className="fa-solid fa-user-pen px-0.5"></i>
-            <span className="sm:hidden lg:block ">Edit Profile</span>
-          </Link>
         </div>
         {/* <!-- user details --> */}
-        <div className="bg-gray-300 pt-12 text-center pb-2 rounded-b-md ">
+        <div className="bg-gray-300 pt-18 text-center pb-2 rounded-b-md ">
           <h1 className="font-extrabold text-xl">{name??"IIT MITRA"}</h1>
           <p className="text-sm font-bold">{institute??"INDIAN INSTITUTE OF TECHNOLOGY"}</p>
           <p className="text-sm mb-2 font-semibold">{branch??"COMPUTER SCIENCE"}</p>
           <p>{bio ?? "BIO"}</p>
           <p>{skills ?? "SKILLS"}</p>
          <div class=" flex justify-center">
-            <button class="  p-2 text-sm mx-1 bg-cyan-500 hover:bg-cyan-600 rounded-md font-semibold" >Follow</button>
             <button class=" p-2 text-sm mx-1 bg-cyan-500 hover:bg-cyan-600 rounded-md font-semibold">Massage</button>
              <button class=" p-2 text-sm mx-1 bg-cyan-500 hover:bg-cyan-600 rounded-md font-semibold">Mitra Request</button>
              <a class="m-2" href="#">
@@ -71,7 +65,7 @@ export const UserProfile = () => {
           <div className="flex justify-center space-x-5">
             <div>
               <h1 className="text-black font-bold text-lg">Posts</h1>
-              <div className="text-black font-semibold text-lg">{imgCount ||0}</div>
+              <div className="text-black font-semibold text-lg">5</div>
             </div>
             {/* <div>
               <h1 className="text-black font-bold text-lg">Follower</h1>

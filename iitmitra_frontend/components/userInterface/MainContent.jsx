@@ -1,55 +1,77 @@
 import React from "react";
-import { useContext, useEffect,useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { PostCard } from "../Post&Feed/PostCard";
 import { BottomNavForMobile } from "./BottomNavForMobile";
 import { ProfilePic } from "../Profile/ProfilePic";
 import { useLocation } from "react-router-dom";
+import InfiniteScroll from "react-infinite-scroll-component";
 export const MainContent = () => {
+  const [posts, setposts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [page, setPages] = useState(1);
 
-   const [posts,setposts]=useState();
-   const[loading,setLoading]=useState(true);
-
-
-  const handleGetAllpostsUrls=async()=>{
-  
- try {
-      const res = await fetch("http://localhost:3000/api/post/feed/urls", {
-        method: "GET",
-        credentials: "include",
-      });
-      console.log(res)
+  const handleGetAllpostsUrls = async () => {
+    try {
+      const res = await fetch(
+        `http://localhost:3000/api/post/feed/urls?page=${page}`,
+        {
+          method: "GET",
+          credentials: "include",
+        }
+      );
+      console.log(res);
       if (!res.ok) {
         throw new Error("Network response was not ok");
       }
       const data = await res.json();
-      console.log('radhe radhe')
+      console.log("radhe radhe");
       setposts(data);
-      console.log(posts)
-    
-
+      console.log(posts);
     } catch (error) {
-
-    
       console.log(error);
-
     }
+  };
+//   const handlePageScroll = async (e) => {
+//     try {
+//       console.log("window.scrollY");
+//       console.log(e.target.scrollTop);
+//       console.log(window.scrollY);
+           
+//       console.log("innerHeight",window.innerHeight);
+    
+//       console.log(e.target.scrollHeight);
+//       if(e.target.scrollTop + window.innerHeight >= e.target.scrollHeight){
+
+//         console.log('hello')
+//         setPages(prev => prev + 1)
+//       }
+
+
+
+//     } catch (error) {
+//       console.log(error);
+//     }
+//   };
   
-  }
-
+// useEffect(()=>{
+ 
    
-  useEffect(()=>{
-    const handleAllUrls=async()=>await handleGetAllpostsUrls()
-     handleAllUrls()
-     setLoading(false)
-  },[])
+  
+// },[ ])
 
 
-  if(loading){
-    return <h1>Loading...</h1>
+  useEffect(() => {
+    const handleAllUrls = async () => await handleGetAllpostsUrls();
+    handleAllUrls();
+    setLoading(false);
+  }, []);
+
+  if (loading) {
+    return <h1>Loading...</h1>;
   }
   return (
     <>
-      <div className="h-full  flex flex-col text-center m-1 gap-1">
+      <div  id="feed" className="h-full overflow-y-scroll  flex flex-col text-center m-1 gap-1">
         {/* <!-- Direct Post --> */}
         <div className=" px-1 pb-2 rounded-md  max-sm:hidden flex flex-col items-center gap-2 bg-gray-300 ">
           <div className="rounded-md flex w-full  justify-center items-center gap-2 pt-1.5 ">
@@ -109,15 +131,11 @@ export const MainContent = () => {
           </div>
         </div>
 
-
-
-
         {/* <!-- Posts or feed --> */}
 
-        {posts?.map(post =>  (<PostCard  post={post}
-          
-        />))}
-       
+        {posts?.map((post, index) => (
+          <PostCard post={post} index={index} />
+        ))}
       </div>
     </>
   );

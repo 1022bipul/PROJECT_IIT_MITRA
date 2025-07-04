@@ -10,6 +10,7 @@ import { FaUserFriends } from "react-icons/fa";
 import { FaPaperPlane } from "react-icons/fa";
 import { IoMdNotifications } from "react-icons/io";
 import { IoSearch } from "react-icons/io5";
+import { SearchBar } from './SearchBar';
 
 export const Header = ({handleTogglePost}) => {
     const {loading,shortDetails}=useContext(DetailsContext)
@@ -25,11 +26,8 @@ export const Header = ({handleTogglePost}) => {
         <div className="flex justify-start gap-1 items-center w-[30vw]">
         <img src={iitlogo} className="bg-white size-11 sm:12 mb-1 ml-2 border-0 rounded-full " />
         {/* <!-- search bar --> */}
-        <form className="bg-gray-200 text-black border-1 rounded-md ml-1 max-w-min flex justify-start items-center ">
-        <input type="text" placeholder="Search..." className= "w-50 sm:w-48 md:w-55min-h-7 outline-none justify-center items-center my-0.5 mx-1.5  rounded-l-md  "/>
-
-        <button type="submit" className="px-1 mr-1 "><span ><IoSearch className='size-5'/></span></button>
-        </form>
+        <SearchBar/>
+       
         </div>
          {/* <!-- Home upload and Friends button --> */}
          

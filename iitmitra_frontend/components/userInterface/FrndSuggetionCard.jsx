@@ -1,15 +1,33 @@
 import React, { useContext } from "react";
 import { ProfilePic } from "../Profile/ProfilePic";
-import { Link } from "react-router-dom";
-
+import { Link, useNavigate } from "react-router-dom";
+import { AllUserContext } from "../../context/AllUserContext";
 
 export const FrndSuggetionCard = ({item ,loading}) => {
+  const navigate=useNavigate()
+  const {setOneUser}=useContext(AllUserContext)
   if(loading){
     return <div>loading......</div>
   }
- const handleUserProfile=()=>{
-  const userId=item._id
-  console.log(userId)
+ const handleUserProfile=async()=>{
+  try {
+    const id=item._id
+   
+    const res=await fetch(`http://localhost:3000/api/user/userprofile/${id}`,{
+      method:'Get',
+      credentials:'include'
+    })
+    if(res.ok){
+      const user=await res.json()
+      await setOneUser(user)
+      navigate(`profile/${id}`)
+
+    }
+
+  } catch (error) {
+    console.log(error)
+  }
+
  }
 
 

@@ -5,7 +5,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { Comments } from "./Comments";
 
-export const PostCard = ({post}) => {
+export const PostCard = ({post ,index}) => {
    
   if(!post){
     return (
@@ -18,7 +18,7 @@ export const PostCard = ({post}) => {
 
   return (
     <>
-      <div className="border-none p-2 my-3 rounded-xl bg-gray-200">
+      <div key={index} className="border-none p-2 my-3 rounded-xl bg-gray-200">
         <div className="m-1 rounded-2xl flex">
         {/* <ProfilePic/> */}
         <Link to="/profile">

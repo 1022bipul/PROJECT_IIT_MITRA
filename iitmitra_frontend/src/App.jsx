@@ -15,6 +15,7 @@ import { FaRegImage } from "react-icons/fa6";
 import { CreatePost } from "../components/Post&Feed/CreatePost";
 import { MdOutlinePhotoFilter } from "react-icons/md";
 import { Notifications } from "../components/userInterface/Notifications";
+import { SearchList } from "../components/userInterface/SearchList";
 
 function App() {
  
@@ -43,6 +44,7 @@ function App() {
 
   return (
     <>
+    <SearchList/>
       {/* post toggleMenu */}
       <div
         ref={togglePost}
@@ -73,10 +75,10 @@ function App() {
 
         <div
           className=" h-[92vh] w-full overflow-y-scroll grid sm:grid-cols-12"
-          style={{
-            scrollbarWidth: "none",
-            msOverflowStyle: "none",
-          }}
+          // style={{
+          //   scrollbarWidth: "none",
+          //   msOverflowStyle: "none",
+          // }}
         >
           <CreatePost
             togglecreatePostBtn={togglecreatePostBtn}

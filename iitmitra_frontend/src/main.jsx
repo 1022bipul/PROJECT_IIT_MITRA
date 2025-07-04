@@ -24,7 +24,7 @@ import { AcedemicDetail } from "../components/Profile/AcedemicDetail";
 import { ChangePassword } from "../components/password&security/ChangePassword";
 import { DetailsContext, DetailsProvider } from "../context/DetailsContext.jsx";
 import { Logout } from "../components/auth/Logout.jsx";
-import {  Outlet } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import { Mitra } from "../components/message/Mitra";
 import { Notifications } from "../components/userInterface/Notifications.jsx";
 import { Activity } from "../components/userInterface/Activity.jsx";
@@ -35,66 +35,82 @@ import { Saved } from "../components/Profile/Saved.jsx";
 import { CreatePost } from "../components/Post&Feed/CreatePost.jsx";
 import { AllUserProvider } from "../context/AllUserContext.jsx";
 import { UserProfile } from "../components/Profile/UserProfile.jsx";
-
-
+import { ProtectedRoute } from "../components/auth/ProtectedRoute.jsx";
+import { StateProvider } from "../context/StateContext.jsx";
+import { YourMitras } from "../components/message/YourMitras.jsx";
+import { Connections } from "../components/message/Connections.jsx";
 
 const router = createBrowserRouter([
-  
-      {   
-        path: "/",
-        element: <App />,
+  {
+    path: "/",
+    element: (
+      <ProtectedRoute>
+        <App />
+      </ProtectedRoute>
+    ),
+    children: [
+      { path: "", element: <MainContent /> },
+      {
+        path: "profile",
+        element: <Profile />,
         children: [
-          { path: "", element: <MainContent /> },
-          { path: "profile", element: <Profile />,
-            children:[
-              {path:"", element: <Posts/>},
-              {path:"videos", element: <Video/>},
-              {path:"saved", element: <Saved/>}
-            ]
-           },
-           { path: "profile/id", element: <UserProfile />,
-            children:[
-              {path:"", element: <Posts/>},
-              {path:"videos", element: <Video/>},
-              {path:"saved", element: <Saved/>}
-            ]
-           },
-          { path: "settings", element: <EditProfile /> },
-          { path: "editprofile", element: <EditProfile /> },
-          { path: "changepassword", element: <ChangePassword /> },
-          { path: "about", element: <EditProfile /> },
-          { path: "help", element: <EditProfile /> },
-          { path: "mitra", element: <Mitra/> },
-          { path: "notification", element: <null/> },
-          { path: "activity", element: <Activity/>},
-          { path: "post", element: <CreatePost/>,
-            // children:[
-            //  { path:"",element:},
-            //  { path:"image",element:},
-            //  { path:"video",element:},
-
-            // ]
-          },
-           { path: "/message", element: <Message/>},
-      { path: "logout", element: <Logout /> },
+          { path: "", element: <Posts /> },
+          { path: "videos", element: <Video /> },
+          { path: "saved", element: <Saved /> },
         ],
-      } ,
-    
+      },
+      {
+        path: "profile/:id",
+        element: <UserProfile />,
+        children: [
+          { path: "", element: <Posts /> },
+          { path: "videos", element: <Video /> },
+          { path: "saved", element: <Saved /> },
+        ],
+      },
+      { path: "settings", element: <EditProfile /> },
+      { path: "editprofile", element: <EditProfile /> },
+      { path: "changepassword", element: <ChangePassword /> },
+      { path: "about", element: <EditProfile /> },
+      { path: "help", element: <EditProfile /> },
+      {
+        path: "mitra",
+        element: <Mitra />,
+        children: [
+          { path: "", element: <YourMitras /> },
+          { path: "connection", element: <Connections /> },
+        ],
+      },
+      { path: "notification", element: <null /> },
+      { path: "activity", element: <Activity /> },
+      {
+        path: "post",
+        element: <CreatePost />,
+        // children:[
+        //  { path:"",element:},
+        //  { path:"image",element:},
+        //  { path:"video",element:},
+
+        // ]
+      },
+      { path: "/message", element: <Message /> },
+      { path: "logout", element: <Logout /> },
+    ],
+  },
 
   { path: "/register", element: <Register /> },
   { path: "/login", element: <Login /> },
 ]);
 
-
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <AllUserProvider>
-
-    <DetailsProvider>
-      <RouterProvider router={router} />
-    </DetailsProvider>
+    <StateProvider>
+      <AllUserProvider>
+        <DetailsProvider>
+          <RouterProvider router={router} />
+        </DetailsProvider>
       </AllUserProvider>
-
+    </StateProvider>
   </StrictMode>
 );
 // ✅ Why this works:

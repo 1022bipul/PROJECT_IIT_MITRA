@@ -4,7 +4,6 @@ import { Form, Link,Navigate,useNavigate  } from "react-router-dom";
 import { DetailsContext } from "../../context/DetailsContext";
 
 export const Login = () => {
-  const {setIsLoggedIn,isLoggedIn}= useContext(DetailsContext)
 
   const navigate=useNavigate();
   
@@ -38,7 +37,7 @@ export const Login = () => {
     const loggedIn=await loginData.json();
     
     if(loginData.ok){
-     navigate('/editprofile')
+      navigate('/')
       alert(`${loggedIn.massage}`)
     }else{
       alert(`Invalid Credentials`)

@@ -4,7 +4,7 @@ import { useContext, useEffect } from "react";
 import { DetailsContext } from "../../context/DetailsContext";
 
 export const SelfProfileCard = () => {
-    const{loading, shortDetails ,longsDetails}=useContext(DetailsContext)
+    const{loading, shortDetails ,longsDetails,imgCount}=useContext(DetailsContext)
   if(loading) return  <div>Loading user data...</div>;
 
    const{name}=shortDetails;
@@ -30,13 +30,13 @@ export const SelfProfileCard = () => {
           <h1 className="font-bold text-md">{name ?? "IIT MITRA"}</h1>
     
           <div className="flex justify-center space-x-3">
-            <div className="sm:hidden block">
+            <div className="md:block hidden">
               <h1 className="text-black font-bold text-sm">Posts</h1>
-              <div className="text-black font-semibold text-sm">100</div>
+              <div className="text-black font-semibold text-sm">{imgCount||'0'}</div>
             </div>
             <div>
               <h1 className="text-black font-bold text-sm">Mitras</h1>
-              <div className="text-black font-semibold text-sm">20</div>
+              <div className="text-black font-semibold text-sm">0</div>
             </div>
             {/* <div className="sm:hidden lg:block">
               <h1 className="text-black font-bold text-sm ">Following</h1>

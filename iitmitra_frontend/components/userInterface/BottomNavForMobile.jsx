@@ -68,7 +68,7 @@ export const BottomNavForMobile = () => {
         <Link to="/create">
           <i className="fa-regular fa-square-plus fa-xl"></i>
         </Link>
-        <Link to="/groups" className="active:border-b-3 focus:border-b-3 border-blue-800">
+        <Link to="/mitra" className="active:border-b-3 focus:border-b-3 border-blue-800">
           <i className="fa-solid fa-people-group fa-xl"></i>
         </Link>
         <button

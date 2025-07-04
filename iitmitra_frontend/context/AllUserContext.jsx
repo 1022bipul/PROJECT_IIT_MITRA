@@ -3,9 +3,11 @@ import { createContext, useEffect, useState } from "react";
 export const AllUserContext = createContext([]);
 
 export const AllUserProvider = (props) => {
+  const[oneUser,setOneUser]=useState();
   const [AllUser, setAllUser] = useState();
   const [loading, setLoading] = useState(false);
 
+  console.log("one user",oneUser)
   const handleAllUserDetails = async () => {
     console.log("AllUser");
     setLoading(true)
@@ -25,7 +27,7 @@ export const AllUserProvider = (props) => {
       setAllUser(data);
       console.log("AllUser");
 
-      console.log("all user for suggetion", data);
+    //   console.log("all user for suggetion", data);
     } catch (error) {
       console.log(error);
       setLoading(false)
@@ -38,7 +40,7 @@ export const AllUserProvider = (props) => {
   }, []);
 
   return (
-    <AllUserContext.Provider value={{loading, AllUser }}>
+    <AllUserContext.Provider value={{loading, AllUser ,oneUser,setOneUser}}>
       {props.children}
     </AllUserContext.Provider>
   );
