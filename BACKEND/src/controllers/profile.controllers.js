@@ -1,4 +1,5 @@
 const { clean } = require("../middlewares/clean");
+const User = require("../models/user.models");
 const UserDetails = require("../models/userDetails.models");
 const path = require("path");
 require("dotenv").config();
@@ -42,10 +43,25 @@ const handlePostProfileData = async (req, res) => {
 
     //get json data
     const user = JSON.parse(req.body.userData);
-    // console.log(email);
-    // console.log(user);
-    // console.log(avatarUrl);
-    // console.log(bannerUrl);
+    console.log(email);
+    console.log(user);
+    console.log(avatarUrl);
+    console.log(bannerUrl);
+
+
+
+   if(user.name){
+     
+      await User.updateOne(
+        { email },
+        {
+          $set: {
+            name:user.name
+            
+   }})}
+
+
+
 
     //finding user by email
     const userExist = await UserDetails.findOne({ email });

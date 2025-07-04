@@ -14,10 +14,6 @@ const handleRegister= async (req, res) => {
     const userDetails = new UserDetails({ name, email});
     await user.save();
     await userDetails.save();
-
-    // const jwtToken = await user.generateToken();
-    // console.log(jwtToken);
-    // res.cookie("token",jwtToken,{httpOnly:true});
     res
       .status(201)
       .json({
