@@ -38,7 +38,7 @@ export const DetailsProvider = (props) => {
     }
   };
 
-  console.log(shortDetails.name)
+  // console.log(shortDetails.name)
 
   //details of a user (only self)
 
