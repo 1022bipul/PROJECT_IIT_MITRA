@@ -3,8 +3,6 @@ import { useContext, useEffect, useState } from "react";
 import { PostCard } from "../Post&Feed/PostCard";
 import { BottomNavForMobile } from "./BottomNavForMobile";
 import { ProfilePic } from "../Profile/ProfilePic";
-import { useLocation } from "react-router-dom";
-import InfiniteScroll from "react-infinite-scroll-component";
 export const MainContent = () => {
   const [posts, setposts] = useState([]);
   const [loading, setLoading] = useState(true);
