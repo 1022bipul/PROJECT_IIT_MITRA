@@ -14,7 +14,7 @@ cloudinary.config({
 
 const handleCreatePostImg = async (req, res) => {
  try {
-     console.log(req.file);
+  
      const email = res.user.userEmail;
    
      //get user id of userDetails
@@ -24,14 +24,10 @@ const handleCreatePostImg = async (req, res) => {
     //  if (!user) {
     //   return res.status(500).json({ error: "User not found" });
     //  }
-     console.log("radhe radhe");
-   
-     console.log(user);
-   
-     console.log("email:", email);
+  
    
      const { discription } = req.body;
-     console.log(discription);
+    
    
      const filePath = req.file.path;
      const cloudinaryRess = await cloudinary.uploader.upload(filePath, {

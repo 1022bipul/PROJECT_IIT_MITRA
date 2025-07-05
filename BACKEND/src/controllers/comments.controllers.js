@@ -6,9 +6,9 @@ const UserDetails = require("../models/userDetails.models");
 
 const handleComments=async(req,res)=>{
     try {
-        console.log ("hello")
+        // console.log ("hello")
         const email = res.user.userEmail;
-        console.log(req.body)
+        // console.log(req.body)
         const {comment}=req.body;
         const userDetail = await UserDetails.findOne({ email });
        

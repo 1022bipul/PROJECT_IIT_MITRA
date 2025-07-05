@@ -6,9 +6,9 @@ const ImgVideoUrl = require("../models/postUrl.models");
 
 const handleGetPostsUrls= async(req,res)=>{
   try {
-    console.log('user auth')
+    // console.log('user auth')
     const email=res.user.userEmail;
-    console.log(email)
+    // console.log(email)
    
     const user= await ImgVideoUrl.find({email})
 
@@ -25,8 +25,7 @@ const handleGetPostsUrls= async(req,res)=>{
     try{
 
   const posts=await ImgVideoUrl.find()
-  .populate('user')
-    console.log(posts) 
+  .populate('user').sort({ createdAt: -1 }); 
 
      res.status(200).json(posts)
 

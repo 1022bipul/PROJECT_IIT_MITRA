@@ -12,7 +12,7 @@ router.get('/details',verifyToken ,handlGetUserDetails)
 router.get('/suggestion',verifyToken,handleGetAllUserForSuggestion)
 
 //finding one user
-router.get('/userprofile',verifyToken,handleGetOneUserProfile)
+router.get('/userprofile/:id',verifyToken,handleGetOneUserProfile)
 
 //searching user functionlity
 router.get('/search/:value',verifyToken,handleGetSearchreauslt)

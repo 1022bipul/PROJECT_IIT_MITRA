@@ -1,3 +1,4 @@
+const ImgVideoUrl = require("../models/postUrl.models");
 const User= require("../models/user.models");
 const UserDetails=require('../models/userDetails.models')
 //get user data 
@@ -39,11 +40,20 @@ const handleGetAllUserForSuggestion=async(req,res)=>{
 //finding one user
 const handleGetOneUserProfile=async(req,res)=>{
   try {
-    const userId =req.userId
+   
 
-    
+
+    const userId =req.params.id;
+   console.log("user ka id",userId)
+   const user =await UserDetails.findById(userId)
+    //  console.log(user)
+
+     const email=user.email;
+   const allPosts=await ImgVideoUrl.find({email})
+
+    res.status(200).json({user,allPosts})
   } catch (error) {
-    
+   console.log(error) 
   }
 
 }

@@ -43,10 +43,10 @@ const handlePostProfileData = async (req, res) => {
 
     //get json data
     const user = JSON.parse(req.body.userData);
-    console.log(email);
-    console.log(user);
-    console.log(avatarUrl);
-    console.log(bannerUrl);
+    // console.log(email);
+    // console.log(user);
+    // console.log(avatarUrl);
+    // console.log(bannerUrl);
 
 
 
