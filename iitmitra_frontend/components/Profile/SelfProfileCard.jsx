@@ -2,10 +2,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useContext, useEffect } from "react";
 import { DetailsContext } from "../../context/DetailsContext";
+import { LoadingSpinner } from "../userInterface/LoadingSpinner";
 
 export const SelfProfileCard = () => {
     const{loading, shortDetails ,longsDetails,imgCount}=useContext(DetailsContext)
-  if(loading) return  <div>Loading user data...</div>;
+  if(loading) return  <LoadingSpinner/>;
 
    const{name}=shortDetails ||{}
    const{avatar,banner}=longsDetails ||{}

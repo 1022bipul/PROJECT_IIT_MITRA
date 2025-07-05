@@ -7,6 +7,7 @@ import { SelfDetails } from "./SelfDetails";
 import { Profile } from "./Profile";
 import { DetailsContext } from "../../context/DetailsContext";
 import { useNavigate } from "react-router-dom";
+import { LoadingSpinner } from "../userInterface/LoadingSpinner";
 
 export const EditProfile = () => {
   const navigate=useNavigate();
@@ -15,7 +16,7 @@ export const EditProfile = () => {
 
 
 
-  if(loading) return  <div>Loading user data...</div>;
+  if(loading) return <LoadingSpinner/>;
 
   const { email } = shortDetails;
    const{name,avatar,banner }=longsDetails ||{};

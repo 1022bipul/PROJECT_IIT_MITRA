@@ -1,10 +1,11 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { DetailsContext } from "../../context/DetailsContext";
+import { LoadingSpinner } from "../userInterface/LoadingSpinner";
 
 export const ProfilePic = () => {
   const{loading,longsDetails}=useContext(DetailsContext)
-  if(loading) return  <div>Loading user data...</div>;
+  if(loading) return  <LoadingSpinner/>
      
      const{avatar}=longsDetails ||{}
   return (

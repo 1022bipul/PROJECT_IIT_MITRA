@@ -40,7 +40,7 @@ export const AllUserProvider = (props) => {
   }, []);
 
   return (
-    <AllUserContext.Provider value={{loading, AllUser ,oneUser,setOneUser}}>
+    <AllUserContext.Provider value={{loading, AllUser ,oneUser,setOneUser,setLoading}}>
       {props.children}
     </AllUserContext.Provider>
   );

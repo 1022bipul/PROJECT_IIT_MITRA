@@ -2,13 +2,16 @@ import React, { useContext, useState } from 'react'
 import { ProfilePic } from '../Profile/ProfilePic'
 import { FrndSuggetionCard } from './FrndSuggetionCard'
 import { AllUserContext } from '../../context/AllUserContext'
+import { LoadingSpinner } from './LoadingSpinner'
 
 export const FriendSuggestions = () => {
-   const{AllUser ,loading}= useContext(AllUserContext);
+   const{loading,AllUser }= useContext(AllUserContext);
 //    const{name}=AllUser;
    console.log("suggestion")
   console.log(AllUser)
-
+ if(loading){
+    return <LoadingSpinner/>
+ }
 
     return (
         <>

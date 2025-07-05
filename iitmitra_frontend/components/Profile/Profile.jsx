@@ -11,12 +11,13 @@ import { MdOutlineMessage } from "react-icons/md";
 import { FaImage } from "react-icons/fa6";
 import { FaVideo } from "react-icons/fa";
 import { FaBookmark } from "react-icons/fa";
+import { LoadingSpinner } from "../userInterface/LoadingSpinner";
 
 export const Profile = () => {
  
 
   const {loading, shortDetails, longsDetails ,imgCount } = useContext(DetailsContext);
-  if(loading) return  <div>Loading user data...</div>;
+  if(loading) return  <LoadingSpinner/>
 
   const { name, email } = shortDetails;
   const { institute, branch, bio, skills,avatar,banner } = longsDetails ||{};

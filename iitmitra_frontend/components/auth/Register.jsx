@@ -1,4 +1,6 @@
 import React, { useState, useContext } from "react";
+import iitlogo from "../../src/public/whitelogo.jpg";
+
 import { Form, Link, useNavigate } from "react-router-dom";
 export const Register = () => {
   const navigate = useNavigate();
@@ -60,8 +62,8 @@ export const Register = () => {
           <div className="flex justify-center items-center flex-col gap-2.5">
             <img
               className="size-20 rounded-full shadow-black shadow-2xl"
-              src="../../src/assets/iitlogo.jpg"
-              alt=""
+              src={iitlogo}
+              alt="iitlogo"
             />
             <h3 className="text-3xl m-1.5 font-bold">Create an account</h3>
           </div>

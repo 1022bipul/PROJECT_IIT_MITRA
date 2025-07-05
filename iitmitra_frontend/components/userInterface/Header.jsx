@@ -11,11 +11,12 @@ import { FaPaperPlane } from "react-icons/fa";
 import { IoMdNotifications } from "react-icons/io";
 import { IoSearch } from "react-icons/io5";
 import { SearchBar } from './SearchBar';
+import { LoadingSpinner } from './LoadingSpinner';
 
 export const Header = ({handleTogglePost}) => {
     const {loading,shortDetails}=useContext(DetailsContext)
     // const{name,email}=shortDetails;
-  if(loading) return  <div>Loading user data...</div>;
+  if(loading) return  <LoadingSpinner/>
 
     return (
         <>

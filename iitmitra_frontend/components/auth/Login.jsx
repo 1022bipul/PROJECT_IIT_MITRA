@@ -1,5 +1,5 @@
 import React, { useState,useContext } from "react";
-import iitlogo from "../../src/assets/iitlogo.jpg";
+import iitlogo from "../../src/public/whitelogo.jpg";
 import { Form, Link,Navigate,useNavigate  } from "react-router-dom";
 import { DetailsContext } from "../../context/DetailsContext";
 

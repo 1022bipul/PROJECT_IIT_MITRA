@@ -39,6 +39,7 @@ import { ProtectedRoute } from "../components/auth/ProtectedRoute.jsx";
 import { StateProvider } from "../context/StateContext.jsx";
 import { YourMitras } from "../components/message/YourMitras.jsx";
 import { Connections } from "../components/message/Connections.jsx";
+import { OtherUserPosts } from "../components/Post&Feed/OtherUserPosts.jsx";
 
 const router = createBrowserRouter([
   {
@@ -63,7 +64,7 @@ const router = createBrowserRouter([
         path: "profile/:id",
         element: <UserProfile />,
         children: [
-          { path: "", element: <Posts /> },
+          { path: "", element: <OtherUserPosts /> },
           { path: "videos", element: <Video /> },
           { path: "saved", element: <Saved /> },
         ],

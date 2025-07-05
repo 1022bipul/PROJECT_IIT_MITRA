@@ -3,13 +3,12 @@ import { ProfilePic } from "../Profile/ProfilePic";
 import { Link, useNavigate } from "react-router-dom";
 import { AllUserContext } from "../../context/AllUserContext";
 
-export const FrndSuggetionCard = ({item ,loading}) => {
+export const FrndSuggetionCard = ({item}) => {
   const navigate=useNavigate()
-  const {setOneUser}=useContext(AllUserContext)
-  if(loading){
-    return <div>loading......</div>
-  }
+  const {setOneUser,setLoading}=useContext(AllUserContext)
+
  const handleUserProfile=async()=>{
+  setLoading(true)
   try {
     const id=item._id
    
@@ -21,11 +20,15 @@ export const FrndSuggetionCard = ({item ,loading}) => {
       const user=await res.json()
       await setOneUser(user)
       navigate(`profile/${id}`)
+  setLoading(false)
+
 
     }
 
   } catch (error) {
     console.log(error)
+  setLoading(false)
+
   }
 
  }
@@ -38,16 +41,16 @@ export const FrndSuggetionCard = ({item ,loading}) => {
       <div className="relative p-2 flex sm:flex-wrap  ">
         <div className="">
           {/* <ProfilePic/> */}
-          <Link to="/profile">
+          <div >
             <img
               className="size-10 sm:11 object-cover rounded-full"
               src={item?.avatar||"../../src/public/Profile_avatar.png"}
               alt=""
             />
-          </Link>
+          </div>
         </div>
         <div className="mx-2 flex flex-col">
-          <h5 onClick={handleUserProfile} className="text-sm font-semibold cursor-pointer">{item?.name||""}</h5>
+          <h5 onClick={handleUserProfile} className="text-sm font-semibold hover:text-blue-700 cursor-pointer">{item?.name||""}</h5>
           <p className="text-[12px] text-gray-700">Suggested for you</p>
         </div>
         <button className="md:absolute mx-5 md:right-0 lg:right-8 md:top-3 text-lg text-blue-600 ">
