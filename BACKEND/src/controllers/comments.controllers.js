@@ -1,28 +1,11 @@
-const Comments = require("../models/comment.models");
-const UserDetails = require("../models/userDetails.models");
+// server/models/Comment.js
+const mongoose = require("mongoose");
 
+const commentSchema = new mongoose.Schema({
+  postId: { type: mongoose.Schema.Types.ObjectId, required: true },
+  text: { type: String, required: true },
+  userName: { type: String, required: true },
+  createdAt: { type: Date, default: Date.now },
+});
 
-
-
-const handleComments=async(req,res)=>{
-    try {
-        // console.log ("hello")
-        const email = res.user.userEmail;
-        // console.log(req.body)
-        const {comment}=req.body;
-        const userDetail = await UserDetails.findOne({ email });
-       
-        const user = userDetail._id;
-       
-        const userComment=new Comments({comment,email,user})
-    
-        await userComment.save()
-        res.status(200).json({message:"comment sent backend"})
-    } catch (error) {
-        console.log(error)
-    }
-
-    
-}
-
-module.exports={handleComments}
+module.exports = mongoose.model("Comment", commentSchema);

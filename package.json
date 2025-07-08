@@ -1,6 +1,9 @@
 {
   "dependencies": {
     "@tailwindcss/cli": "^4.1.11",
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "mongoose": "^8.16.1",
     "tailwindcss": "^4.1.11"
   }
 }
