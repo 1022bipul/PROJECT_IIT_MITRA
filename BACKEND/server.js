@@ -22,7 +22,7 @@ dbConnected(URI);
 
 
 //middleware
-  app.use("*",cors({origin:["http://localhost:5173","https://www.iitmitra.com"],credentials:true}));
+  app.use("*",cors({origin:["http://localhost:5173","https://iitmitra.com"],credentials:true}));
 app.use(express.json());
 app.use(cookieParser());
 
