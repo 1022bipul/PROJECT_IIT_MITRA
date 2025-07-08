@@ -12,7 +12,7 @@ export const FrndSuggetionCard = ({item}) => {
   try {
     const id=item._id
    
-    const res=await fetch(`http://localhost:3000/api/user/userprofile/${id}`,{
+    const res=await fetch(`https://project-iit-mitra.onrender.com/api/user/userprofile/${id}`,{
       method:'Get',
       credentials:'include'
     })

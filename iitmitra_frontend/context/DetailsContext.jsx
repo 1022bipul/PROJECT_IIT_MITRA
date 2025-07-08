@@ -13,7 +13,7 @@ export const DetailsProvider = (props) => {
   const handleGetUrlData = async () => {
 
     try {
-      const res = await fetch("http://localhost:3000/api/post/allurls", {
+      const res = await fetch("https://project-iit-mitra.onrender.com/api/post/allurls", {
         method: "GET",
         credentials: "include",
       });
@@ -45,7 +45,7 @@ export const DetailsProvider = (props) => {
   const handleGetUserData = async () => {
 
     try {
-      const res = await fetch("http://localhost:3000/api/user/details", {
+      const res = await fetch("https://project-iit-mitra.onrender.com/api/user/details", {
         method: "GET",
         credentials: "include",
       });
@@ -99,7 +99,7 @@ useEffect(() => {
 
  const logoutUser=async()=>{
  try {
-  let logout = await fetch("http://localhost:3000/api/auth/logout", {
+  let logout = await fetch("https://project-iit-mitra.onrender.com/api/auth/logout", {
     method:'GET',
     credentials:"include"
   })

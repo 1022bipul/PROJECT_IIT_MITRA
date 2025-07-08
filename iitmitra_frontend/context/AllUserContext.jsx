@@ -11,7 +11,7 @@ export const AllUserProvider = (props) => {
     setLoading(true)
 
     try {
-      const res =await fetch("http://localhost:3000/api/user/suggestion", {
+      const res =await fetch("https://project-iit-mitra.onrender.com/api/user/suggestion", {
         method: "Get",
         credentials: "include",
       });
