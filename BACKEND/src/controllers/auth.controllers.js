@@ -49,7 +49,7 @@ const handleLogin= async (req, res) => {
 
     // console.log(jwtToken);
     res.cookie("token",jwtToken,
-      {httpOnly:true,secure:false,sameSite:"lax"});
+      {httpOnly:true,secure:true,sameSite:"None"});
 
 
     res.status(200).json({massage:" successfully login",token:jwtToken,error:"token error"});
