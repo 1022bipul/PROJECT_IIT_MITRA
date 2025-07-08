@@ -28,7 +28,7 @@ export const OtpAuthPage = () => {
           <button class="size-full rounded-md bg-blue-600 text-lg p-1 px-2 text-white">Verify Account</button>
           <div class="flex justify-center items-center  text-1xl m-1">
             <p class="font-sans">Don't receive code?</p>
-            <a class="flex float-right px-2 font-sans text-blue-800" href="">Resend</a>
+            <Link class="flex float-right px-2 font-sans text-blue-800" to="">Resend</Link>
           </div>
         </div>
       </div>

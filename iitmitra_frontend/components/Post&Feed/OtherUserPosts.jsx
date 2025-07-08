@@ -1,12 +1,19 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { AllUserContext } from '../../context/AllUserContext';
+import { StateContext } from '../../context/StateContext';
 
 export const OtherUserPosts = () => {
   const {oneUser} = useContext(AllUserContext);
+  const {setUserPostCount} = useContext(StateContext);
+
 
   const {allPosts }= oneUser || {};
-
 console.log("one",allPosts)
+useEffect(()=>{
+setUserPostCount(allPosts)
+
+},[allPosts])
+
 
     return (
         <div>

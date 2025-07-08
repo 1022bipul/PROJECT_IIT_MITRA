@@ -7,9 +7,7 @@ export const AllUserProvider = (props) => {
   const [AllUser, setAllUser] = useState();
   const [loading, setLoading] = useState(false);
 
-  console.log("one user",oneUser)
   const handleAllUserDetails = async () => {
-    console.log("AllUser");
     setLoading(true)
 
     try {

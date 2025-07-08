@@ -6,7 +6,8 @@ import { useEffect } from "react";
 import { Comments } from "./Comments";
 
 export const PostCard = ({post ,index}) => {
-   
+  
+
   if(!post){
     return (
       <div className="border-none p-2 rounded-xl bg-gray-200">
@@ -41,23 +42,25 @@ export const PostCard = ({post ,index}) => {
         <div className="lg:flex">
           <div className="flex justify-center sm:justify-center md:justify-start p-2">
             <img
+               
               src={post?.url}
-              className=" relative w-full sm:w-fit md:w-md lg:w-md rounded-xl"
+              className="image-post relative w-full sm:w-fit md:w-md lg:w-md rounded-xl"
+              key={index}
             />
           </div>
           {/* <!-- Interaction buttons --> */}
           <div className="lg:w-xl">
             <div className="flex m-2 space-x-4 lg:justify-end">
-              <Link className="" href="#">
+              <Link className="" to="#">
                 <span className="text-black focus:text-red-500"><i className="fa-regular fa-heart fa-xl "></i></span>
               </Link>
-              <Link href="#">
+              <Link to="#">
                 <i className="fa-regular fa-comment fa-xl"></i>
               </Link>
-              <Link href="#">
+              <Link to="#">
                 <i className="fa-regular fa-paper-plane fa-xl"></i>
               </Link>
-              <Link href="#">
+              <Link to="#">
                 <i className="fa-regular fa-bookmark fa-xl"></i>
               </Link>
             </div>

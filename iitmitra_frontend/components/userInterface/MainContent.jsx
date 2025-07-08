@@ -3,6 +3,7 @@ import { useContext, useEffect, useState } from "react";
 import { PostCard } from "../Post&Feed/PostCard";
 import { BottomNavForMobile } from "./BottomNavForMobile";
 import { ProfilePic } from "../Profile/ProfilePic";
+import { Link } from "react-router-dom";
 export const MainContent = () => {
   const [posts, setposts] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -23,109 +24,107 @@ export const MainContent = () => {
       }
       const data = await res.json();
       console.log("radhe radhe");
-      setposts(data);
-      console.log(posts);
+      setposts((prev) =>[...prev,...data]);
+      // console.log(posts);
     } catch (error) {
       console.log(error);
     }
   };
-//   const handlePageScroll = async (e) => {
-//     try {
-//       console.log("window.scrollY");
-//       console.log(e.target.scrollTop);
-//       console.log(window.scrollY);
-           
-//       console.log("innerHeight",window.innerHeight);
-    
-//       console.log(e.target.scrollHeight);
-//       if(e.target.scrollTop + window.innerHeight >= e.target.scrollHeight){
-
-//         console.log('hello')
-//         setPages(prev => prev + 1)
-//       }
-
-
-
-//     } catch (error) {
-//       console.log(error);
-//     }
-//   };
-  
-// useEffect(()=>{
- 
-   
-  
-// },[ ])
-
-
-  useEffect(() => {
+   useEffect(() => {
     const handleAllUrls = async () => await handleGetAllpostsUrls();
     handleAllUrls();
     setLoading(false);
-  }, []);
+  },[]);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver((param) => {
+    
+
+
+    
+      console.log(param);
+      if(param[0].isIntersecting){
+        observer.unobserve(lastImage)
+        setPages(prev=>prev+1)
+      }
+    });
+
+    const lastImage = document.querySelector(".last-container");
+
+    console.log(lastImage);
+    if (lastImage) {
+      observer.observe(lastImage);
+    }else{
+      return;
+    } 
+   
+  },[posts]);
+
+ 
 
   if (loading) {
     return <h1>Loading...</h1>;
   }
   return (
     <>
-      <div  id="feed" className="h-full overflow-y-scroll  flex flex-col text-center m-1 gap-1">
+      <div
+        id="feed"
+        className="h-full overflow-y-scroll  flex flex-col text-center m-1 gap-1"
+      >
         {/* <!-- Direct Post --> */}
         <div className=" px-1 pb-2 rounded-md  max-sm:hidden flex flex-col items-center gap-2 bg-gray-300 ">
           <div className="rounded-md flex w-full  justify-center items-center gap-2 pt-1.5 ">
             <ProfilePic />
-            {/* <img src="./icons/Generic avatar.svg" className="size-12 border-1 rounded-full ml-1"/> */}
-            {/* <div className=" border-black h-16 mx-2"></div> */}
             <input
               className="bg-white sm:w-1/2 lg:w-10/12 m-1 p-1 w-full outline-none rounded-md h-fit"
               placeholder="What's on your mind?"
             />
             <button className="m-1 mr-0 p-1 w-20 right-0 rounded-md text-white bg-blue-500">
-              <a href="#" className="">
+              <Link to="#" className="">
                 Post
-              </a>
+              </Link>
             </button>
           </div>
           <div className="flex sm:space-x-1 space-x-1  ">
-            <a
-              href="#"
+            <Link
+              to="#"
               className="bg-gray-600  px-1.5 py-0.5 rounded-3xl text-white"
             >
               <span className="text-green-600">
                 <i className="fa-solid fa-image fa-lg "></i>{" "}
               </span>
               Image
-            </a>
-            <a
-              href="#"
+            </Link>
+            <Link
+              to="#"
               className="bg-gray-600  px-1.5 py-0.5 rounded-3xl text-white "
             >
               <span className="text-blue-600">
                 <i className="fa-solid fa-video fa-lg "></i>{" "}
               </span>
               Video
-            </a>
-            <a
-              href="#"
+            </Link>
+            <Link
+              to="#"
               className="bg-gray-600  px-1.5 py-0.5 rounded-3xl text-white "
             >
               <span className="text-cyan-600">
                 <i className="fa-solid fa-calendar fa-lg "></i>{" "}
               </span>
               Calendar
-            </a>
-            <a
-              href="#"
+            </Link>
+            <Link
+              to="#"
               className="bg-gray-600  px-1.5 py-0.5 rounded-3xl text-white "
             >
               <span className="text-orange-400">
                 <i className="fa-solid fa-poll fa-lg "></i>{" "}
               </span>
               Poll
-            </a>
-            {/* <a href="#" className=" "><i className="fa-solid fa-video fa-lg"></i>Video</a>
-              <a href="#" className=" "><i className="fa-solid fa-location-dot fa-lg "></i>Location</a>
-              <a href="#" className=" "><i className="fa-solid fa-user fa-lg "></i>Tag</a> */}
+            </Link>
+            {/* <Link to="#" className=" "><i className="fa-solid fa-video fa-lg"></i>Video</Link>
+              <Link to="#" className=" "><i className="fa-solid fa-location-dot fa-lg "></i>Location</Link>
+              <Link to="#" className=" "><i className="fa-solid fa-user fa-lg "></i>Tag</Link> */}
           </div>
         </div>
 
@@ -134,7 +133,9 @@ export const MainContent = () => {
         {posts?.map((post, index) => (
           <PostCard post={post} index={index} />
         ))}
+        
       </div>
+      <div className="last-container p-2"></div>
     </>
   );
 };

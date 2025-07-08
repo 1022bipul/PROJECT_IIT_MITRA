@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { ProfilePic } from "../Profile/ProfilePic";
+import { Link } from "react-router-dom";
 
 export const Message = () => {
   const [selectedFile, setSelectedFile] = useState(null);
@@ -19,16 +20,16 @@ export const Message = () => {
         <div class="bg-gray-200  h-screen w-2/5 rounded-md  grid overflow-y-scroll ">
           <ul>
             <li>
-              <a
+              <Link
                 class="flex justify-start items-center m-1 text-xl hover:bg-white "
-                href=""
+                to=""
               >
                 <img
                   src="./icons/Generic avatar.svg"
                   class="size-10 border-1 rounded-full m-1 "
                 />
                 Mitra
-              </a>
+              </Link>
             </li>
             <hr class=" border-gray-400 ml-1 mr-1 " />
           </ul>
@@ -36,8 +37,8 @@ export const Message = () => {
         {/* <!-- Chat Box --> */}
         <div class="bg-gray-200 h-screen w-full rounded overflow-y-scroll p-2 justify-start items-start">
           {/* <!--Freind Profile button-->  */}
-          <a
-            href="#"
+          <Link
+            to="#"
             class="flex justify-start items-center m-1 p-1 mt-0 pt-0 mb-0 pb-0 text-2xl"
           >
             <img
@@ -45,7 +46,7 @@ export const Message = () => {
               class="size-10 border-1 rounded-full m-1"
             />
             Mitra
-          </a>
+          </Link>
           <hr class=" border-gray-400 ml-1 mr-1 " />
 
           {/* <!-- Message area --> */}
@@ -76,7 +77,7 @@ export const Message = () => {
               {/* <!-- Your response --> */}
               <div class="flex justify-end">
                 <div class="bg-blue-400 text-white w-fit max-w-xs p-2 rounded-xl">
-                  All great. Just working on a project.
+                  All great. Just working on Link project.
                 </div>
               </div>
             </div>
@@ -89,9 +90,9 @@ export const Message = () => {
               class="w-full h-15 bottom-1 border-1 rounded-md bg-white p-2 mr-1"
             />
             <button class="bg-blue-400 size-15 rounded-md justify-center items-center hover:bg-gray-400">
-              <a href="#">
+              <Link to="#">
                 <i class="fa-regular fa-paper-plane text-white text-3xl hover:text-blue-400 "></i>
-              </a>
+              </Link>
             </button>
           </form>
         </div>

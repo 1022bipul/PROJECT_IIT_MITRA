@@ -36,7 +36,7 @@ export const Header = ({handleTogglePost}) => {
         <div className="relative left-1 m-1 pb-1 active:border-b-2 focus:border-b-2 border-white"><Link to="/"><span><AiFillHome className='size-7'/></span></Link></div>
         <div onClick={handleTogglePost} className="relative left-1 m-1 pb-1 active:border-b-2 focus:border-b-2 border-white"><span><FaPlusSquare className='size-6'/></span></div>
       
-        <div className="relative left-1 m-1 pb-1 active:border-b-2 focus:border-b-2 border-white"><a href="#"><span><FaUserFriends className='size-8'/></span></a></div>
+        <div className="relative left-1 m-1 pb-1 active:border-b-2 focus:border-b-2 border-white"><Link href="#"><span><FaUserFriends className='size-8'/></span></Link></div>
         </div>
           {/* <!-- Right side icons --> */}
         <div className="flex justify-end items-center space-x-4 pr-2  w-[30vw]">
