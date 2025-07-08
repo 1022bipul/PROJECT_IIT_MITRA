@@ -12,7 +12,7 @@ export const MainContent = () => {
   const handleGetAllpostsUrls = async () => {
     try {
       const res = await fetch(
-        `http://localhost:3000/api/post/feed/urls?page=${page}`,
+        `https://project-iit-mitra.onrender.com/api/post/feed/urls?page=${page}`,
         {
           method: "GET",
           credentials: "include",
