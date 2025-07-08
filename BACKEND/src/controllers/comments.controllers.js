@@ -1,11 +1,6 @@
-// server/models/Comment.js
-const mongoose = require("mongoose");
+const handleComments=(req,res)=>{
+  return;
 
-const commentSchema = new mongoose.Schema({
-  postId: { type: mongoose.Schema.Types.ObjectId, required: true },
-  text: { type: String, required: true },
-  userName: { type: String, required: true },
-  createdAt: { type: Date, default: Date.now },
-});
+}
 
-module.exports = mongoose.model("Comment", commentSchema);
+module.exports = { handleComments };

@@ -1,5 +1,5 @@
 const express =require('express')
-const {handleLogin,handleLogout,handleRegister} =require('../controllers/auth.controllers')
+const {handleLogin,handleLogout,handleRegister,handleGetToken} =require('../controllers/auth.controllers')
 const { verifyToken } = require("../middlewares/verifyToken");
 
 
@@ -21,7 +21,8 @@ login page logic
 
 router.post("/login", handleLogin);
 
-
+//get token
+router.get('/token',verifyToken,handleGetToken)
 
 
 //logout
