@@ -7,7 +7,7 @@ export const ProtectedRoute = ({ children }) => {
   useEffect(()=>{
     
     const fetchingToken=async ()=>{
-       const res=await fetch('http://localhost:3000/api/auth/token',{method:'Get',credentials:'include'})
+       const res=await fetch('https://project-iit-mitra.onrender.com/api/auth/token',{method:'Get',credentials:'include'})
      
       // console.log("tokeeeen",await res.json())
       const {jwtToken}=await res.json()
