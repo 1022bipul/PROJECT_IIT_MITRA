@@ -19,7 +19,7 @@ dbConnected(URI);
 
 //middleware
 app.use(
-  "*",
+  
   cors({
     origin: [
       "http://localhost:5173",
