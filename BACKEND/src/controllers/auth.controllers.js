@@ -49,7 +49,7 @@ const handleLogin= async (req, res) => {
 
     // console.log(jwtToken);
     res.cookie("token",jwtToken,
-      {httpOnly:true,secure:false,sameSite:"lax"});
+      {httpOnly:true,secure:true,sameSite:"None"});
 
 
     res.status(200).json({massage:" successfully login",token:jwtToken,error:"token error"});
@@ -62,6 +62,19 @@ const handleLogin= async (req, res) => {
 };
 
 
+
+//getting user token
+const handleGetToken=async(req,res) =>{
+  console.log("token",req.cookies.token)
+    const jwtToken =await req.cookies.token; 
+
+  if (!jwtToken) {
+    return res.status(401).json({ message: "No token found" });
+  }
+
+  res.status(200).json({jwtToken:jwtToken})
+
+}
 
 
 // logout user
@@ -76,4 +89,4 @@ const handleLogout= (req, res) => {
 
 
 
-module.exports={handleLogin,handleRegister,handleLogout}
+module.exports={handleLogin,handleRegister,handleLogout,handleGetToken}

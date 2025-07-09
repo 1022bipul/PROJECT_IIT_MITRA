@@ -13,15 +13,17 @@ import { FaVideo } from "react-icons/fa";
 import { FaBookmark } from "react-icons/fa";
 import { AllUserContext } from "../../context/AllUserContext";
 import { LoadingSpinner } from "../userInterface/LoadingSpinner";
+import { StateContext } from "../../context/StateContext";
 
 export const UserProfile = () => {
   const { oneUser, loading } = useContext(AllUserContext);
+  const { userPostCount } = useContext(StateContext);
   // if(loading)
-  console.log("profile", oneUser);
+  // console.log("profile", oneUser);
   const { user } = oneUser || {};
   const { name, institute, branch, bio, skills, avatar, banner } = user || {};
-
-  console.log("naam", name);
+const posts=userPostCount?.length
+  console.log("posts", posts);
 
   if (loading) {
     return <LoadingSpinner/>
@@ -65,15 +67,15 @@ export const UserProfile = () => {
             <button class=" p-2 text-sm mx-1 bg-cyan-500 hover:bg-cyan-600 rounded-md font-semibold">
               Mitra Request
             </button>
-            <a class="m-2" href="#">
+            <Link class="m-2" to="#">
               <i class="fa-solid fa-ellipsis-h fa-lg"></i>
-            </a>
+            </Link>
           </div>
 
           <div className="flex justify-center space-x-5">
             <div>
               <h1 className="text-black font-bold text-lg">Posts</h1>
-              <div className="text-black font-semibold text-lg">5</div>
+              <div className="text-black font-semibold text-lg">{posts ||"0"}</div>
             </div>
             {/* <div>
               <h1 className="text-black font-bold text-lg">Follower</h1>
@@ -85,7 +87,7 @@ export const UserProfile = () => {
             </div> */}
             <div>
               <h1 className="text-black font-bold text-lg">Mitras</h1>
-              <div className="text-black font-semibold text-lg">10</div>
+              <div className="text-black font-semibold text-lg">0</div>
             </div>
           </div>
 

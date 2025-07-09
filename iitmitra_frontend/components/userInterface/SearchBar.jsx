@@ -16,7 +16,7 @@ export const SearchBar = () => {
     }
 //   console.log(value)
   try {
-    const res=await fetch(`http://localhost:3000/api/user/search/${value}`,{
+    const res=await fetch(`https://project-iit-mitra.onrender.com/api/user/search/${value}`,{
       method:"Get",
       credentials:"include"
     })

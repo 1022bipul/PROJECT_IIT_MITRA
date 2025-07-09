@@ -108,7 +108,7 @@ export const EditProfile = () => {
 
     try {
       setUploading(true)
-      const detailsRes= await fetch('http://localhost:3000/api/profile/profile-data',{
+      const detailsRes= await fetch('https://project-iit-mitra.onrender.com/api/profile/profile-data',{
         method:'POST',
         body:formData,
         credentials: "include",

@@ -20,7 +20,7 @@ export const Comments = () => {
 
 const handleSubmit=async()=>{
    try {
-    const res=await fetch('http://localhost:3000/api/comment/user',{
+    const res=await fetch('https://project-iit-mitra.onrender.com/api/comment/user',{
      method:'Post',
      body:JSON.stringify(comment),
      headers:{

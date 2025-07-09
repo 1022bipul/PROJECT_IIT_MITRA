@@ -7,13 +7,11 @@ export const AllUserProvider = (props) => {
   const [AllUser, setAllUser] = useState();
   const [loading, setLoading] = useState(false);
 
-  console.log("one user",oneUser)
   const handleAllUserDetails = async () => {
-    console.log("AllUser");
     setLoading(true)
 
     try {
-      const res =await fetch("http://localhost:3000/api/user/suggestion", {
+      const res =await fetch("https://project-iit-mitra.onrender.com/api/user/suggestion", {
         method: "Get",
         credentials: "include",
       });

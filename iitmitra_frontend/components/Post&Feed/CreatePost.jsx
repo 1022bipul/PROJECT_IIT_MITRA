@@ -58,7 +58,7 @@ formData.append("image", image);
 formData.append("discription", discription);
  setUpload(true)
 
-const postRes = await fetch("http://localhost:3000/api/upload/image", {
+const postRes = await fetch("https://project-iit-mitra.onrender.com/api/upload/image", {
   method: "POST",
   body: formData,
   credentials: "include",

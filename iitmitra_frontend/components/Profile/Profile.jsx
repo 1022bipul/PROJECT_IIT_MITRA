@@ -76,7 +76,7 @@ export const Profile = () => {
             </div> */}
             <div>
               <h1 className="text-black font-bold text-lg">Mitras</h1>
-              <div className="text-black font-semibold text-lg">10</div>
+              <div className="text-black font-semibold text-lg">0</div>
             </div>
           </div>
 
