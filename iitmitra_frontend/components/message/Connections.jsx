@@ -3,7 +3,7 @@ import React from 'react'
 export const Connections = () => {
     return (
         <div>
-            connection
+            working....
         </div>
     )
 }

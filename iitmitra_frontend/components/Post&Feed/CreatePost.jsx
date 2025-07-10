@@ -1,5 +1,6 @@
 import React, { useRef, useState } from "react";
 import { Form,  useNavigate } from "react-router-dom";
+const URI=import.meta.env.VITE_APP_URL
 
 
 export const CreatePost = ({ togglecreatePostBtn, handleToggleCreatePost }) => {
@@ -7,6 +8,9 @@ export const CreatePost = ({ togglecreatePostBtn, handleToggleCreatePost }) => {
  const [upload,setUpload]=useState(false)
  const navigate=useNavigate()
 
+ const handleOnClickDiscard=()=>{
+  setPreviewName("")
+ }
  const [postData, setPostData] = useState({
     image: "",
     discription: "",
@@ -23,6 +27,8 @@ export const CreatePost = ({ togglecreatePostBtn, handleToggleCreatePost }) => {
 
   const handleChange =(e) => {
     const { name, value, files } = e.target;
+     setPreviewName(URL.createObjectURL(files[0]));
+
 
     if (files && files.length > 0) {
       // File input
@@ -31,7 +37,6 @@ export const CreatePost = ({ togglecreatePostBtn, handleToggleCreatePost }) => {
         [name]: files[0],
       }));
     
-     setPreviewName(postData.image.name);
 
     } else {
       // Textarea input
@@ -58,7 +63,7 @@ formData.append("image", image);
 formData.append("discription", discription);
  setUpload(true)
 
-const postRes = await fetch("https://project-iit-mitra.onrender.com/api/upload/image", {
+const postRes = await fetch(`${URI}/upload/image`, {
   method: "POST",
   body: formData,
   credentials: "include",
@@ -88,16 +93,15 @@ const postRes = await fetch("https://project-iit-mitra.onrender.com/api/upload/i
     <>
       <div
         ref={togglecreatePostBtn}
-        className="absolute z-10 left-1/5 top-[15vh]  min-w-[60vw] mx-auto bg-gray-500 rounded-lg shadow-lg p-6 "
+        className="absolute z-10 left-[30vw] top-[15vh]  min-w-[40vw] mx-auto bg-gray-500 rounded-lg shadow-lg p-6 "
         style={{ display: "none" }}
       >
         {/* <!--Create a post --> */}
-        <h1 className="text-[#f7e1d7] font-semibold mb-4 text-2xl">Upload your files</h1>
+       {!previewName&& <div>  <h1 className="text-[#f7e1d7] font-semibold mb-4 text-2xl">Upload your files</h1>
         <h3 className="text-xl text-[#f7e1d7] font-semibold mb-4">
           What would you like to share ?
         </h3>
 
-        {/* <!-- Post type selection --> */}
         <div className="flex space-x-2 mb-4">
           <button className="px-4 py-2  bg-gray-50 rounded hover:bg-blue-950 active:border-b-4 focus:border-b-5 border-blue-800 p-1">
             Text
@@ -108,7 +112,7 @@ const postRes = await fetch("https://project-iit-mitra.onrender.com/api/upload/i
           <button className="px-4 py-2  bg-gray-50 rounded hover:bg-blue-950 active:border-b-4 focus:border-b-5 border-blue-800 p-1">
             Video
           </button>
-        </div>
+        </div></div>}
 
         <Form
           onSubmit={handleSubmitPost}
@@ -128,18 +132,20 @@ const postRes = await fetch("https://project-iit-mitra.onrender.com/api/upload/i
               onChange={handleChange}
             />
           
-          <button onClick={clickChooseImg} type="button" className="text-lg w-full">Share your Pic</button>
+          {!previewName ? <button onClick={clickChooseImg} type="button" className="text-lg w-full">Share your Pic</button>:(  <div className="w-full flex justify-center">
+          <div className="">
+            <img className=" max-h-75 max-w-150  object-contain rounded-xl" src={previewName} alt="" />
+          </div>
+          </div>)}
 
           </div>
-          {/* <div className="max-h-100 max-w-100">
-            <img src={} alt="" />
-          </div> */}
+        
 
           {/* <!-- Text Input Section --> */}
           <div id="textSection" className="hidden mb-4">
             <textarea
               placeholder="Enter Text"
-              className="w-full max-w-md p-2 bg-zinc-700 rounded text-white mb-2"
+              className="w-full h-fit p-2 bg-zinc-700 rounded text-white mb-2"
             ></textarea>
             <button className="bg-blue-400 rounded-md p-2">Save</button>
           </div>
@@ -187,7 +193,7 @@ const postRes = await fetch("https://project-iit-mitra.onrender.com/api/upload/i
               value={postData.discription}
               onChange={handleChange}
               placeholder="Discription"
-              className="w-full h-40 p-2 bg-gray-50 rounded text-black mb-4"
+              className="w-full h-20 p-2 bg-gray-50 rounded text-black mb-4"
             ></textarea>
           </div>
 
@@ -196,7 +202,9 @@ const postRes = await fetch("https://project-iit-mitra.onrender.com/api/upload/i
             <div>
               <button
                 type="reset"
-                onClick={handleToggleCreatePost}
+                onClick={()=>{ 
+                  handleToggleCreatePost()
+                  handleOnClickDiscard()}}
                 className="px-4 py-2 bg-orange-200 rounded text-black hover:bg-blue-800"
               >
                 Discard

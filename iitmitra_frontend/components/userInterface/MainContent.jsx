@@ -4,66 +4,65 @@ import { PostCard } from "../Post&Feed/PostCard";
 import { BottomNavForMobile } from "./BottomNavForMobile";
 import { ProfilePic } from "../Profile/ProfilePic";
 import { Link } from "react-router-dom";
+import { LoadingSpinner } from "./LoadingSpinner";
+const URI = import.meta.env.VITE_APP_URL;
+
 export const MainContent = () => {
   const [posts, setposts] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [page, setPages] = useState(1);
 
   const handleGetAllpostsUrls = async () => {
-    try {
-      const res = await fetch(
-        `https://project-iit-mitra.onrender.com/api/post/feed/urls?page=${page}`,
-        {
-          method: "GET",
-          credentials: "include",
-        }
-      );
-      console.log(res);
+    setLoading(true)
+    try {  
+      const res = await fetch(`${URI}/post/feed/urls?page=${page}`, {
+        method: "GET",
+        credentials: "include",
+      });
+      // console.log(res);
       if (!res.ok) {
         throw new Error("Network response was not ok");
       }
       const data = await res.json();
-      console.log("radhe radhe");
-      setposts((prev) =>[...prev,...data]);
+      // console.log("radhe radhe");
+      setposts((prev) => [...prev, ...data]);
       // console.log(posts);
     } catch (error) {
       console.log(error);
     }
   };
-   useEffect(() => {
+  useEffect(() => {
     const handleAllUrls = async () => await handleGetAllpostsUrls();
     handleAllUrls();
     setLoading(false);
-  },[]);
+  }, [page]);
 
   useEffect(() => {
     const observer = new IntersectionObserver((param) => {
-    
+      // console.log(param);
 
+      if (param[0].isIntersecting) {
 
-    
-      console.log(param);
-      if(param[0].isIntersecting){
-        observer.unobserve(lastImage)
-        setPages(prev=>prev+1)
+        observer.unobserve(lastImage);
+        setPages((prev) => prev + 1);
+
       }
     });
 
     const lastImage = document.querySelector(".last-container");
 
-    console.log(lastImage);
-    if (lastImage) {
-      observer.observe(lastImage);
-    }else{
+    // console.log(lastImage);
+    if (!lastImage) {
       return;
-    } 
-   
-  },[posts]);
+    }
 
- 
+    observer.observe(lastImage);
+    return () => observer.disconnect();
+
+  }, [posts.length]);
 
   if (loading) {
-    return <h1>Loading...</h1>;
+    return <LoadingSpinner/>;
   }
   return (
     <>
@@ -129,13 +128,14 @@ export const MainContent = () => {
         </div>
 
         {/* <!-- Posts or feed --> */}
-
+ 
         {posts?.map((post, index) => (
           <PostCard post={post} index={index} />
         ))}
-        
+
+      <div className="last-container "></div>
+
       </div>
-      <div className="last-container p-2"></div>
     </>
   );
 };

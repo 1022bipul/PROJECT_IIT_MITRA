@@ -82,7 +82,7 @@ const router = createBrowserRouter([
           { path: "connection", element: <Connections /> },
         ],
       },
-      { path: "notification", element: <null /> },
+      { path: "notification", element:<Notifications/> },
       { path: "activity", element: <Activity /> },
       {
         path: "post",
@@ -98,7 +98,6 @@ const router = createBrowserRouter([
       { path: "logout", element: <Logout /> },
     ],
   },
-
   { path: "/register", element: <Register /> },
   { path: "/login", element: <Login /> },
 ]);

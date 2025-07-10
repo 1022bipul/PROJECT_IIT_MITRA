@@ -23,7 +23,7 @@ export const UserProfile = () => {
   const { user } = oneUser || {};
   const { name, institute, branch, bio, skills, avatar, banner } = user || {};
 const posts=userPostCount?.length
-  console.log("posts", posts);
+  // console.log("posts", posts);
 
   if (loading) {
     return <LoadingSpinner/>

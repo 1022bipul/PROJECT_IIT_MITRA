@@ -7,17 +7,19 @@ export const DetailsProvider = (props) => {
   const [longsDetails, setlongsDetails] = useState("");
   const [loading, setLoading] = useState(true);
  const [imgUrl,setImgUrls]=useState([])
+const URI=import.meta.env.VITE_APP_URL
+
 
 
 //all img url of a user (only self post img)
   const handleGetUrlData = async () => {
 
     try {
-      const res = await fetch("https://project-iit-mitra.onrender.com/api/post/allurls", {
+      const res = await fetch(`${URI}/post/allurls`, {
         method: "GET",
         credentials: "include",
       });
-      console.log(res)
+      // console.log(res)
 
 
       if (!res.ok) {
@@ -26,8 +28,8 @@ export const DetailsProvider = (props) => {
       const data = await res.json();
       setImgUrls(data);
   
-      console.log("radhe radhe")
-      console.log(imgUrl)
+      // console.log("radhe radhe")
+      // console.log(imgUrl)
     
 
     } catch (error) {
@@ -45,7 +47,7 @@ export const DetailsProvider = (props) => {
   const handleGetUserData = async () => {
 
     try {
-      const res = await fetch("https://project-iit-mitra.onrender.com/api/user/details", {
+      const res = await fetch(`${URI}/user/details`, {
         method: "GET",
         credentials: "include",
       });
@@ -99,7 +101,7 @@ useEffect(() => {
 
  const logoutUser=async()=>{
  try {
-  let logout = await fetch("https://project-iit-mitra.onrender.com/api/auth/logout", {
+  let logout = await fetch(`${URI}/auth/logout`, {
     method:'GET',
     credentials:"include"
   })

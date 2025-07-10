@@ -3,6 +3,8 @@ import { IoSearch } from 'react-icons/io5';
 import { SearchList } from './SearchList';
 import { StateContext } from '../../context/StateContext';
 
+const URI=import.meta.env.VITE_APP_URL
+
 
 export const SearchBar = () => {
   const {setSearchList}=useContext(StateContext);
@@ -16,7 +18,7 @@ export const SearchBar = () => {
     }
 //   console.log(value)
   try {
-    const res=await fetch(`https://project-iit-mitra.onrender.com/api/user/search/${value}`,{
+    const res=await fetch(`${URI}/user/search/${value}`,{
       method:"Get",
       credentials:"include"
     })

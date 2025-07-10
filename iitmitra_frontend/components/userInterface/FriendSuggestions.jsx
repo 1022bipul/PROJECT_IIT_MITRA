@@ -7,8 +7,8 @@ import { LoadingSpinner } from './LoadingSpinner'
 export const FriendSuggestions = () => {
    const{loading,AllUser }= useContext(AllUserContext);
 //    const{name}=AllUser;
-   console.log("suggestion")
-  console.log(AllUser)
+//    console.log("suggestion")
+//   console.log(AllUser)
  if(loading){
     return <LoadingSpinner/>
  }

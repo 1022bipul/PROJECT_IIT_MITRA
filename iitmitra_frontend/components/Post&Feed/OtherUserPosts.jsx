@@ -8,7 +8,7 @@ export const OtherUserPosts = () => {
 
 
   const {allPosts }= oneUser || {};
-console.log("one",allPosts)
+// console.log("one",allPosts)
 useEffect(()=>{
 setUserPostCount(allPosts)
 

@@ -3,14 +3,6 @@ import { ProfilePic } from "../Profile/ProfilePic";
 import { Link } from "react-router-dom";
 
 export const Message = () => {
-  const [selectedFile, setSelectedFile] = useState(null);
-  const [previewurl, SetPreviewUrl] = useState(null);
-  const handleFileChange = (e) => {
-    const file = e.target.files[0];
-    setSelectedFile(file);
-    SetPreviewUrl(URL.createObjectURL(file));
-    console.log("video", URL.createObjectURL(file));
-  };
 
   return (
     <>

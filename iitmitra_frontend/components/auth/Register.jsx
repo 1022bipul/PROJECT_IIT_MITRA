@@ -1,8 +1,17 @@
 import React, { useState, useContext } from "react";
 import iitlogo from "../../src/public/whitelogo.jpg";
+const URI=import.meta.env.VITE_APP_URL
 
-import { Form, Link, useNavigate } from "react-router-dom";
+import { Form, Link, redirect, useNavigate } from "react-router-dom";
 export const Register = () => {
+    const [Otp,setOtp]=useState()
+    const [inputOtp,setInputOtp]=useState()
+    const [isVerified,setIsVerified]=useState(false)
+    const [emailError, setEmailError] = useState("");
+    const [emailValid, setEmailValid] = useState(false);
+
+
+
   const navigate = useNavigate();
   const initialState = {
     name: "",
@@ -17,6 +26,76 @@ export const Register = () => {
     const value = e.target.value;
     setUserData({ ...userData, [name]: value });
   };
+
+
+
+//email verifying codes
+const validateEmail = (value) => {
+  const iitpPattern = /^[a-zA-Z0-9._%+-]+@iitp\.ac\.in$/;
+  if (!iitpPattern.test(value)) {
+    // setEmailValid(iitpPattern.test(value))
+    setEmailError("College k email dal bhosrike Laure");
+  }else{
+    setEmailError("")
+  }
+};
+
+ const handleSumbitEmail=async(e)=>{
+  e.preventDefault();
+  try {
+    if(!userData.email){
+     return alert('Ganduuuuu pahle email to dal!')
+    }
+   const {email}=userData;
+   validateEmail(email)
+
+   const isValid = /^[a-zA-Z0-9._%+-]+@iitp\.ac\.in$/.test(email);
+    if (!isValid) return;
+
+    //verifying 
+   const response=await fetch(`${URI}/auth/verifying`,{
+    method:"Post",
+    body:JSON.stringify({email}),
+    headers: {
+          "Content-Type": "application/json",
+        },
+    credentials:"include"
+   })
+   const data = await response.json();
+     setOtp(data?.verificationCode)
+ 
+ if (response.ok) {
+       alert('Otp Send Successfully')
+      } else {
+        alert("please, fill the details!");
+      }
+
+  } catch (error) {
+   console.log(error) 
+  }
+ }
+const handleInputOtpChange=(e)=>{
+  setInputOtp(e.target.value)
+
+
+}
+const handleOtpVerification=()=>{
+  if(Otp==inputOtp){
+    setIsVerified(true)
+    alert("otp matched")
+
+  }else{
+    alert('wrong otp')
+  }
+}
+
+
+
+
+
+
+
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -27,7 +106,7 @@ export const Register = () => {
     console.log(userData);
     try {
       const { name, email, password } = userData;
-      const response = await fetch("https://project-iit-mitra.onrender.com/api/auth/register", {
+      const response = await fetch(`${URI}/auth/register`, {
         method: "post",
         body: JSON.stringify({ name, email, password }),
         headers: {
@@ -36,7 +115,7 @@ export const Register = () => {
         credentials: "include",
       });
       const data = await response.json();
-      console.log(`your data: ${data}`);
+      // console.log(`your data: ${data}`);
 
       if (response.ok) {
         alert("Registered successfully");
@@ -89,14 +168,31 @@ export const Register = () => {
               placeholder="abc@example.iit.in"
             />
           </div>
-          <Link
-            className="flex flex-row-reverse px-2 underline text-blue-800 text-lg p-1"
-            to=""
+          {emailError && <p className="text-red-600 text-sm mt-1">{emailError}</p>}
+        {!Otp &&<button
+            className="flex flex-row-reverse px-2 underline text-blue-800 text-lg p-1 hover:cursor-pointer"
+           onClick={handleSumbitEmail}
           >
-            verify{" "}
-          </Link>
+            Send OTP 
+          </button>}
 
-          <div className="flex flex-col gap-2 text-lg mt-2">
+        {/* your otp */}
+          {Otp && <div class="flex flex-col  text-lg mt-2">
+            <h3>Enter your Otp</h3>
+            <input
+            name="Otp"
+            onChange={handleInputOtpChange} 
+            value={inputOtp} 
+           className="border-black border-1 rounded-md bg-slate-100 px-3 py-0.5" type="text" placeholder="Enter your otp" maxlength="6" />
+            
+         {isVerified ? (<h3  className="flex flex-row-reverse px-2 text-green-800 ">verified</h3>):(  <button type="button" onClick={handleOtpVerification} className="flex flex-row-reverse px-2 text-blue-800 underline hover:cursor-pointer" >Verify</button>)}
+         <div>
+         
+         </div>
+          </div>}
+         
+
+          {isVerified &&<div className="flex flex-col gap-2 text-lg mt-2">
             <h3>Password</h3>
             <input
               className="border-black border-1 rounded-md bg-slate-100 px-3 py-0.5"
@@ -115,10 +211,10 @@ export const Register = () => {
               value={userData.confirmPassword}
               placeholder="Enter Your Password"
             />
-          </div>
+          </div>}
           {/* <!-- <div className="p-1 "><a className="flex float-right px-2 underline text-blue-800" to="#">Forgot Password</a></div> --> */}
           <button
-            className="border-2 border-none rounded-md active:bg-blue-800  bg-blue-600 text-lg p-0.5 mt-7 text-white"
+            className="border-2 border-none rounded-md active:bg-blue-800  bg-blue-600 text-lg p-0.5 mt-7 text-white hover:cursor-pointer"
             type="submit"
           >
             Register

@@ -6,7 +6,7 @@ import { DetailsContext } from "../../context/DetailsContext";
 
 export const Posts = () => {
     const { imgUrl } = useContext(DetailsContext);
-    console.log(imgUrl)
+    // console.log(imgUrl)
   
     return (
         <div>
@@ -40,7 +40,7 @@ export const Posts = () => {
               key={index}  
               src={item.url}
                 className="object-cover max-h-full max-w-full"
-                alt={`img-${index}`} 
+                alt={item.name} 
               />
             </div>
             {/* <div className="absolute flex -translate-y-7 px-2">

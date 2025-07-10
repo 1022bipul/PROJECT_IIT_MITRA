@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { ProfilePic } from "../Profile/ProfilePic";
 import { Link, useNavigate } from "react-router-dom";
 import { AllUserContext } from "../../context/AllUserContext";
+const URI=import.meta.env.VITE_APP_URL
 
 export const FrndSuggetionCard = ({item}) => {
   const navigate=useNavigate()
@@ -12,7 +13,7 @@ export const FrndSuggetionCard = ({item}) => {
   try {
     const id=item._id
    
-    const res=await fetch(`https://project-iit-mitra.onrender.com/api/user/userprofile/${id}`,{
+    const res=await fetch(`${URI}/user/userprofile/${id}`,{
       method:'Get',
       credentials:'include'
     })

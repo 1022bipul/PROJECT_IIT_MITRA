@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Form, Link } from "react-router-dom";
-
+const URI=import.meta.env.VITE_APP_URL
 
 
 
@@ -20,7 +20,7 @@ export const Comments = () => {
 
 const handleSubmit=async()=>{
    try {
-    const res=await fetch('https://project-iit-mitra.onrender.com/api/comment/user',{
+    const res=await fetch(`${URI}/comment/user`,{
      method:'Post',
      body:JSON.stringify(comment),
      headers:{

@@ -2,6 +2,7 @@ import React, { useState,useContext } from "react";
 import iitlogo from "../../src/public/whitelogo.jpg";
 import { Form, Link,Navigate,useNavigate  } from "react-router-dom";
 import { DetailsContext } from "../../context/DetailsContext";
+const URI=import.meta.env.VITE_APP_URL
 
 export const Login = () => {
 
@@ -23,7 +24,7 @@ export const Login = () => {
     e.preventDefault();
     const {email,password}=userLoginData
    
-    let loginData = await fetch("https://project-iit-mitra.onrender.com/api/auth/login", {
+    let loginData = await fetch(`${URI}/auth/login`, {
       method: "post",
 
       body: JSON.stringify({email,password}),
