@@ -1,6 +1,43 @@
 const User = require("../models/user.models");
+const nodemailer = require("nodemailer");
 const bcrypt=require('bcrypt');
 const UserDetails = require("../models/userDetails.models");
+const OtpVerify = require("../models/OtpVerify.model");
+const {sendEmail}=require("../middlewares/Email.config")
+
+//Email Verification
+const handleEmailVerification=async(req,res)=>{
+  try {
+    const {email}=req.body;
+   const  verificationCode=Math.floor(100000+Math.random()*900000).toString()
+   
+
+   sendEmail(email,verificationCode)
+    const emailVerification= new OtpVerify({email,verificationCode})
+    await emailVerification.save();
+   res
+      .status(201)
+      .json({
+        message:"otp generated successfully!",
+        email:email,
+        verificationCode:verificationCode
+       
+      });
+
+
+
+  } catch (error) {
+    console.log(error)
+  }
+
+}
+
+//get your otp
+const handleGetOtp=async(req,res)=>{
+
+
+}
+
 
 //Resiter user
 
@@ -10,7 +47,7 @@ const handleRegister= async (req, res) => {
     
     console.log("Request body:", req.body);
     const { name, email, password } = req.body;
-    const user = new User({ name, email, password });
+    const user = new User({ name, email, password});
     const userDetails = new UserDetails({ name, email});
     await user.save();
     await userDetails.save();
@@ -89,4 +126,4 @@ const handleLogout= (req, res) => {
 
 
 
-module.exports={handleLogin,handleRegister,handleLogout,handleGetToken}
+module.exports={handleLogin,handleRegister,handleLogout,handleGetToken,handleEmailVerification,handleGetOtp}

@@ -85,7 +85,7 @@ const handlePostProfileData = async (req, res) => {
       );
     } // nahi to user create kar do
     else {
-      console.log("new user");
+      // console.log("new user");
       const newUser = await new UserDetails({
         email,
         avatar: avatarUrl,

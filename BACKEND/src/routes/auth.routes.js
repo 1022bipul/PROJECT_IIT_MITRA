@@ -1,5 +1,5 @@
 const express =require('express')
-const {handleLogin,handleLogout,handleRegister,handleGetToken} =require('../controllers/auth.controllers')
+const {handleLogin,handleLogout,handleRegister,handleGetToken,handleEmailVerification,handleGetOtp} =require('../controllers/auth.controllers')
 const { verifyToken } = require("../middlewares/verifyToken");
 
 
@@ -12,6 +12,11 @@ Register page logic
 */
 
 router.post("/register",handleRegister)
+
+
+
+//otp verify
+router.post("/verifying",handleEmailVerification)
 
 
 

@@ -36,7 +36,7 @@ const handleCreatePostImg = async (req, res) => {
      const url = cloudinaryRess.url;
      const uploadInfo = new ImgVideoUrl({ email, discription, url, user });
      const uploadRes = await uploadInfo.save();
-     console.log("clodinary res", cloudinaryRess);
+    //  console.log("clodinary res", cloudinaryRess);
      res
        .status(200)
        .json({ message: "Image Uploaded" })

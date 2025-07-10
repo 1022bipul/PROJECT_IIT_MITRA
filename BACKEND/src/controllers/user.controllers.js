@@ -7,13 +7,13 @@ const handlGetUserDetails =async(req,res)=>{
   try {
     console.log('user auth')
     const email=res.user.userEmail;
-    console.log(email)
+    // console.log(email)
    
     const user=await User.findOne({email})
-    console.log(user) 
+    // console.log(user) 
 
     const userFullDetails= await UserDetails.findOne({email})
-    console.log(userFullDetails) 
+    // console.log(userFullDetails) 
 
    
      res.status(200).json([user,userFullDetails])
@@ -44,7 +44,7 @@ const handleGetOneUserProfile=async(req,res)=>{
 
 
     const userId =req.params.id;
-   console.log("user ka id",userId)
+  //  console.log("user ka id",userId)
    const user =await UserDetails.findById(userId)
     //  console.log(user)
 
