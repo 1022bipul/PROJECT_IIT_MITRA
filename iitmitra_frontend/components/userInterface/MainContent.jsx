@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import { useContext, useEffect, useState } from "react";
 import { PostCard } from "../Post&Feed/PostCard";
 import { BottomNavForMobile } from "./BottomNavForMobile";
@@ -11,9 +11,12 @@ export const MainContent = () => {
   const [posts, setposts] = useState([]);
   const [loading, setLoading] = useState(false);
   const [page, setPages] = useState(1);
+  const lastContainer=useRef(null)
 
   const handleGetAllpostsUrls = async () => {
     setLoading(true)
+   console.log(posts.length)
+    console.log(page*5)
     try {  
       const res = await fetch(`${URI}/post/feed/urls?page=${page}`, {
         method: "GET",
@@ -24,7 +27,7 @@ export const MainContent = () => {
         throw new Error("Network response was not ok");
       }
       const data = await res.json();
-      // console.log("radhe radhe");
+      if (data.length === 0) setLoading(false);
       setposts((prev) => [...prev, ...data]);
       // console.log(posts);
     } catch (error) {
@@ -34,41 +37,50 @@ export const MainContent = () => {
   useEffect(() => {
     const handleAllUrls = async () => await handleGetAllpostsUrls();
     handleAllUrls();
-    setLoading(false);
   }, [page]);
 
   useEffect(() => {
+    // setLoading(true);
+   
     const observer = new IntersectionObserver((param) => {
       // console.log(param);
 
       if (param[0].isIntersecting) {
 
         observer.unobserve(lastImage);
+        
         setPages((prev) => prev + 1);
-
+        setLoading(false)
       }
     });
 
-    const lastImage = document.querySelector(".last-container");
+    const lastImage = lastContainer.current;
 
-    // console.log(lastImage);
+    console.log(lastImage);
     if (!lastImage) {
+      setLoading(false)
       return;
     }
-
+     
     observer.observe(lastImage);
-    return () => observer.disconnect();
+   
+    return () =>observer.disconnect();
+    
 
   }, [posts.length]);
 
-  if (loading) {
-    return <LoadingSpinner/>;
-  }
+  // if(posts.length===page*5){ 
+    
+  //   setLoading(false)}
+
   return (
     <>
       <div
         id="feed"
-        className="h-full overflow-y-scroll  flex flex-col text-center m-1 gap-1"
+        className="h-[91vh] overflow-y-scroll  flex flex-col text-center m-1 gap-1"  style={{
+          scrollbarWidth: "none",
+          msOverflowStyle: "none",
+        }}
       >
         {/* <!-- Direct Post --> */}
         <div className=" px-1 pb-2 rounded-md  max-sm:hidden flex flex-col items-center gap-2 bg-gray-300 ">
@@ -133,8 +145,8 @@ export const MainContent = () => {
           <PostCard post={post} index={index} />
         ))}
 
-      <div className="last-container "></div>
-
+      <div ref={lastContainer} className="last-container "></div>
+       {loading&& <LoadingSpinner/>}
       </div>
     </>
   );

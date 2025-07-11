@@ -1,7 +1,8 @@
 import React, { useState,useContext } from "react";
 import iitlogo from "../../src/public/whitelogo.jpg";
 import { Form, Link,Navigate,useNavigate  } from "react-router-dom";
-import { DetailsContext } from "../../context/DetailsContext";
+import { toast } from 'react-toastify';
+
 const URI=import.meta.env.VITE_APP_URL
 
 export const Login = () => {
@@ -39,9 +40,9 @@ export const Login = () => {
     
     if(loginData.ok){
       navigate('/')
-      alert(`${loggedIn.massage}`)
+      toast.success(`${loggedIn.massage}`)
     }else{
-      alert(`Invalid Credentials`)
+      toast.error(`Invalid Credentials`)
       navigate('/login')
     }
     

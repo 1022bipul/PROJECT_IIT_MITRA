@@ -18,7 +18,7 @@ export const SettingsOptions = ({settingbtn})=> {
 
     <Link className="hover:bg-gray-300 rounded-md flex justify-Start items-center " to="/editprofile"><span className='pl-3 pr-1.5'><FaUserEdit className='size-6' /></span>Edit Profile</Link>
     <Link className="hover:bg-gray-300 rounded-md flex justify-start items-center " to="/changepassword"><span className='px-2'><RiLockPasswordLine className='size-6' /> </span> Change Password</Link>
-    <Link className="hover:bg-gray-300 rounded-md flex justify-start items-center " to="/#"><span className='px-2'><FcAbout className='size-6' /></span>About</Link>
+    <Link className="hover:bg-gray-300 rounded-md flex justify-start items-center " to="/about"><span className='px-2'><FcAbout className='size-6' /></span>About</Link>
     <Link className="hover:bg-gray-300 rounded-md flex justify-start items-center " to="/#"><span className='px-2'><IoIosHelpCircleOutline className='size-6' /></span>Help</Link>
     <Link  onClick={()=>{logoutUser()}} className="hover:bg-gray-300 rounded-md  flex justify-start items-center " to="/logout"><span className='px-2'><CiLogout className='size-6' /></span>Log Out</Link>
   </div>

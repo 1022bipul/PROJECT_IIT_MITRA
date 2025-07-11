@@ -1,5 +1,7 @@
 import { createContext, useEffect, useState } from "react";
 export const DetailsContext = createContext(null);
+import { toast } from 'react-toastify';
+
 
 export const DetailsProvider = (props) => {
   const [shortDetails, setShortDetails] = useState("");
@@ -109,7 +111,7 @@ useEffect(() => {
 
   if(logout.ok){
     setIsLoggedIn(false)
-    alert(logoutsms.message)
+    toast.success(logoutsms.message)
   }
 
   

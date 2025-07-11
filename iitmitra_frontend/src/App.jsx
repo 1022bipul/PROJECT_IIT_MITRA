@@ -75,17 +75,17 @@ function App() {
 
         <div
           className=" h-[92vh] w-full overflow-y-scroll grid sm:grid-cols-12"
-          // style={{
-          //   scrollbarWidth: "none",
-          //   msOverflowStyle: "none",
-          // }}
+          style={{
+            scrollbarWidth: "none",
+            msOverflowStyle: "none",
+          }}
         >
           <CreatePost
             togglecreatePostBtn={togglecreatePostBtn}
             handleToggleCreatePost={handleToggleCreatePost}
           />
           {/* <!-- left side bar     --> */}
-          <div className="sm:col-span-2 hidden sticky h-full sm:block ">
+          <div className="sm:col-span-2 hidden sticky h-[91vh] sm:block ">
             <LeftSideBar />
           </div>
 
@@ -104,7 +104,7 @@ function App() {
             </div>
           </div>
           {/* <!-- right side bar --> */}
-          <div className=" sm:col-span-3  hidden top-0 overflow-hidden sm:block h-full ">
+          <div className=" sm:col-span-3  hidden top-0 overflow-hidden sm:block h-[91vh] ">
            
             <RightSideBar />
           </div>

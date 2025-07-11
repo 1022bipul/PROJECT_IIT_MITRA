@@ -1,0 +1,78 @@
+import React from 'react'
+
+export const About = () => {
+    return (
+       <div className="m-1 p-1 flex flex-col items-center justify-center max-h-fit max-w-fit bg-gray-800 overflow-y-scroll">
+    <div className=" flex flex-col items-center justify-center bg-gray-300  m-1 mb-5 pt-5 p-10 rounded-full transform hover:scale-105 hover:bg-white hover:shadow-md shadow-blue-500 hover:mt-2 transition duration-500 ease-in-out opacity-125  ">
+        <h1 className="text-xl text-white font-bold mb-2 bg-blue-500 p-2 rounded-xl" >About IIT MITRA</h1>
+        <p>
+            IIT Mitra is a secure and exclusive social media platform designed specifically for the Indian Institutes of Technology (IIT) community.
+             Built with trust, purpose, and academic excellence in mind, IIT Mitra connects verified IIT students, alumni, faculty, and staff through institutional email authentication. This ensures that every user on the platform is a legitimate member of the IIT family—making it a safe,
+             distraction-free space tailored for collaboration and meaningful engagement.
+        </p>
+        
+    </div>
+
+    <div className="flex justify-center items-center">
+        <div className="flex flex-col justify-center items-center bg-gray-300  m-1 mr-10 pt-3 p-12 rounded-full transform hover:scale-105 hover:bg-white hover:shadow-md shadow-blue-500 hover:mt-2 transition duration-500 ease-in-out opacity-125">
+            <h1 className="text-xl text-white font-bold mb-2 bg-blue-500 p-2 rounded-xl" >Why IIT MITRA?</h1>
+            <p>
+             Traditional social platforms often fall short of the unique needs of IITians. They’re noisy, cluttered, and lack academic focus—not to mention the absence of user verification. IIT Mitra fills this gap by creating an ecosystem that supports:
+            <ul className="list-disc pl-5">
+            <li>Professional networking with verified peers and alumni</li>
+            <li>Mentorship and community support for newcomers to feel at home and flourish</li>
+            <li>Trusted communication with verified users only—no bots, no noise</li>
+            </ul>
+            Whether you're navigating your first semester, building a startup, or looking to give back as an alumnus, IIT Mitra is your companion for every step of the journey.
+   
+            </p>
+        </div>
+        <img src="https://images.pexels.com/photos/20875708/pexels-photo-20875708/free-photo-of-wooden-letters-on-a-table.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" className="size-70 rounded-full"/>
+    </div>
+<div className="flex justify-center items-center">
+<img src="https://images.pexels.com/photos/1516440/pexels-photo-1516440.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" className="size-70 rounded-full mt-5 mb-5 mr-10"/>
+    <div className="flex flex-col justify-center items-center bg-gray-300 m-1 pt-5 p-10 rounded-full transform hover:scale-105 hover:bg-white hover:shadow-md shadow-blue-500 hover:mt-2 transition duration-500 ease-in-out opacity-125">
+             <h1 className="text-xl text-white font-bold mb-4 bg-blue-500 p-4 rounded-xl" >Who it's for</h1>
+             <p>
+            IIT Mitra is for anyone officially connected to the IIT system. That includes:
+           <ul className="list-disc pl-5">
+            <li>Current students across all branches and years</li>
+            <li>Respected alumni with institutional credentials</li>
+            <li>Faculty and researchers contributing to innovation</li>
+            Everyone brings something unique—and IIT Mitra makes space for all voices to be heard.
+            </ul>
+             </p>
+        </div>
+    </div>
+    <div className="flex justify-center items-center">
+        <div className="flex flex-col justify-center items-center bg-gray-300  m-1 mb-5 mr-10 pt-5 p-10 rounded-full transform hover:scale-105 hover:bg-white hover:shadow-md shadow-blue-500 hover:mt-2 transition duration-500 ease-in-out opacity-125">
+            <h1 className="text-xl text-white font-bold mb-4 bg-blue-500 p-4 rounded-xl" >How it works</h1>
+            <p>
+            Upon signing up, users verify their identity through an IIT-issued email. Once inside, users can:
+            <ul className="list-disc pl-5">
+                <li>Customize your profile to make it look professional</li>
+                <li>Mention your skills and achievements</li>
+                <li>Post images, texts and videos</li>
+                <li>Connect with friends and seniors for guidance and mentorship</li>
+            </ul>
+            All within a clean, intelligent interface focused on productivity and connection.   
+            </p>
+        </div>
+    <img src="https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg" className="size-70 rounded-full mt-4 mr-10"/>  
+    </div>
+    <div className="flex justify-center items-center">
+        <img src="https://images.pexels.com/photos/1989704/pexels-photo-1989704.jpeg" className="size-70 rounded-full mt-4 mr-10"/> 
+        <div className="flex flex-col justify-center items-center bg-gray-300  m-5 ml-10 pt-5 p-10 rounded-full transform hover:scale-105 hover:bg-white hover:shadow-md shadow-blue-500 hover:mt-2 transition duration-500 ease-in-out opacity-125">
+            <h1 className="text-xl text-white font-bold mb-4 bg-blue-500 p-4 rounded-xl" >Our Story</h1>
+            <p>
+               IIT Mitra was born from a simple observation: IITians deserve a dedicated platform that reflects their values, their drive, and their identity. Created by those who understand the IIT journey from the inside, our mission is to empower every member with tools and community that go beyond the classroom.
+            </p>
+        </div>
+    </div>
+     
+
+
+    
+</div>
+    )
+}

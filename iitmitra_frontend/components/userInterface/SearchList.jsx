@@ -6,7 +6,10 @@ export const SearchList = () => {
  const {searchList}=useContext(StateContext);
   return (
     <>
-   {searchList &&<div className="absolute top-14 left-20 max-h-100 w-60 rounded p-2 z-10 bg-gray-500">
+   {searchList &&<div className="absolute top-14 left-20 max-h-100 w-60 overflow-hidden overflow-y-scroll  rounded p-2 z-10 bg-gray-500" style={{
+          scrollbarWidth: "none",
+          msOverflowStyle: "none",
+        }}>
       { searchList?.map((item) =>(<div className="flex gap-2 p-1 m-1 bg-gray-300 rounded-xl">
         <Link to="/profile">
           <img

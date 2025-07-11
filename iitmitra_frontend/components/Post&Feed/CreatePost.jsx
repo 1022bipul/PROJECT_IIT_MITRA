@@ -1,5 +1,7 @@
 import React, { useRef, useState } from "react";
 import { Form,  useNavigate } from "react-router-dom";
+import { toast } from 'react-toastify';
+
 const URI=import.meta.env.VITE_APP_URL
 
 
@@ -72,7 +74,7 @@ const postRes = await fetch(`${URI}/upload/image`, {
     const postStatus =await postRes.json();
     if(postRes.ok){ 
      setUpload(false) 
-    alert(postStatus.message)
+    toast.info(postStatus.message)
     setPostData({
     image:"",
     discription: "",
@@ -80,7 +82,7 @@ const postRes = await fetch(`${URI}/upload/image`, {
   })}else{
 
     setUpload(false) 
-    alert(postStatus.error)
+    toast.error(postStatus.error)
     navigate("/editprofile")
   }
 

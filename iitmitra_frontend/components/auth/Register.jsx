@@ -1,5 +1,7 @@
 import React, { useState, useContext } from "react";
 import iitlogo from "../../src/public/whitelogo.jpg";
+import { toast } from 'react-toastify';
+
 const URI=import.meta.env.VITE_APP_URL
 
 import { Form, Link, redirect, useNavigate } from "react-router-dom";
@@ -34,7 +36,7 @@ const validateEmail = (value) => {
   const iitpPattern = /^[a-zA-Z0-9._%+-]+@iitp\.ac\.in$/;
   if (!iitpPattern.test(value)) {
     // setEmailValid(iitpPattern.test(value))
-    setEmailError("College k dalo bhai");
+    setEmailError("Input valid email Please !");
   }else{
     setEmailError("")
   }
@@ -44,7 +46,7 @@ const validateEmail = (value) => {
   e.preventDefault();
   try {
     if(!userData.email){
-     return alert('Bhai email to dal le')
+     return toast.error('Enter Your College Email!')
     }
    const {email}=userData;
    validateEmail(email)
@@ -65,9 +67,9 @@ const validateEmail = (value) => {
      setOtp(data?.verificationCode)
  
  if (response.ok) {
-       alert('Otp Send Successfully')
+       toast.info('OTP Send Successfully')
       } else {
-        alert("please, fill the details!");
+        toast.error("Please, Fill the details!");
       }
 
   } catch (error) {
@@ -82,10 +84,10 @@ const handleInputOtpChange=(e)=>{
 const handleOtpVerification=()=>{
   if(Otp==inputOtp){
     setIsVerified(true)
-    alert("otp matched")
+    toast.success("Verified")
 
   }else{
-    alert('wrong otp')
+    toast.error('Wrong OTP')
   }
 }
 
@@ -100,7 +102,7 @@ const handleOtpVerification=()=>{
     e.preventDefault();
 
     if (userData.password !== userData.confirmPassword) {
-      alert("Passwords do not match!");
+      toast.error("Passwords do not match!");
       return;
     }
     console.log(userData);
@@ -118,13 +120,13 @@ const handleOtpVerification=()=>{
       // console.log(`your data: ${data}`);
 
       if (response.ok) {
-        alert("Registered successfully");
+        toast.success("Registered successfully");
 
         // console.log(shortDetails) // "User registered successfully"
         setUserData(initialState); // Clear form
         navigate("/login");
       } else {
-        alert("please, fill the details!");
+        toast.error("Please, Fill the details!");
       }
     } catch (error) {
       console.log("fetching failed", error);

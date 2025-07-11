@@ -1,5 +1,6 @@
 import { StrictMode, useContext } from "react";
 import { createRoot } from "react-dom/client";
+import { ToastContainer, toast } from 'react-toastify';
 import "./index.css";
 import App from "./App.jsx";
 import {
@@ -40,6 +41,7 @@ import { StateProvider } from "../context/StateContext.jsx";
 import { YourMitras } from "../components/message/YourMitras.jsx";
 import { Connections } from "../components/message/Connections.jsx";
 import { OtherUserPosts } from "../components/Post&Feed/OtherUserPosts.jsx";
+import { About } from "../components/setting/About.jsx";
 
 const router = createBrowserRouter([
   {
@@ -72,7 +74,7 @@ const router = createBrowserRouter([
       { path: "settings", element: <EditProfile /> },
       { path: "editprofile", element: <EditProfile /> },
       { path: "changepassword", element: <ChangePassword /> },
-      { path: "about", element: <EditProfile /> },
+      { path: "about", element: <About /> },
       { path: "help", element: <EditProfile /> },
       {
         path: "mitra",
@@ -108,6 +110,8 @@ createRoot(document.getElementById("root")).render(
       <AllUserProvider>
         <DetailsProvider>
           <RouterProvider router={router} />
+          <ToastContainer
+          autoClose={2000}/>
         </DetailsProvider>
       </AllUserProvider>
     </StateProvider>

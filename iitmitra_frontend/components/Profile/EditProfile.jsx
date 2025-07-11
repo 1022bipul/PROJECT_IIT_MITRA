@@ -8,6 +8,9 @@ import { Profile } from "./Profile";
 import { DetailsContext } from "../../context/DetailsContext";
 import { useNavigate } from "react-router-dom";
 import { LoadingSpinner } from "../userInterface/LoadingSpinner";
+const URI=import.meta.env.VITE_APP_URL
+
+
 
 export const EditProfile = () => {
   const navigate=useNavigate();
@@ -108,7 +111,7 @@ export const EditProfile = () => {
 
     try {
       setUploading(true)
-      const detailsRes= await fetch('https://project-iit-mitra.onrender.com/api/profile/profile-data',{
+      const detailsRes= await fetch(`${URI}/profile/profile-data`,{
         method:'POST',
         body:formData,
         credentials: "include",
