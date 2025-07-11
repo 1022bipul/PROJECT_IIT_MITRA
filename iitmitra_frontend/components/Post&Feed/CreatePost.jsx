@@ -29,7 +29,8 @@ export const CreatePost = ({ togglecreatePostBtn, handleToggleCreatePost }) => {
 
   const handleChange =(e) => {
     const { name, value, files } = e.target;
-     setPreviewName(URL.createObjectURL(files[0]));
+     
+    
 
 
     if (files && files.length > 0) {
@@ -48,6 +49,7 @@ export const CreatePost = ({ togglecreatePostBtn, handleToggleCreatePost }) => {
       }));
     }
     
+    setPreviewName(URL.createObjectURL(files[0]));
    
 
   };
@@ -74,7 +76,7 @@ const postRes = await fetch(`${URI}/upload/image`, {
     const postStatus =await postRes.json();
     if(postRes.ok){ 
      setUpload(false) 
-    toast.info(postStatus.message)
+    toast.success(postStatus.message)
     setPostData({
     image:"",
     discription: "",
