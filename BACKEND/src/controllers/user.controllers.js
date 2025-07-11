@@ -5,7 +5,7 @@ const UserDetails=require('../models/userDetails.models')
 
 const handlGetUserDetails =async(req,res)=>{
   try {
-    console.log('user auth')
+    // console.log('user auth')
     const email=res.user.userEmail;
     // console.log(email)
    

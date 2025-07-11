@@ -32,20 +32,13 @@ const handleEmailVerification=async(req,res)=>{
 
 }
 
-//get your otp
-const handleGetOtp=async(req,res)=>{
-
-
-}
-
-
 //Resiter user
 
 
 const handleRegister= async (req, res) => {
   try {
     
-    console.log("Request body:", req.body);
+    // console.log("Request body:", req.body);
     const { name, email, password } = req.body;
     const user = new User({ name, email, password});
     const userDetails = new UserDetails({ name, email});
@@ -102,7 +95,7 @@ const handleLogin= async (req, res) => {
 
 //getting user token
 const handleGetToken=async(req,res) =>{
-  console.log("token",req.cookies.token)
+  // console.log("token",req.cookies.token)
     const jwtToken =await req.cookies.token; 
 
   if (!jwtToken) {
@@ -126,4 +119,4 @@ const handleLogout= (req, res) => {
 
 
 
-module.exports={handleLogin,handleRegister,handleLogout,handleGetToken,handleEmailVerification,handleGetOtp}
+module.exports={handleLogin,handleRegister,handleLogout,handleGetToken,handleEmailVerification}

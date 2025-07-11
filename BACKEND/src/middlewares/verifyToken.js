@@ -11,7 +11,7 @@ const verifyToken =(req,res,next) =>{
 //    console.log(SECRET_KEY)
 
     try{
-    console.log("fello")
+    // console.log("fello")
 
         const isVerified = jwt.verify(req.cookies.token,SECRET_KEY);
         // console.log(isVerified)

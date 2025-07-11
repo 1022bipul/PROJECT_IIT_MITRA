@@ -8,4 +8,4 @@ const FriendRequestSchema = new mongoose.Schema({
     },{timestamps:true});
 const FriendShip =new mongoose.model('FriendShip',FriendRequestSchema)
 
-module.exports=FriendShip
+module.exports=FriendShip  

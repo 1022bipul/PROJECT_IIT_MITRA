@@ -1,5 +1,5 @@
 const express =require('express')
-const {handleLogin,handleLogout,handleRegister,handleGetToken,handleEmailVerification,handleGetOtp} =require('../controllers/auth.controllers')
+const {handleLogin,handleLogout,handleRegister,handleGetToken,handleEmailVerification} =require('../controllers/auth.controllers')
 const { verifyToken } = require("../middlewares/verifyToken");
 
 
