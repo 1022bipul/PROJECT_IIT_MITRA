@@ -34,7 +34,7 @@ const validateEmail = (value) => {
   const iitpPattern = /^[a-zA-Z0-9._%+-]+@iitp\.ac\.in$/;
   if (!iitpPattern.test(value)) {
     // setEmailValid(iitpPattern.test(value))
-    setEmailError("College k email dal bhosrike Laure");
+    setEmailError("College k dalo bhai");
   }else{
     setEmailError("")
   }
@@ -44,7 +44,7 @@ const validateEmail = (value) => {
   e.preventDefault();
   try {
     if(!userData.email){
-     return alert('Ganduuuuu pahle email to dal!')
+     return alert('Bhai email to dal le')
     }
    const {email}=userData;
    validateEmail(email)
