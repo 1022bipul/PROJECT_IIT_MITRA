@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 const URI=import.meta.env.VITE_APP_URL
 
 export const ProtectedRoute = ({ children }) => {
-  const [token,setToken]=useState([])
+  const [token,setToken]=useState(false)
   // console.log(token)
   useEffect(()=>{
     
@@ -13,8 +13,10 @@ export const ProtectedRoute = ({ children }) => {
       // console.log("tokeeeen",await res.json())
       const {jwtToken}=await res.json()
   //  console.log("Tokaan",jwtToken)
+      if(jwtToken){
+       setToken(prev=>!prev) 
 
-       setToken(jwtToken) 
+       }
     }
    
     fetchingToken()
