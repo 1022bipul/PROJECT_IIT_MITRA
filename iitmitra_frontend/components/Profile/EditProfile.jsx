@@ -8,6 +8,8 @@ import { Profile } from "./Profile";
 import { DetailsContext } from "../../context/DetailsContext";
 import { useNavigate } from "react-router-dom";
 import { LoadingSpinner } from "../userInterface/LoadingSpinner";
+import profileBanner from "../../src/public/banner.png";
+import profileAvatar from "../../src/public/Profile_avatar.png";
 const URI=import.meta.env.VITE_APP_URL
 
 
@@ -133,7 +135,7 @@ export const EditProfile = () => {
   };
 
    if(uploading){
-    return <div className="absolute bg-gray-500  left-[40%]  p-10 rounded-2xl  "> Saving Your Details... </div>
+    return <div className="absolute bg-gray-500  left-[40%]  p-10 rounded-2xl  "> Saving Your Details <LoadingSpinner/> </div>
   }
 
   return (
@@ -154,7 +156,7 @@ export const EditProfile = () => {
           <div className="relative flex items-center justify-center col-span-2">
             <input type="file" name="avatar"  onChange={handleInputChange} ref={setProfilePic} className="hidden" />
             <img
-              src={avatar ||"../../src/public/Profile_avatar.png"}
+              src={avatar ||profileAvatar}
               className="object-cover w-30 h-30 rounded-full border-4 border-white"
             />
             <button onClick={clickProfile} type="button" className="absolute text-white translate-10 bg-gray-700 hover:bg-blue-800 text-sm rounded-full m-2 p-1">
@@ -170,7 +172,7 @@ export const EditProfile = () => {
             <input type="file" name="coverImage" onChange={handleBannerInputChange} ref={setBanner} className="hidden" />
            
             <img
-              src={banner ||"../../src/public/banner.png"}
+              src={banner ||profileBanner}
               alt="Banner"
               className="w-full max-h-40 sm:h-48 object-cover rounded-md"
             />

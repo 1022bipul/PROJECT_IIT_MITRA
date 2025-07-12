@@ -12,6 +12,8 @@ import { FaImage } from "react-icons/fa6";
 import { FaVideo } from "react-icons/fa";
 import { FaBookmark } from "react-icons/fa";
 import { LoadingSpinner } from "../userInterface/LoadingSpinner";
+import profileBanner from "../../src/public/banner.png";
+import profileAvatar from "../../src/public/Profile_avatar.png";
 
 export const Profile = () => {
  
@@ -34,14 +36,14 @@ export const Profile = () => {
 
         <div className="relative bg-gray-300 ">
           <img
-            src={banner||"../../src/public/banner.png"}
+            src={banner||profileBanner}
             alt="Banner"
             className="w-full h-32 sm:h-48 object-cover "
           />
 
           {/* <!-- Profile image overlapping the banner --> */}
           <img
-            src={avatar||"../../src/public/Profile_avatar.png"}
+            src={avatar||profileAvatar}
             className="absolute object-cover bottom-[-40px] left-1/2 transform -translate-x-1/2 sm:size-30 size-28  rounded-full border-4 border-white"
           />
           <Link

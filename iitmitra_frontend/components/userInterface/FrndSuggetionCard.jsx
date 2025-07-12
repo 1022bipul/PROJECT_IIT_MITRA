@@ -2,6 +2,8 @@ import React, { useContext } from "react";
 import { ProfilePic } from "../Profile/ProfilePic";
 import { Link, useNavigate } from "react-router-dom";
 import { AllUserContext } from "../../context/AllUserContext";
+import profileBanner from "../../src/public/banner.png";
+import profileAvatar from "../../src/public/Profile_avatar.png";
 const URI=import.meta.env.VITE_APP_URL
 
 export const FrndSuggetionCard = ({item}) => {
@@ -45,7 +47,7 @@ export const FrndSuggetionCard = ({item}) => {
           <div >
             <img
               className="size-10 sm:11 object-cover rounded-full"
-              src={item?.avatar||"../../src/public/Profile_avatar.png"}
+              src={item?.avatar||profileAvatar}
               alt=""
             />
           </div>
