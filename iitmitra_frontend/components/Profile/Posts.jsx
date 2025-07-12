@@ -1,47 +1,81 @@
-import React,{useContext} from 'react'
-import { ProfilePic } from './ProfilePic'
-import { Link } from 'react-router-dom'
+import React, { useContext, useRef, useState } from "react";
+import { BsThreeDotsVertical } from "react-icons/bs";
 import { DetailsContext } from "../../context/DetailsContext";
+import { toast } from "react-toastify";
 
+const URI=import.meta.env.VITE_APP_URL
 
 export const Posts = () => {
-    const { imgUrl } = useContext(DetailsContext);
-    // console.log(imgUrl)
-  
-    return (
-        <div>
-          {/* <!-- post section --> */}
-        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 max-h-max bg-gray-300 mt-1 rounded-lg p-3 gap-1.5">
-          {/* <!-- image card --> */}
-     
-     {
-      imgUrl.map((item,index )=> 
-        <div className="relative bg-slate-600 h-70 sm:h-70 w-full rounded-lg overflow-hidden">
-            {/* <!-- title  --> */}
-            {/* <div className="absolute pt-2 flex w-full">
-              <img
-                src="https://images.pexels.com/photos/31812795/pexels-photo-31812795/free-photo-of-portrait-of-woman-with-pink-flowers-in-spring-setting.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load"
-                className="h-10 w-12 object-cover rounded-full"
-                alt=""
-              />
-              <div className="h-8 flex flex-col justify-center w-full">
-                <Link to="#" className="text-sm active:text-blue-600">
-                  userId
-                </Link>
-                <p className="text-[10px]">UploadTime</p>
-              </div>
+    const [openMenuIndex, setOpenMenuIndex] = useState(null);
 
-              <button className="float-right px-2 cursor-pointer">
-                <i className="fa-solid fa-ellipsis-vertical fa-lg"></i>
-              </button>
-            </div> */}
+  const { imgUrl } = useContext(DetailsContext);
+
+  const togglePostMenu = (index) => {
+    if (openMenuIndex === index) {
+      setOpenMenuIndex(null);
+    } else {
+      setOpenMenuIndex(index); 
+    }
+  };
+//deleting post
+
+  const deletePost=async(id)=>{
+    try {
+      console.log(id)
+      const res=await fetch(`${URI}/post/delete/${id}`,{method:'DELETE',credentials:'include'})
+      
+       if(res.ok){
+        const deleted =await res.json()
+        toast.success(deleted.message)
+       }
+
+    } catch (error) {
+      console.log(error)
+    }
+
+        
+  }
+
+
+
+
+  return (
+    <div>
+      {/* <!-- post section --> */}
+      <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 max-h-max bg-gray-300 mt-1 rounded-lg p-3 gap-1.5">
+        {/* <!-- image card --> */}
+
+        {imgUrl.map((item, index) => (
+          <div className="relative bg-slate-600 h-70 sm:h-70 w-full rounded-lg overflow-hidden">
+            <button
+              onClick={()=>togglePostMenu(index)}
+              className="absolute z-10 right-2 top-2 text-xl"
+            >
+              <BsThreeDotsVertical />
+            </button>
+
+              {openMenuIndex === index && (
+              <div className="absolute bg-gray-300 p-2 right-4 top-7 rounded z-10">
+                <button onClick={()=>deletePost(item._id)} className="text-red-700 active:text-blue-500">Delete</button>
+              </div>
+            )}
+
             <div className="flex items-center justify-center h-full overflow-hidden">
-              <img
-              key={index}  
-              src={item.url}
-                className="object-cover max-h-full max-w-full"
-                alt={item.name} 
-              />
+              {item.media === "image" ? (
+                <img
+                  src={item.url}
+                  alt="Post"
+                  className="image-post object-fill relative w-full sm:w-fit md:w-md lg:w-md rounded-xl"
+                />
+              ) : item.media === "video" ? (
+                <video
+                  src={item.url}
+                  controls
+                  autoPlay
+                  loop
+                  className="image-post object-fill relative w-full sm:w-fit md:w-md lg:w-md rounded-xl"
+                />
+              ) : null}
             </div>
             {/* <div className="absolute flex -translate-y-7 px-2">
               <div className="">
@@ -58,12 +92,8 @@ export const Posts = () => {
               </div>
             </div> */}
           </div>
-      )
-     }
-
-
-          
-        </div>
-        </div>
-    )
-}
+        ))}
+      </div>
+    </div>
+  );
+};

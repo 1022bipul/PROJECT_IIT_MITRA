@@ -14,9 +14,9 @@ export const MainContent = () => {
   const lastContainer=useRef(null)
 
   const handleGetAllpostsUrls = async () => {
+    if (loading) return;
+
     setLoading(true)
-   console.log(posts.length)
-    console.log(page*5)
     try {  
       const res = await fetch(`${URI}/post/feed/urls?page=${page}`, {
         method: "GET",
@@ -28,7 +28,17 @@ export const MainContent = () => {
       }
       const data = await res.json();
       if (data.length === 0) setLoading(false);
-      setposts((prev) => [...prev, ...data]);
+
+
+      // setposts((prev) => [...prev, ...data]);
+
+setposts((prev) => {
+      const newPosts = data.filter(
+        (newPost) => !prev.some((post) => post._id === newPost._id)
+      );
+      return [...prev, ...newPosts];
+    });
+
       // console.log(posts);
     } catch (error) {
       console.log(error);
@@ -41,6 +51,8 @@ export const MainContent = () => {
 
   useEffect(() => {
     // setLoading(true);
+    const lastImage = lastContainer.current;
+
    
     const observer = new IntersectionObserver((param) => {
       // console.log(param);
@@ -54,7 +66,6 @@ export const MainContent = () => {
       }
     });
 
-    const lastImage = lastContainer.current;
 
     console.log(lastImage);
     if (!lastImage) {

@@ -89,7 +89,7 @@ function App() {
             <LeftSideBar />
           </div>
 
-          {/* <!-- main content bar     --> */}
+          {/* <!-- main content bar --> */}
           <div
             className=" sm:col-span-7 overflow-y-auto h-full"
             style={{
