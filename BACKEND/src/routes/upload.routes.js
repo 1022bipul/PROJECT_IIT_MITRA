@@ -1,6 +1,6 @@
 const express= require('express');
 const { verifyToken } = require("../middlewares/verifyToken");
-const {handleCreatePostImg}=require('../controllers/upload.controllers')                                   
+const {handleCreatePostImg ,handleCreatePostVideo}=require('../controllers/upload.controllers')                                   
 const multer=require('multer')
 const path = require('path')
 
@@ -19,7 +19,9 @@ const router=express.Router()
 
 // create post
 
-router.post('/image',verifyToken,upload.single('image'),handleCreatePostImg)
+router.post('/media',verifyToken,upload.single('media'),handleCreatePostImg)
+// router.post('/video',verifyToken,upload.single('video'),handleCreatePostVideo)
+
 
 
 

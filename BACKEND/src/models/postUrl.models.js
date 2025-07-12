@@ -13,6 +13,10 @@ const imgVideoUrlSchema=new mongoose.Schema({
         type:String,
         required:true
     },
+    media:{
+        type:String,
+
+    },
     user:{
         type:mongoose.Schema.Types.ObjectId,
         ref:"UserDetails",

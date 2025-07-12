@@ -39,4 +39,24 @@ const handleGetFeedUrls = async (req, res) => {
   }
 };
 
-module.exports = { handleGetPostsUrls, handleGetFeedUrls };
+
+//Delete post 
+const handleDeletePost=async(req,res)=>{
+   try {
+     const postId =req.params.id;
+    //  console.log(postId)
+      await ImgVideoUrl.findByIdAndDelete(postId)
+      res.status(200).json({ message: "Post deleted successfully" });
+ 
+   } catch (error) {
+     res
+      .status(500)
+      
+   }
+
+ 
+
+
+}
+
+module.exports = { handleGetPostsUrls, handleGetFeedUrls,handleDeletePost };

@@ -31,19 +31,25 @@ const handleCreatePostImg = async (req, res) => {
    
      const filePath = req.file.path;
      const cloudinaryRess = await cloudinary.uploader.upload(filePath, {
+      resource_type:"auto",
        folder: "iitmitraGallery",
      });
      const url = cloudinaryRess.url;
-     const uploadInfo = new ImgVideoUrl({ email, discription, url, user });
+     const media = cloudinaryRess.resource_type
+     const uploadInfo = new ImgVideoUrl({ email, discription, url, user , media });
      const uploadRes = await uploadInfo.save();
-    //  console.log("clodinary res", cloudinaryRess);
+     console.log("clodinary res", cloudinaryRess);
      res
        .status(200)
-       .json({ message: "Image Uploaded" })
+       .json({ message: "Uploaded" })
        .json({ discription: discription, url: url });
  } catch (error) {
    res.status(500).json({error:"Fill out the profile details"})
  }
 };
+
+
+
+
 
 module.exports = { handleCreatePostImg };
