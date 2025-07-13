@@ -23,7 +23,7 @@ export const UserProfile = () => {
   // if(loading)
   // console.log("profile", oneUser);
   const { user } = oneUser || {};
-  const { name, institute, branch, bio, skills, avatar, banner } = user || {};
+  const { name,email, institute, branch, bio, skills, avatar, banner } = user || {};
 const posts=userPostCount?.length
   // console.log("posts", posts);
 
@@ -54,7 +54,10 @@ const posts=userPostCount?.length
         {/* <!-- user details --> */}
         <div className="bg-gray-300 pt-18 text-center pb-2 rounded-b-md ">
           <h1 className="font-extrabold text-xl">{name ?? "IIT MITRA"}</h1>
-          <p className="text-sm font-bold">
+            <p className="text-lg font-semibold">
+            {email}
+          </p>
+          <p className="text-sm font-semibold">
             {institute ?? "INDIAN INSTITUTE OF TECHNOLOGY"}
           </p>
           <p className="text-sm mb-2 font-semibold">

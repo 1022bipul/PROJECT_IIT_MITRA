@@ -57,7 +57,8 @@ export const Profile = () => {
         {/* <!-- user details --> */}
         <div className="bg-gray-300 pt-12 text-center pb-2 rounded-b-md ">
           <h1 className="font-extrabold text-xl">{name??"IIT MITRA"}</h1>
-          <p className="text-sm font-bold">{institute??"INDIAN INSTITUTE OF TECHNOLOGY"}</p>
+          <h1 className="font-semibold text-lg">{email}</h1>
+          <p className="text-sm font-semibold">{institute??"INDIAN INSTITUTE OF TECHNOLOGY"}</p>
           <p className="text-sm mb-2 font-semibold">{branch??"COMPUTER SCIENCE"}</p>
           <p>{bio ?? "BIO"}</p>
           <p>{skills ?? "SKILLS"}</p>

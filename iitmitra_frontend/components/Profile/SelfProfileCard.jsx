@@ -11,7 +11,7 @@ export const SelfProfileCard = () => {
     const{loading, shortDetails ,longsDetails,imgCount}=useContext(DetailsContext)
   if(loading) return  <LoadingSpinner/>;
 
-   const{name}=shortDetails ||{}
+   const{name,email}=shortDetails ||{}
    const{avatar,banner}=longsDetails ||{}
 
   return (
@@ -32,6 +32,7 @@ export const SelfProfileCard = () => {
         </div>
         <div className="flex flex-col text-center rounded-md">
           <h1 className="font-bold text-md">{name ?? "IIT MITRA"}</h1>
+          <h5 className="font-semibold text-sm">{email}</h5>
     
           <div className="flex justify-center space-x-3">
             <div className="md:block hidden">
