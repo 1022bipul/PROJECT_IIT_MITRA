@@ -43,12 +43,27 @@ setUserPostCount(allPosts)
               </button>
             </div> */}
             <div className="flex items-center justify-center h-full overflow-hidden">
-              <img
+              {/* <img
               key={index}  
               src={item.url}
                 className="object-cover max-h-full max-w-full"
                 alt={`img-${index}`} 
-              />
+              /> */}
+               {item.media === "image" ? (
+                <img
+                  src={item.url}
+                  alt="Post"
+                  className="image-post object-fill relative w-full sm:w-fit md:w-md lg:w-md rounded-xl"
+                />
+              ) : item.media === "video" ? (
+                <video
+                  src={item.url}
+                  controls
+                  autoPlay
+                  loop
+                  className="image-post object-fill relative w-full sm:w-fit md:w-md lg:w-md rounded-xl"
+                />
+              ) : null}
             </div>
             {/* <div className="absolute flex -translate-y-7 px-2">
               <div className="">
