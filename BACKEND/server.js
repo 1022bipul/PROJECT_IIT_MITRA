@@ -21,9 +21,8 @@ dbConnected(URI);
 app.use(
   cors({
     origin: [
-      // "http://localhost:5173",
-      "https://www.iitmitra.com",
       "https://iitmitra.com",
+      "https://www.iitmitra.com",
     ],
     credentials: true,
   })
