@@ -58,7 +58,8 @@ export const PostCard = ({ post, index }) => {
                 controls
                 autoPlay
                 loop
-                className="image-post object-fill  relative w-full sm:w-fit md:w-md lg:w-md rounded-xl"
+                muted
+                className="image-post object-fill relative w-full sm:w-fit md:w-md lg:w-md rounded-xl"
               />
             ) : null}  
           </div>

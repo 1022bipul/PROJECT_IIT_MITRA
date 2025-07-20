@@ -74,7 +74,7 @@ function App() {
         <Header handleTogglePost={handleTogglePost} />
 
         <div
-          className=" h-[92vh] w-full overflow-y-scroll grid sm:grid-cols-12"
+          className=" h-[92vh] w-full overflow-y-scroll grid grid-cols-1 sm:grid-cols-12"
           style={{
             scrollbarWidth: "none",
             msOverflowStyle: "none",
@@ -91,7 +91,7 @@ function App() {
 
           {/* <!-- main content bar --> */}
           <div
-            className=" sm:col-span-7 overflow-y-auto h-full"
+            className="col-span-1 sm:col-span-7 overflow-y-auto h-full"
             style={{
               scrollbarWidth: "none",
               msOverflowStyle: "none",
