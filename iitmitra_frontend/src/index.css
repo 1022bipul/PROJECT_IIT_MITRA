@@ -7,7 +7,7 @@ body {
   /* background image */
   background-image: url("/src/public/bg1.jpeg");
   background-size: cover;
-  background-position: center;
+  background-position: fixed;
   background-repeat: no-repeat;
 
 }
