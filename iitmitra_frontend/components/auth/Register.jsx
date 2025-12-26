@@ -139,7 +139,7 @@ const handleOtpVerification=()=>{
         onSubmit={handleSubmit}
         className="w-screen h-screen flex justify-center items-center flex-col "
       >
-        <div className="bg-slate-100 min-h-max min-w-max md:w-110 md:h-150  flex flex-col p-4 rounded-lg shadow-2xl ">
+        <div className="bg-white/40 backdrop-blur-sm min-h-max min-w-max md:w-110 md:h-150  flex flex-col p-4 rounded-lg shadow-2xl ">
           <div className="flex justify-center items-center flex-col gap-2.5">
             <img
               className="size-20 rounded-full shadow-black shadow-2xl"

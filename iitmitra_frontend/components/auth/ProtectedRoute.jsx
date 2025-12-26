@@ -4,7 +4,7 @@ import { LoadingSpinner } from "../userInterface/LoadingSpinner";
 const URI=import.meta.env.VITE_APP_URL
 
 export const ProtectedRoute = ({ children }) => {
-  const [token,setToken]=useState(null)
+  const [token,setToken]=useState(null )
   // console.log(token)
   useEffect(()=>{
     

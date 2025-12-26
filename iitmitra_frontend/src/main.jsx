@@ -47,14 +47,14 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: (
-      <ProtectedRoute>
+      // <ProtectedRoute>
         <App />
-      </ProtectedRoute>
+      // </ProtectedRoute>
     ),
     children: [
       { path: "", element: <MainContent /> },
       {
-        path: "profile",
+        path:"profile",
         element: <Profile />,
         children: [
           { path: "", element: <Posts /> },

@@ -3,6 +3,7 @@ import { BsThreeDotsVertical } from "react-icons/bs";
 import { DetailsContext } from "../../context/DetailsContext";
 import { toast } from "react-toastify";
 
+
 const URI=import.meta.env.VITE_APP_URL
 
 export const Posts = () => {

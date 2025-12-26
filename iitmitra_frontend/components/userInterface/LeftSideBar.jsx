@@ -4,6 +4,7 @@ import { SelfProfileCard } from "../Profile/SelfProfileCard";
 import { useRef } from "react";
 import { SettingsOptions } from "./SettingsOptions";
 
+
 export const LeftSideBar = () => {
   let settingbtn = useRef();
   let toggleMenu = () => {

@@ -4,7 +4,6 @@ import { Form, Link,Navigate,useNavigate  } from "react-router-dom";
 import { toast } from 'react-toastify';
 
 const URI=import.meta.env.VITE_APP_URL
-
 export const Login = () => {
 
   const navigate=useNavigate();
@@ -46,23 +45,16 @@ export const Login = () => {
       navigate('/login')
     }
     
-    
-    
-   
-    
-    
-  
-  
 
     
   };
 
   return (
     <>
-      <div className="w-screen h-screen flex justify-center items-center flex-col  ">
+      <div className="backface-visible  w-screen h-screen flex justify-center items-center flex-col  ">
         <Form
           onSubmit={handleSubmit}
-          className="relative bg-slate-100 w-120 h-130 flex flex-col p-5 gap-3 rounded-lg shadow-2xl"
+          className="relative bg-white/40 backdrop-blur-sm w-120 h-130 flex flex-col p-5 gap-3 rounded-lg shadow-2xl"
         >
           {/* <!-- Floating Header --> */}
           <div className="shadow-xl/40 shadow-blue-700 bg-blue-700 -translate-y-1/3 -top-10 w-110 flex justify-center items-center flex-col   rounded-lg gap-3 p-3">
